@@ -70,7 +70,7 @@
                                 </td>
                                 <td>
                                     {{--                                    edit--}}
-                                    <a href="{{ route('admin.edit.service', ['id' => $s->id]) }}" ><i class="bx bxs-edit bx-sm bx-border-circle"></i></a>
+                                    <a href="{{ route('admin.edit.service', ['id' => $s->id, 'categoryid' => $s->categoryid]) }}" ><i class="bx bxs-edit bx-sm bx-border-circle"></i></a>
 
                                 </td>
 

@@ -152,13 +152,13 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.delete.confirm.service'
 
     ]);
-    Route::post('delete_service/{id}/{categoryid}', [
+    Route::post('delete_service/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@delete_service',
         'as' => 'admin.delete.service'
 
     ]);
 
-    Route::get('update_service/{id}',[
+    Route::get('update_service/{id}/{categoryid}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_service',
         'as' => 'admin.edit.service'
     ]);

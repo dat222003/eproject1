@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use App\Models\product;
+use App\Models\service;
 use App\repos\eproject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -261,7 +262,6 @@ class eprojectController extends Controller
 
         $product->save();
 
-//        $newId = eproject::insert_product($product);
 
         return redirect()
             ->action('eprojectController@index_product')
@@ -378,7 +378,7 @@ class eprojectController extends Controller
 
     public function index_service()
     {
-        $service = eproject::getAllService();
+        $service = service::all();
 
         return view('masters.index_service'
             ,[
@@ -392,11 +392,11 @@ class eprojectController extends Controller
 
     public function show_service($id)
     {
-        $service = eproject::getServiceById($id);
-        $category = eproject::getAllCategory();
+        $service = service::where('id', $id)->first();
+        $category = category::all();
         return view('service.show_service',
             [
-                'service' => $service[0],
+                'service' => $service,
                 'category' => $category
             ]
         );
@@ -404,7 +404,7 @@ class eprojectController extends Controller
 
     public function form_service()
     {
-        $category = eproject::getAllCategory();
+        $category = category::all();
         return view('service.new_service',
             ["service" => (object)
             [
@@ -437,29 +437,27 @@ class eprojectController extends Controller
         $image->move('img/admin_upload', $name );
 
         //store image_name to database
-        $service = (object)[
-            'categoryid' => $request->input('categoryid'),
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'description' => $request->input('description'),
-            'service_validity_period' => $request->input('service_validity_period'),
-            'image' => $name
+        $service = new service();
+        $service->categoryid = $request->input('categoryid');
+        $service->name = $request->input('name');
+        $service->price = $request->input('price');
+        $service->description = $request->input('description');
+        $service->service_validity_period = $request->input('service_validity_period');
+        $service->image = $name;
 
-        ];
-        $newId = eproject::insert_service($service);
+        $service->save();
 
         return redirect()
             ->action('eprojectController@index_service')
-            ->with('status', 'New service with id: '.$newId. 'has been created');
+            ->with('status', 'New service has been created');
     }
 
 
     public function confirm_service($id){
-        $service= eproject::getServiceById($id);
+        $service= service::where('id', $id)->first();
         return view('service.confirm_service',
             [
-//                'id' => $id,
-                'service'=> $service[0],
+                'service'=> $service,
             ]
         );
     }
@@ -470,7 +468,8 @@ class eprojectController extends Controller
             return redirect()->action('eprojectController@index_service');
         }
 
-        eproject::delete_service($id);
+        $service= service::where('id', $id)->first();
+        $service->delete();
 
 
         return redirect()->action('eprojectController@index_service')
@@ -478,14 +477,14 @@ class eprojectController extends Controller
     }
 
 
-    public function edit_service($id)
+    public function edit_service($id, $categoryid)
     {
-        $service = eproject::getServiceById($id);
-        $category = eproject::getAllCategory();
+        $service =  service::where('id', $id)->first();
+        $category = category::all();
         return view(
             'service.edit_service',
             [
-                'service'=>$service[0],'category'=> $category
+                'service'=>$service, 'category'=> $category, 'categoryid'=>$categoryid
             ]
         );
     }
@@ -505,15 +504,15 @@ class eprojectController extends Controller
 
         $image->move('img/admin_upload', $name );
 
-        $service = (object)[
-            'categoryid' => $request->input('categoryid'),
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'description' => $request->input('description'),
-            'service_validity_period' => $request->input('service_validity_period'),
-            'image' => $name
-        ];
-        eproject::update_service($service);
+        $service = service::where('id', $id)->first();
+        $service->categoryid = $request->input('categoryid');
+        $service->name = $request->input('name');
+        $service->price = $request->input('price');
+        $service->description = $request->input('description');
+        $service->service_validity_period = $request->input('service_validity_period');
+        $service->image = $name;
+
+        $service->update();
 
         return redirect()->action('eprojectController@index_service')
             ->with('status', 'Service Update Successfully');
