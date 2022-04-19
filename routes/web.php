@@ -31,13 +31,13 @@ Route::group(['prefix' => 'eproject'], function (){
         'uses' => 'App\Http\Controllers\eprojectController@admin_login',
         'as' => 'admin.pre_login'
 
-    ]);
+    ])->middleware('loggedin');
 
     Route::post('admin_login', [
         'uses' => 'App\Http\Controllers\eprojectController@login',
         'as' => 'admin.login'
 
-    ]);
+    ])->middleware('loggedin');
 
     Route::get('admin_login', [
         'uses' => 'App\Http\Controllers\eprojectController@logout',
