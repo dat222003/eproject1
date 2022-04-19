@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
+use App\Models\product;
 use App\repos\eproject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +29,7 @@ class eprojectController extends Controller
     public function index_category()
     {
 
-        $category = eproject::getAllCategory();
+        $category = category::all();
 
         return view('masters.index_category'
             ,[
@@ -41,10 +43,10 @@ class eprojectController extends Controller
 
     public function show_category($id)
     {
-        $category = eproject::getCategoryById($id);
+        $category = category::where('id', $id)->first();
         return view('category.show_category',
             [
-                'category' => $category[0],
+                'category' => $category
             ]
         );
     }
@@ -56,7 +58,7 @@ class eprojectController extends Controller
                 [
                     'id' => '',
                     'name' => '',
-    //                'image' => '',
+                    'image' => '',
                     'description' => ''
                 ]
             ],
@@ -84,25 +86,25 @@ class eprojectController extends Controller
 
 
         //store image_name to database as text
-        $category = (object)[
-            'name' => $request->input('name'),
-            'image' => $name,
-            'description' => $request->input('description'),
-        ];
-        $newId = eproject::insert_category($category);
+        $category = new category();
+        $category->name = $request->input('name');
+        $category->image = $name;
+        $category->description = $request->input('name');
+        $category->save();
+
 
         return redirect()
             ->action('eprojectController@index_category')
-            ->with('status', 'New category with id: '.$newId . ' has been created');
+            ->with('status', 'New category has been created');
     }
 
 
     public function confirm_category($id){
-        $category= eproject::getCategoryById($id);
+        $category= category::where('id', $id)->first();
         return view('category.confirm_category',
             [
 //                'id' => $id,
-                'category'=> $category[0],
+                'category'=> $category,
             ]
         );
     }
@@ -113,22 +115,22 @@ class eprojectController extends Controller
             //id in query string must match id in hidden input
             return redirect()->action('eprojectController@index_category');
         }
-
-        eproject::delete_category($id);
+        $category= category::where('id', $id)->first();
+        $category->delete();
 
 
         return redirect()->action('eprojectController@index_category')
-            ->with('status', 'Delete Category with id: '.$id .' Successfully');
+            ->with('status', 'Delete Category Successfully');
     }
 
 
     public function edit_category($id)
     {
-        $category = eproject::getCategoryById($id);
+        $category = category::where('id', $id)->first();
         return view(
             'category.edit_category',
             [
-                'category'=>$category[0]
+                'category'=>$category
             ]
         );
     }
@@ -149,13 +151,11 @@ class eprojectController extends Controller
 
         $image->move('img/admin_upload', $name );
 
-        $category = (object)[
-            'id' => $request->input('id'),
-            'name' => $request->input('name'),
-            'image' => $name,
-            'description' => $request->input('description')
-        ];
-        eproject::update_category($category);
+        $category = category::where('id', $id)->first();
+        $category->name = $request->input('name');
+        $category->image = $name;
+        $category->description = $request->input('name');
+        $category->update();
 
         return redirect()->action('eprojectController@index_category')
             ->with('status', 'Category Update Successfully');
@@ -175,14 +175,16 @@ class eprojectController extends Controller
     }
 
     //product
-
+    //
+    //
+    //
 
 
 
 
     public function index_product()
     {
-        $product = eproject::getAllProduct();
+        $product = product::all();//all for select all
 
         return view('masters.index_product'
             ,[
@@ -196,11 +198,11 @@ class eprojectController extends Controller
 
     public function show_product($id)
     {
-        $product = eproject::getProductById($id);
-        $category = eproject::getAllCategory();
+        $product = product::where('id', $id)->first(); // equal to search by id get first
+        $category = category::where('id', $id)->first();
         return view('product.show_product',
             [
-                'product' => $product[0],
+                'product' => $product,
                 'category' => $category
             ]
         );
@@ -208,7 +210,7 @@ class eprojectController extends Controller
 
     public function form_product()
     {
-        $category = eproject::getAllCategory();
+        $category = category::all();
         return view('product.new_product',
             ["product" => (object)
             [
@@ -243,34 +245,38 @@ class eprojectController extends Controller
         //store image to `public/admin_upload` folder
         $image->move('img/admin_upload', $name );
 
-        //store image_name to database
-        $product = (object)[
-            'categoryid' => $request->input('categoryid'),
-            'name' => $request->input('name'),
-            'weight' => $request->input('weight'),
-            'price' => $request->input('price'),
-            'description' => $request->input('description'),
-            'brand' => $request->input('brand'),
-            'country_of_origin' => $request->input('country_of_origin'),
-            'expiration_date' => $request->input('expiration_date'),
-            'manufacturer' => $request->input('manufacturer'),
-            'image' => $name
 
-        ];
-        $newId = eproject::insert_product($product);
+        $product = new product();
+        //store image_name to database
+        $product->name = $request->input('name');
+        $product->categoryid = $request->input('categoryid');
+        $product->weight = $request->input('weight');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->brand = $request->input('brand');
+        $product->country_of_origin = $request->input('country_of_origin');
+        $product->expiration_date = $request->input('expiration_date');
+        $product->manufacturer = $request->input('manufacturer');
+        $product->image = $name;
+
+        $product->save();
+
+//        $newId = eproject::insert_product($product);
 
         return redirect()
             ->action('eprojectController@index_product')
-            ->with('status', 'New product with id: '.$newId. 'has been created');
+            ->with('status', 'New product with id: '.
+//                .$newId.
+                'has been created');
     }
 
 
     public function confirm_product($id){
-        $product= eproject::getProductById($id);
+        $product = product::where('id', $id)->first();
         return view('product.confirm_product',
             [
 //                'id' => $id,
-                'product'=> $product[0],
+                'product'=> $product,
             ]
         );
     }
@@ -281,7 +287,8 @@ class eprojectController extends Controller
             return redirect()->action('eprojectController@index_product');
         }
 
-        eproject::delete_product($id);
+        $product = product::where('id', $id)->first();
+        $product->delete();
 
 
         return redirect()->action('eprojectController@index_product')
@@ -289,14 +296,14 @@ class eprojectController extends Controller
     }
 
 
-    public function edit_product($id)
+    public function edit_product($id, $categoryid)
     {
-        $product = eproject::getProductById($id);
-        $category = eproject::getAllCategory();
+        $product = product::where('id', $id)->first();
+        $category = category::all();
         return view(
             'product.edit_product',
             [
-                'product'=>$product[0],'category'=> $category
+                'product'=>$product,'category'=> $category,'categoryid'=>$categoryid
             ]
         );
     }
@@ -316,20 +323,20 @@ class eprojectController extends Controller
 
         $image->move('img/admin_upload', $name );
 
-        $product = (object)[
-            'name' => $request->input('name'),
-            'id' => $request->input('id'),
-            'weight' => $request->input('weight'),
-            'price' => $request->input('price'),
-            'categoryid' => $request->input('categoryid'),
-            'description' => $request->input('description'),
-            'brand' => $request->input('brand'),
-            'country_of_origin' => $request->input('country_of_origin'),
-            'expiration_date' => $request->input('expiration_date'),
-            'manufacturer' => $request->input('manufacturer'),
-            'image' => $name
-        ];
-        eproject::update_product($product);
+        $product = product::where('id', $id)->first();
+        //store image_name to database
+        $product->name = $request->input('name');
+        $product->categoryid = $request->input('categoryid');
+        $product->weight = $request->input('weight');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->brand = $request->input('brand');
+        $product->country_of_origin = $request->input('country_of_origin');
+        $product->expiration_date = $request->input('expiration_date');
+        $product->manufacturer = $request->input('manufacturer');
+        $product->image = $name;
+        //dd($product);
+        $product->update();
 
         return redirect()->action('eprojectController@index_product')
             ->with('status', 'Product Update Successfully');

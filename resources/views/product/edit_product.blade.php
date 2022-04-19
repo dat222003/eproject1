@@ -32,15 +32,7 @@
 
             </div>
 
-            <div class=" form-group col-md-6">
-                <label for="categoryid" class="font-weight-bold">Category ID</label>
-                <select name="categoryid" class="form-select mt-3" >
-                    <option name="categoryid" selected disabled value="">Category</option>
-                    @foreach($category as $c)
-                        <option name="categoryid" value="{{ $c->id }}">{{ $c->name }}</option>
-                    @endforeach
-                </select>
-            </div>
+
 
             <div class="form-group col-md-6">
                 <label for="description" class="font-weight-bold">Description</label>
@@ -65,14 +57,24 @@
                        value="{{old('expiration_date')?? $product->expiration_date}}">
 
             </div>
+
             <div class="form-group col-md-6">
                 <label for="manufacturer" class="font-weight-bold">Manufacturer</label>
                 <input type="text" class="form-control" id="manufacturer" name="manufacturer"
                        value="{{old('manufacturer')?? $product->manufacturer}}">
 
-
-
             </div>
+
+            <div class=" form-group col-md-6">
+                <label for="categoryid" class="font-weight-bold">Category ID</label>
+                <select name="categoryid" class="form-select mt-3" >
+                    <option name="categoryid" selected disabled value="">Category</option>
+                    @foreach($category as $c)
+                        <option name="categoryid" value="{{ $c->id }}" {{ ($categoryid==$c->id)? 'selected' : '' }}>{{ $c->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="form-group col-md-6 image">
                 <label for="image" class="font-weight-bold">Image</label>
                 <img src="{{ url('img/admin_upload/'.$product->image) }}" alt="description of image">

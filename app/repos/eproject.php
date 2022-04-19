@@ -9,7 +9,7 @@ class eproject
 //    category
     public static function getAllCategory() {
         $sql = 'select c.* ';
-        $sql .= 'from category as c ';
+        $sql .= 'from categories as c ';
         $sql .= 'order by c.id';
 
         return DB::select ($sql);
@@ -17,7 +17,7 @@ class eproject
 
 
     public static function insert_category($category){
-        $sql = 'insert into `category` ';
+        $sql = 'insert into `categories` ';
         $sql .= '(name, image, description) ';
         $sql .= 'values (?, ?, ?) ';
 
@@ -32,21 +32,21 @@ class eproject
 
     public static function getCategoryById($id){
         $sql = 'select c.* ';
-        $sql .= 'from category as c ';
+        $sql .= 'from categories as c ';
         $sql .= 'where c.id = ? ';
 
         return DB::select($sql, [$id]);
     }
 
     public static function delete_category($id){
-        $sql = 'delete from `category` ';
+        $sql = 'delete from `categories` ';
         $sql .= 'where id = ? ';
 
         DB::delete($sql, [$id]);
     }
 
     public static function update_category($category){
-        $sql = 'update category ';
+        $sql = 'update categories ';
         $sql .= 'set name = ?, image = ?, description=? ';
         $sql .= 'where id = ? ';
 

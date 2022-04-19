@@ -9,7 +9,7 @@
     <title>Admin</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-{{--    <script type='text/javascript' src=''></script>--}}
+    {{--    <script type='text/javascript' src=''></script>--}}
     <link rel="stylesheet" href="{{ url('css/style.css') }} ">
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
@@ -27,7 +27,7 @@
 
 <body id="body-pd">
 <header class="header" id="header">
-    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle" ></i></div>
+    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
 </header>
 
 
@@ -36,41 +36,59 @@
         <div><a href="{{ route('admin.home') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
                     class="nav_logo-name">Database</span> </a>
             <div class="nav_list">
-                <div class="nav-item dropdown" >
-                <a href="#" class="nav_link {{ (isset($location))? ($location==='admin_index')? 'active': '' :''}} " id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                >
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav_link {{ (isset($location))? ($location==='admin_index')? 'active': '' :''}} "
+                       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    >
 
-                    <script>
-                        ////push_content_down
-                        document.getElementById('navbarDropdown').onclick = function() {
+                        <script>
+                            ////push_content_down
+                            document.getElementById('navbarDropdown').onclick = function () {
 
-                            var className = ' ' + navbarDropdown.className + ' ';
+                                var className = ' ' + navbarDropdown.className + ' ';
 
-                            if ( ~className.indexOf(' show ') ) {
-                                this.className += ' toggle';
-                            } else {
-                                this.className = className.replace(' toggle ', ' ');
+                                if (~className.indexOf(' show ')) {
+                                    this.className += ' toggle';
+                                } else {
+                                    this.className = className.replace(' toggle ', ' ');
+                                }
                             }
-                        }
-                    </script>
+
+                            document.getElementById('header-toggle').onclick = function () {
+
+                                var className = ' ' + navbarDropdown.className + ' ';
+
+                                if (~className.indexOf(' toggle ')) {
+                                    document.getElementById('navbarDropdown').className = className.replace(' toggle ', ' ');
+                                }
+                            }
+                        </script>
 
 
-                    <i class='bx bx-grid-alt nav_icon'></i>
-                    <span class="nav_name">Table  <i class='bx bxs-down-arrow bx-fade-down-hover '></i></span>
-                </a>
-{{--                 admin.index--}}
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Table  <i class='bx bxs-down-arrow bx-fade-down-hover '></i></span>
+                    </a>
+                    {{--                 admin.index--}}
 
                     <ul class=" dropdown-menu " aria-labelledby="navbarDropdown">
                         <li><a href="{{ route('admin.index.category') }}" class="nav_link">
                                 <i class='bx bxs-duplicate nav_icon'></i>
                                 <span class="nav_name" style="color:black;">Category</span>
                             </a></li>
-                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
                         <li><a href="{{ route('admin.index.product') }}" class="nav_link">
                                 <i class='bx bxs-duplicate nav_icon'></i>
                                 <span class="nav_name" style="color:black;">Product</span>
                             </a></li>
-                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
                         <li><a href="{{ route('admin.index.service') }}" class="nav_link">
                                 <i class='bx bxs-duplicate nav_icon'></i>
                                 <span class="nav_name" style="color:black;">Service</span>
@@ -83,20 +101,20 @@
                     <span class="nav_name">Admin Account</span>
                 </a>
 
-{{--<a href="{{ route('admin.create.category') }}" class="nav_link {{ (isset($location))? ($location==='new_category')? 'active': '' :''}}">--}}
-{{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
-{{--                    <span class="nav_name">New Category</span> </a>--}}
-{{--                <a href="{{ route('admin.create.product') }}" class="nav_link {{ (isset($location))? ($location==='new_product')? 'active': '' :''}}">--}}
-{{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
-{{--                    <span class="nav_name">New Product</span>--}}
-{{--                </a>--}}
-{{--                <a href="{{ route('admin.create.service') }}" class="nav_link {{ (isset($location))? ($location==='new_service')? 'active': '' :''}}">--}}
-{{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
-{{--                    <span class="nav_name">New Service</span>--}}
-{{--                </a>--}}
-{{--                <a href="#" class="nav_link">--}}
-{{--                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>--}}
-{{--                    <span class="nav_name">Stats</span> </a>--}}
+                {{--<a href="{{ route('admin.create.category') }}" class="nav_link {{ (isset($location))? ($location==='new_category')? 'active': '' :''}}">--}}
+                {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
+                {{--                    <span class="nav_name">New Category</span> </a>--}}
+                {{--                <a href="{{ route('admin.create.product') }}" class="nav_link {{ (isset($location))? ($location==='new_product')? 'active': '' :''}}">--}}
+                {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
+                {{--                    <span class="nav_name">New Product</span>--}}
+                {{--                </a>--}}
+                {{--                <a href="{{ route('admin.create.service') }}" class="nav_link {{ (isset($location))? ($location==='new_service')? 'active': '' :''}}">--}}
+                {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
+                {{--                    <span class="nav_name">New Service</span>--}}
+                {{--                </a>--}}
+                {{--                <a href="#" class="nav_link">--}}
+                {{--                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>--}}
+                {{--                    <span class="nav_name">Stats</span> </a>--}}
             </div>
         </div>
         <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
@@ -104,7 +122,7 @@
     </nav>
 </div>
 <!--Container Main start-->
-<div class="height-100 bg-light">
+<div class="height-100 bg-light" id="body">
     @if (session('status'))
         <div class="alert alert-success">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -116,17 +134,7 @@
     @yield('main')
 
 
-
-        <br><br><br><br>
-
-
-
-
-
-
-
-
-
+    <br><br><br><br>
 
 
 </div>
@@ -143,7 +151,7 @@
 
             if (toggle && nav && bodypd && headerpd) {
                 toggle.addEventListener('click', () => {
-                    nav.classList.toggle('show')
+                    nav.classList.toggle('shownav')
                     toggle.classList.toggle('bx-x')
                     bodypd.classList.toggle('body-pd')
                     headerpd.classList.toggle('body-pd')
@@ -154,6 +162,7 @@
         showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
 
     });</script>
-</body></body>
+</body>
+</body>
 
 </html>

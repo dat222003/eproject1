@@ -103,7 +103,7 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ]);
 
-    Route::get('update_product/{id}',[
+    Route::get('update_product/{id}/{categoryid}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_product',
         'as' => 'admin.edit.product'
     ]);
@@ -152,7 +152,7 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.delete.confirm.service'
 
     ]);
-    Route::post('delete_service/{id}', [
+    Route::post('delete_service/{id}/{categoryid}', [
         'uses' => 'App\Http\Controllers\eprojectController@delete_service',
         'as' => 'admin.delete.service'
 

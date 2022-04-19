@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('categoryid')->references('id')->on('category');
+            $table->integer('categoryid')->references('id')->on('category')->onDelete('cascade');
             $table->float('price', 8, 2);
             $table->string('name', '20');
             $table->float('weight', 8, 2);

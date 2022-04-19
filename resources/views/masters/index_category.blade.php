@@ -8,6 +8,10 @@
             <div class="col-md-6 text-center mb-4">
                 <h2 class="heading-section">Categories</h2>
             </div>
+            <a href="{{ route('admin.create.category') }}"
+               class="btn btn-primary">
+                <i class='bx bx-duplicate'>   Add new Category</i>
+            </a>
         </div>
         <div class="row">
             <div class="col-md-12">

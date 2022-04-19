@@ -139,7 +139,7 @@ a {
     font-size: 1.25rem
 }
 
-.show {
+.shownav {
     left: 0
 }
 
@@ -168,6 +168,13 @@ a {
 .toggle {
     margin-bottom: 230px;
 }
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
+}
 
 @media screen and (min-width: 768px) {
     body {
@@ -194,7 +201,7 @@ a {
         padding: 1rem 1rem 0 0
     }
 
-    .show {
+    .shownav {
         width: calc(var(--nav-width) + 156px)
     }
 
