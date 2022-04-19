@@ -45,6 +45,28 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('notloggedin');
 
+//    Route::get('admin_index_account', [
+//        'uses' => 'App\Http\Controllers\eprojectController@index_admin',
+//        'as' => 'admin.index.admin'
+//
+//    ])->middleware('notloggedin');
+
+    Route::get('detail_admin/{username}', [
+        'uses' => 'App\Http\Controllers\eprojectController@index_admin',
+        'as' => 'admin.detail.admin'
+
+    ])->middleware('notloggedin');
+
+    Route::get('update/admin/{id}',[
+        'uses' => 'App\Http\Controllers\eprojectController@edit_admin',
+        'as' => 'admin.edit.admin'
+    ])->middleware('notloggedin');
+
+    Route::post('update/admin/{id}',[
+        'uses' => 'App\Http\Controllers\eprojectController@update_admin',
+        'as' => 'admin.update.admin'
+    ])->middleware('notloggedin');
+
 
 
 //category
@@ -53,6 +75,7 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.index.category'
 
     ])->middleware('notloggedin');
+
     Route::get('/phpinfo', function() {
         return phpinfo();
     });

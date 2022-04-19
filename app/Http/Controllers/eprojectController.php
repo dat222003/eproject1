@@ -24,6 +24,7 @@ class eprojectController extends Controller
         $admin_account = null;
         if ( session()->has('admin') ){
             $admin_account = admin_account::where('username', session()->get('admin'))->first();
+            session()->put('admin_account', $admin_account);
         }
 
         return view('masters.admin_home'
@@ -49,7 +50,7 @@ class eprojectController extends Controller
         );
     }
 
-
+//one_time_run function
 //    public function create(Request $request)
 //    {
 //
@@ -111,6 +112,7 @@ class eprojectController extends Controller
     public function logout(){
         if ( session()->has('admin') ){
             session()->pull('admin');
+            session()->pull('admin_account');
             return redirect()
                 ->action('eprojectController@admin_login')
                 ->with('alert', 'You logged out');
@@ -119,8 +121,104 @@ class eprojectController extends Controller
 
     }
 
+    public function index_admin($username)
+    {
+
+        $admin_account = admin_account::where('username', $username)->first();
+
+        return view('masters.index_admin'
+            ,[
+                'location' => 'admin_account'
+            ],
+            [
+                'admin_account' => $admin_account
+            ]
+        );
+    }
+
+    public function edit_admin(Request $request, $id)
+    {
+
+
+        $admin_account = admin_account::where('id', $id)->first();
+            return view('admin.edit_admin'
+                ,[
+                    'location' => 'admin_account',
+//                    'id' => $id,
+                    'admin_account' => $admin_account
+                ]
+
+
+            );
+    }
+
+
+    public function update_admin(Request $request, $id)
+    {
+
+
+
+
+        $admin_account = admin_account::where('id', $id)->first();
+            if ( !isset($request->hash_password) ){ //if empty use old password
+
+                    $request->validate([
+                        'username' => ['required'],
+                        'full_name' => ['required'],
+                        'email' => ['required', 'email'],
+                        'phone' => ['required'],
+                    ]);
+
+
+                $admin_account->username = $request->username;
+                $admin_account->full_name = $request->full_name;
+//                $admin_account->hash_password = Hash::make($request->hash_password);
+                $admin_account->email = $request->email;
+                $admin_account->phone = $request->phone;
+                $admin_account->update();
+            }else{
+                    $request->validate([
+                        'username' => ['required'],
+                        'hash_password' => ['required', 'min:5', 'max:12'],
+                        'full_name' => ['required'],
+                        'email' => ['required', 'email'],
+                        'phone' => ['required'],
+                    ],
+                        [
+                            'hash_password.required' => 'The password field is required',
+                            'hash_password.min' => 'The password has at least 5 characters',
+                            'hash_password.max' => 'The password has max 12 characters'
+                        ]
+                    );
+                $admin_account->username = $request->username;
+                $admin_account->full_name = $request->full_name;
+                $admin_account->hash_password = Hash::make($request->hash_password);
+                $admin_account->email = $request->email;
+                $admin_account->phone = $request->phone;
+                $admin_account->update();
+
+
+            }
+
+        $admin_account = admin_account::where('id', $id)->first();
+        return view('masters.index_admin'
+            ,[
+                'location' => 'admin_account'
+            ],
+            [
+                'admin_account' => $admin_account
+            ]
+        );
+    }
+
+
 
     //category
+    /////
+    /// /////
+    /// /////
+    /// ////
+    ///
     public function index_category()
     {
 
