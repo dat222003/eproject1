@@ -3,7 +3,7 @@
 
 @section('main')
 
-    Home_page
+    <h1>Welcome {{ $admin_account->username }}</h1>
 
 
 @endsection

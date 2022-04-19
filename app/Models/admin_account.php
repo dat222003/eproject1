@@ -12,7 +12,6 @@ class admin_account extends Model
     protected $table = 'admin_accounts';
 
     protected $fillable = [
-        'name',
         'full_name',
         'hash_password',
         'username',

@@ -20,6 +20,7 @@
                        value="{{old('name')?? $category->name}}">
 
             </div>
+{{--            <span class="text-danger">@error('name') {{ $message }}</span>--}}
             <div class="form-group col-md-6">
                 <label for="pages" class="font-weight-bold">Description</label>
                 <input type="text" class="form-control" id="description" name="description"

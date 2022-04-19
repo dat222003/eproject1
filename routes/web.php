@@ -20,11 +20,33 @@ Route::group(['prefix' => 'eproject'], function (){
 //
 //    ]);
 
-    Route::get('admin', [
+    Route::get('admin_home', [
         'uses' => 'App\Http\Controllers\eprojectController@admin',
         'as' => 'admin.home'
 
     ]);
+
+//admin
+    Route::get('admin', [
+        'uses' => 'App\Http\Controllers\eprojectController@admin_login',
+        'as' => 'admin.pre_login'
+
+    ]);
+
+    Route::post('admin_login', [
+        'uses' => 'App\Http\Controllers\eprojectController@login',
+        'as' => 'admin.login'
+
+    ]);
+
+    Route::get('admin_login', [
+        'uses' => 'App\Http\Controllers\eprojectController@logout',
+        'as' => 'admin.logout'
+
+    ]);
+
+
+
 //category
     Route::get('admin_index_category', [
         'uses' => 'App\Http\Controllers\eprojectController@index_category',
