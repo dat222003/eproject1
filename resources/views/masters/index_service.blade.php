@@ -26,7 +26,7 @@
                             {{--                                    <th>Description</th>--}}
                             {{--                                    <th>servie_validity_period</th>--}}
                             {{--                                    <th>image</th>--}}
-                            <th>Price</th>
+                            {{--                            <th>Price</th>--}}
                             <th>Delete</th>
                             <th>Edit</th>
                             <th>Detail</th>
@@ -57,11 +57,11 @@
 {{--                                        <img src="{{ url('img/admin_upload/'.$s->image) }}" alt="description of image"></div>--}}
 {{--                                </td>--}}
 
-                                <td>
-                                    <span class="price">
-                                             {{$s->price}}
-                                        </span>
-                                </td>
+{{--                                <td>--}}
+{{--                                    <span class="price">--}}
+{{--                                             {{$s->price}}--}}
+{{--                                        </span>--}}
+{{--                                </td>--}}
 
 
                                 <td>

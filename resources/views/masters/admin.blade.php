@@ -17,13 +17,25 @@
         .my-dropdown-toggle::after {
             content: none;
         }
+        .l-navbar {
+            height: 100%;
+            /*position: fixed;*/
+            /*overflow-y: scroll;*/
+            top: 0;
+            bottom: 0;
+        }
+        #header-fixed {
+            position: fixed;
+            top: 0px; display:none;
+            background-color:white;
+        }
 
     </style>
 
 
 </head>
 
-<body oncontextmenu='return false' class='snippet-body'>
+<div oncontextmenu='return false' class='snippet-body'>
 
 <body id="body-pd">
 <header class="header" id="header">
@@ -136,7 +148,7 @@
     @yield('main')
 
 
-    <br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 </div>
@@ -165,6 +177,10 @@
 
     });</script>
 </body>
-</body>
+<footer class="bg bg-primary">
+
+</footer>
+</div>
+
 
 </html>
