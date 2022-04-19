@@ -15,7 +15,7 @@
 
 <style>
     body{
-        background-color: #4a5568;
+        background-color: aqua;
         --bs-bg-opacity: .5;
         /*margin-right: 600px;*/
     }
@@ -30,7 +30,7 @@
         </div>
     @endif
 
-    <div class="container bg bg-gradient md-4 lg-6 bg-primary p-2 text-dark  ">
+    <div class="container  ">
         <h1 class="display-4 ">Admin Login</h1>
         <br>
 
@@ -44,7 +44,7 @@
                        value="{{old('username')}}">
 
             </div>
-            <h3 class="text-light">@error('username') {{$message}} @enderror</h3>
+            <h3 class="text-danger">@error('username') {{$message}} @enderror</h3>
 
 {{--            <div class="form-group col-md-6">--}}
 {{--                <label for="full_name" class="font-weight-bold">Full Name</label>--}}
@@ -73,7 +73,7 @@
                        value="{{old('hash_password')}}">
 
             </div>
-            <h3 class="text-light">@error('hash_password') {{$message}} @enderror</h3>
+            <h3 class="text-danger">@error('hash_password') {{$message}} @enderror</h3>
             <br>
 
             <button type="submit" class="btn btn-dark">Submit</button>
