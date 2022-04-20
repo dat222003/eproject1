@@ -49,7 +49,7 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div><a href="{{ route('admin.home') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                        class="nav_logo-name">Database</span> </a>
+                        class="nav_logo-name">Data</span> </a>
                 <div class="nav_list">
                     <div class="nav-item dropdown">
                         <a href="#"
@@ -87,7 +87,7 @@
 
                         <ul class=" dropdown-menu " aria-labelledby="navbarDropdown">
                             <li><a href="{{ route('admin.index.category') }}" class="nav_link">
-                                    <i class='bx bxs-duplicate nav_icon'></i>
+                                    <i class='bx bxs-category bx-sm nav_icon'></i>
                                     <span class="nav_name" style="color:black;">Category</span>
                                 </a></li>
 
@@ -96,7 +96,7 @@
                             </li>
 
                             <li><a href="{{ route('admin.index.product') }}" class="nav_link">
-                                    <i class='bx bxs-duplicate nav_icon'></i>
+                                    <i class='bx bxl-product-hunt bx-sm nav_icon'></i>
                                     <span class="nav_name" style="color:black;">Product</span>
                                 </a></li>
 
@@ -105,7 +105,7 @@
                             </li>
 
                             <li><a href="{{ route('admin.index.service') }}" class="nav_link">
-                                    <i class='bx bxs-duplicate nav_icon'></i>
+                                    <i class='bx bxs-duplicate bx-sm nav_icon'></i>
                                     <span class="nav_name" style="color:black;">Service</span>
                                 </a></li>
                         </ul>
