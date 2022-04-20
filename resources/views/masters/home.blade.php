@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ url('lib/owlcarousel/assets/owlcarousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ url('lib/animate/animate.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -64,7 +64,7 @@
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
         <a href="#" class="navbar-brand p-0">
-            <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>32smile</h1>
+            <h1 class="m-0"><i class="fa fa-solid fa-tooth me-2"></i>32smile</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
