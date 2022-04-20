@@ -223,5 +223,6 @@ a {
     }
 
     .show{
-        width: calc(var(--nav-width) + 200px)
+        width: calc(var(--nav-width) + 200px);
+        background-color: var(--first-color)
     }
