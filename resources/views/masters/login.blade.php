@@ -23,14 +23,15 @@
 
 <body>
 
-    @if (session('alert'))
-        <div class="alert alert-danger">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            {{ session('alert') }}
-        </div>
-    @endif
+
 
     <div class="container  ">
+        @if (session('alert'))
+            <div class="alert alert-danger">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ session('alert') }}
+            </div>
+        @endif
         <h1 class="display-4 ">Admin Login</h1>
         <br>
 
