@@ -17,6 +17,7 @@
         .my-dropdown-toggle::after {
             content: none;
         }
+
         .l-navbar {
             height: 100%;
             /*position: fixed;*/
@@ -24,10 +25,12 @@
             top: 0;
             bottom: 0;
         }
+
         #header-fixed {
             position: fixed;
-            top: 0px; display:none;
-            background-color:white;
+            top: 0px;
+            display: none;
+            background-color: white;
         }
 
     </style>
@@ -37,149 +40,150 @@
 
 <div oncontextmenu='return false' class='snippet-body'>
 
-<body id="body-pd">
-<header class="header" id="header">
-    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
-</header>
+    <body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+    </header>
 
 
-<div class="l-navbar" id="nav-bar">
-    <nav class="nav">
-        <div><a href="{{ route('admin.home') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                    class="nav_logo-name">Database</span> </a>
-            <div class="nav_list">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav_link {{ (isset($location))? ($location==='admin_index')? 'active': '' :''}} "
-                       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    >
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div><a href="{{ route('admin.home') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+                        class="nav_logo-name">Database</span> </a>
+                <div class="nav_list">
+                    <div class="nav-item dropdown">
+                        <a href="#"
+                           class="nav_link {{ (isset($location))? ($location==='admin_index')? 'active': '' :''}} "
+                           id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                        <script>
-                            ////push_content_down
-                            document.getElementById('navbarDropdown').onclick = function () {
+                            <script>
+                                ////push_content_down
+                                document.getElementById('navbarDropdown').onclick = function () {
 
-                                var className = ' ' + navbarDropdown.className + ' ';
+                                    var className = ' ' + navbarDropdown.className + ' ';
 
-                                if (~className.indexOf(' show ')) {
-                                    this.className += ' toggle';
-                                } else {
-                                    this.className = className.replace(' toggle ', ' ');
+                                    if (~className.indexOf(' show ')) {
+                                        this.className += ' toggle';
+                                    } else {
+                                        this.className = className.replace(' toggle ', ' ');
+                                    }
                                 }
-                            }
 
-                            document.getElementById('header-toggle').onclick = function () {
+                                document.getElementById('header-toggle').onclick = function () {
 
-                                var className = ' ' + navbarDropdown.className + ' ';
+                                    var className = ' ' + navbarDropdown.className + ' ';
 
-                                if (~className.indexOf(' toggle ')) {
-                                    document.getElementById('navbarDropdown').className = className.replace(' toggle ', ' ');
+                                    if (~className.indexOf(' toggle ')) {
+                                        document.getElementById('navbarDropdown').className = className.replace(' toggle ', ' ');
+                                    }
                                 }
-                            }
-                        </script>
+                            </script>
 
 
-                        <i class='bx bx-grid-alt nav_icon'></i>
-                        <span class="nav_name">Table  <i class='bx bxs-down-arrow bx-fade-down-hover '></i></span>
+                            <i class='bx bx-grid-alt nav_icon'></i>
+                            <span class="nav_name">Table  <i class='bx bxs-down-arrow bx-fade-down-hover '></i></span>
+                        </a>
+                        {{--                 admin.index--}}
+
+                        <ul class=" dropdown-menu " aria-labelledby="navbarDropdown">
+                            <li><a href="{{ route('admin.index.category') }}" class="nav_link">
+                                    <i class='bx bxs-duplicate nav_icon'></i>
+                                    <span class="nav_name" style="color:black;">Category</span>
+                                </a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a href="{{ route('admin.index.product') }}" class="nav_link">
+                                    <i class='bx bxs-duplicate nav_icon'></i>
+                                    <span class="nav_name" style="color:black;">Product</span>
+                                </a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a href="{{ route('admin.index.service') }}" class="nav_link">
+                                    <i class='bx bxs-duplicate nav_icon'></i>
+                                    <span class="nav_name" style="color:black;">Service</span>
+                                </a></li>
+                        </ul>
+                    </div>
+
+                    <a href="{{ route('admin.detail.admin', ['username' => session()->get('admin')]) }}"
+                       class="nav_link {{ (isset($location))? ($location==='admin_account')? 'active': '' :''}} ">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Admin Account</span>
                     </a>
-                    {{--                 admin.index--}}
 
-                    <ul class=" dropdown-menu " aria-labelledby="navbarDropdown">
-                        <li><a href="{{ route('admin.index.category') }}" class="nav_link">
-                                <i class='bx bxs-duplicate nav_icon'></i>
-                                <span class="nav_name" style="color:black;">Category</span>
-                            </a></li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li><a href="{{ route('admin.index.product') }}" class="nav_link">
-                                <i class='bx bxs-duplicate nav_icon'></i>
-                                <span class="nav_name" style="color:black;">Product</span>
-                            </a></li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li><a href="{{ route('admin.index.service') }}" class="nav_link">
-                                <i class='bx bxs-duplicate nav_icon'></i>
-                                <span class="nav_name" style="color:black;">Service</span>
-                            </a></li>
-                    </ul>
+                    {{--<a href="{{ route('admin.create.category') }}" class="nav_link {{ (isset($location))? ($location==='new_category')? 'active': '' :''}}">--}}
+                    {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
+                    {{--                    <span class="nav_name">New Category</span> </a>--}}
+                    {{--                <a href="{{ route('admin.create.product') }}" class="nav_link {{ (isset($location))? ($location==='new_product')? 'active': '' :''}}">--}}
+                    {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
+                    {{--                    <span class="nav_name">New Product</span>--}}
+                    {{--                </a>--}}
+                    {{--                <a href="{{ route('admin.create.service') }}" class="nav_link {{ (isset($location))? ($location==='new_service')? 'active': '' :''}}">--}}
+                    {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
+                    {{--                    <span class="nav_name">New Service</span>--}}
+                    {{--                </a>--}}
+                    {{--                <a href="#" class="nav_link">--}}
+                    {{--                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>--}}
+                    {{--                    <span class="nav_name">Stats</span> </a>--}}
                 </div>
-
-                <a href="{{ route('admin.detail.admin', ['username' => session()->get('admin')]) }}" class="nav_link {{ (isset($location))? ($location==='admin_account')? 'active': '' :''}} ">
-                    <i class='bx bx-user nav_icon'></i>
-                    <span class="nav_name">Admin Account</span>
-                </a>
-
-                {{--<a href="{{ route('admin.create.category') }}" class="nav_link {{ (isset($location))? ($location==='new_category')? 'active': '' :''}}">--}}
-                {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
-                {{--                    <span class="nav_name">New Category</span> </a>--}}
-                {{--                <a href="{{ route('admin.create.product') }}" class="nav_link {{ (isset($location))? ($location==='new_product')? 'active': '' :''}}">--}}
-                {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
-                {{--                    <span class="nav_name">New Product</span>--}}
-                {{--                </a>--}}
-                {{--                <a href="{{ route('admin.create.service') }}" class="nav_link {{ (isset($location))? ($location==='new_service')? 'active': '' :''}}">--}}
-                {{--                    <i class='bx bx-duplicate nav_icon'></i>--}}
-                {{--                    <span class="nav_name">New Service</span>--}}
-                {{--                </a>--}}
-                {{--                <a href="#" class="nav_link">--}}
-                {{--                    <i class='bx bx-bar-chart-alt-2 nav_icon'></i>--}}
-                {{--                    <span class="nav_name">Stats</span> </a>--}}
             </div>
-        </div>
-        <a href="{{ route('admin.logout') }}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
-                class="nav_name">SignOut</span> </a>
-    </nav>
-</div>
-<!--Container Main start-->
-<div class="height-100 bg-light" id="body">
-    @if (session('status'))
-        <div class="alert alert-success">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            {{ session('status') }}
-        </div>
-    @endif
+            <a href="{{ route('admin.logout') }}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                    class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light" id="body">
+        @if (session('status'))
+            <div class="alert alert-success">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ session('status') }}
+            </div>
+        @endif
 
 
 
-    @yield('form')
-    @yield('main')
+        @yield('form')
+        @yield('main')
 
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br>
 
 
-</div>
-<!--Container Main end-->
-<script type='text/javascript'
-        src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
-<script type='text/Javascript'>document.addEventListener("DOMContentLoaded", function (event) {
+    </div>
+    <!--Container Main end-->
+    <script type='text/javascript'
+            src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/Javascript'>document.addEventListener("DOMContentLoaded", function (event) {
 
-        const showNavbar = (toggleId, navId, bodyId, headerId) => {
-            const toggle = document.getElementById(toggleId),
-                nav = document.getElementById(navId),
-                bodypd = document.getElementById(bodyId),
-                headerpd = document.getElementById(headerId)
+            const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId)
 
-            if (toggle && nav && bodypd && headerpd) {
-                toggle.addEventListener('click', () => {
-                    nav.classList.toggle('shownav')
-                    toggle.classList.toggle('bx-x')
-                    bodypd.classList.toggle('body-pd')
-                    headerpd.classList.toggle('body-pd')
-                })
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener('click', () => {
+                        nav.classList.toggle('shownav')
+                        toggle.classList.toggle('bx-x')
+                        bodypd.classList.toggle('body-pd')
+                        headerpd.classList.toggle('body-pd')
+                    })
+                }
             }
-        }
 
-        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
 
-    });</script>
-</body>
-<footer class="bg bg-primary">
+        });</script>
+    </body>
+    <footer class="bg bg-primary">
 
-</footer>
+    </footer>
 </div>
 
 

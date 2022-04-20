@@ -26,6 +26,15 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('notloggedin');
 
+
+
+    Route::get('home', [
+        'uses' => 'App\Http\Controllers\eprojectController@home',
+        'as' => 'home'
+
+    ]);
+
+
 //admin
     Route::get('admin', [
         'uses' => 'App\Http\Controllers\eprojectController@admin_login',

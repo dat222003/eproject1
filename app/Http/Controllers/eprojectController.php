@@ -17,6 +17,14 @@ class eprojectController extends Controller
 {
 
 
+
+    public function home()
+    {
+
+        return view('masters.home');
+    }
+
+
     public function admin()
     {
 
