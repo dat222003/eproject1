@@ -96,7 +96,6 @@ class eprojectController extends Controller
         );
 
         $admin_account = admin_account::where('username', $request->username)->first();
-
         if ($admin_account){
             if ( Hash::check($request->hash_password, $admin_account->hash_password) ){
                 $request->session()->put('admin', $request->username);

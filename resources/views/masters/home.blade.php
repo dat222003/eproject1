@@ -14,18 +14,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
     <link href="{{ url('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ url('lib/animate/animate.min.css') }}" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
     <link href="{{url("css/home.css")}}" rel="stylesheet">
 </head>
 
@@ -49,10 +45,10 @@
         </div>
         <div class="col-lg-4 text-center text-lg-end">
             <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
             </div>
         </div>
     </div>
@@ -110,7 +106,7 @@
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>
-                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Your SMILE is important to us</h1>
+                        <h3 class="display-1 text-white mb-md-4 animated zoomIn">We provide highest standard of customer service</h3>
                         <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>
                         <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                     </div>
@@ -151,22 +147,21 @@
 <!-- Full Screen Search End -->
 
 
-<!-- About Start -->
+<!-- 32smila Start -->
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-7">
                 <div class="section-title position-relative pb-3 mb-5">
-                    <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
+                    <h5 class="fw-bold text-primary text-uppercase">32smile</h5>
                     <h1 class="mb-0">The Best Dental Health Care with 5 Years of Experience</h1>
                 </div>
                 <p class="mb-4">
-                    Description Description Description
+                    Regular dental care is an important part of oral health. Having healthy teeth and gums isn't a given, though. Brush up on daily dental care tips, and know which signs and symptoms deserve a dentist's attention.
 
                 </p>
                 <div class="row g-0 mb-3">
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                        <!--                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Award Winning</h5>-->
                         <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Fair Prices</h5>
                     </div>
                     <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
@@ -182,72 +177,67 @@
                         <h4 class="text-primary mb-0">+012 345 6789</h4>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a>
             </div>
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="#" style="object-fit: cover;" alt="image">
+                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="{{ url('img/system/about-us-1.jpg') }}" style="object-fit: cover;" alt="image">
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- About End -->
+<!-- 32smila End -->
 
 
-<!-- Features Start -->
-{{--<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">--}}
-{{--    <div class="container py-5">--}}
-{{--        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">--}}
-{{--            <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>--}}
-{{--            <h1 class="mb-0">We Are Here to Grow Your Business Exponentially</h1>--}}
-{{--        </div>--}}
-{{--        <div class="row g-5">--}}
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="row g-5">--}}
-{{--                    <div class="col-12 wow zoomIn" data-wow-delay="0.2s">--}}
-{{--                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">--}}
-{{--                            <i class="fa fa-cubes text-white"></i>--}}
-{{--                        </div>--}}
-{{--                        <h4>Best In Industry</h4>--}}
-{{--                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-12 wow zoomIn" data-wow-delay="0.6s">--}}
-{{--                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">--}}
-{{--                            <i class="fa fa-award text-white"></i>--}}
-{{--                        </div>--}}
-{{--                        <h4>Award Winning</h4>--}}
-{{--                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">--}}
-{{--                <div class="position-relative h-100">--}}
-{{--                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="#" style="object-fit: cover;" alt="image">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-4">--}}
-{{--                <div class="row g-5">--}}
-{{--                    <div class="col-12 wow zoomIn" data-wow-delay="0.4s">--}}
-{{--                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">--}}
-{{--                            <i class="fa fa-users-cog text-white"></i>--}}
-{{--                        </div>--}}
-{{--                        <h4>Professional Staff</h4>--}}
-{{--                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-12 wow zoomIn" data-wow-delay="0.8s">--}}
-{{--                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">--}}
-{{--                            <i class="fa fa-phone-alt text-white"></i>--}}
-{{--                        </div>--}}
-{{--                        <h4>24/7 Support</h4>--}}
-{{--                        <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-<!-- Features Start -->
+<!-- Why choose us Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
+            <h1 class="mb-0">We are here to make you smile</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-cubes text-white"></i>
+                        </div>
+                        <h4>Best In Industry</h4>
+                    </div>
+                    <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-award text-white"></i>
+                        </div>
+                        <h4>Award Winning</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="{{ url('img/system/why-choose-us-1.jpg') }}" style="object-fit: cover;" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-users-cog text-white"></i>
+                        </div>
+                        <h4>Professional Staff</h4>
+                    </div>
+                    <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
+                        <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-phone-alt text-white"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Why choose us Start -->
 
 
 <!-- Service Start -->
@@ -255,73 +245,57 @@
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
             <h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
-            <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
+{{--            <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>--}}
         </div>
         <div class="row g-5">
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-shield-alt text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Cyber Security</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <h4 class="mb-3">Veneers</h4>
+                    <img src="{{ url('img/system/veneers-1.png') }}" alt="">
+                    <a class="btn btn-lg btn-primary rounded" href="#">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-chart-pie text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Data Analytics</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <h4 class="mb-3">Teeth Whitening</h4>
+                    <img src="{{ url('img/system/teeth-whitenings-1.png') }}" alt="image">
+                    <a class="btn btn-lg btn-primary rounded" href="#">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-code text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Web Development</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <h4 class="mb-3">Dental Bridges</h4>
+                    <img src="{{ url('img/system/dental-bridges-1.png') }}" alt="image">
+                    <a class="btn btn-lg btn-primary rounded" href="#">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fab fa-android text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Apps Development</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <h4 class="mb-3">Dental Crowns</h4>
+                    <img src="{{ url('img/system/dental-crown-1.png') }}" alt="image">
+                    <a class="btn btn-lg btn-primary rounded" href="#">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-search text-white"></i>
-                    </div>
-                    <h4 class="mb-3">SEO Optimization</h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <h4 class="mb-3">Root Canal</h4>
+                    <img src="{{ url('img/system/root-canal-1.png') }}" alt="image">
+                    <a class="btn btn-lg btn-primary rounded" href="#">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
                 <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-                    <h3 class="text-white mb-3">Call Us For Quote</h3>
-                    <p class="text-white mb-3">Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est magna stet eirmod</p>
+                    <p class="text-white mb-3">Call Us For More Details</p>
                     <h2 class="text-white mb-0">+012 345 6789</h2>
                 </div>
             </div>
@@ -354,7 +328,7 @@
                         <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-primary pt-1"></i></div>
                         <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-times text-danger pt-1"></i></div>
                         <div class="d-flex justify-content-between mb-2"><span>Cross-browser Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                        <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                        <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -373,7 +347,7 @@
                         <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-primary pt-1"></i></div>
                         <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-primary pt-1"></i></div>
                         <div class="d-flex justify-content-between mb-2"><span>Cross-browser Support</span><i class="fa fa-times text-danger pt-1"></i></div>
-                        <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                        <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -392,7 +366,7 @@
                         <div class="d-flex justify-content-between mb-3"><span>Bootstrap v5</span><i class="fa fa-check text-primary pt-1"></i></div>
                         <div class="d-flex justify-content-between mb-3"><span>Responsive Layout</span><i class="fa fa-check text-primary pt-1"></i></div>
                         <div class="d-flex justify-content-between mb-2"><span>Cross-browser Support</span><i class="fa fa-check text-primary pt-1"></i></div>
-                        <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                        <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                     </div>
                 </div>
             </div>
@@ -539,10 +513,10 @@
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="#" alt="">
                         <div class="team-social">
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -556,10 +530,10 @@
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="#" alt="">
                         <div class="team-social">
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -573,10 +547,10 @@
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="#" alt="">
                         <div class="team-social">
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -603,7 +577,7 @@
 {{--                <div class="blog-item bg-light rounded overflow-hidden">--}}
 {{--                    <div class="blog-img position-relative overflow-hidden">--}}
 {{--                        <img class="img-fluid" src="#" alt="">--}}
-{{--                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>--}}
+{{--                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="#">Web Design</a>--}}
 {{--                    </div>--}}
 {{--                    <div class="p-4">--}}
 {{--                        <div class="d-flex mb-3">--}}
@@ -612,7 +586,7 @@
 {{--                        </div>--}}
 {{--                        <h4 class="mb-3">How to build a website</h4>--}}
 {{--                        <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>--}}
-{{--                        <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>--}}
+{{--                        <a class="text-uppercase" href="#">Read More <i class="bi bi-arrow-right"></i></a>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
@@ -620,7 +594,7 @@
 {{--                <div class="blog-item bg-light rounded overflow-hidden">--}}
 {{--                    <div class="blog-img position-relative overflow-hidden">--}}
 {{--                        <img class="img-fluid" src="#" alt="">--}}
-{{--                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>--}}
+{{--                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="#">Web Design</a>--}}
 {{--                    </div>--}}
 {{--                    <div class="p-4">--}}
 {{--                        <div class="d-flex mb-3">--}}
@@ -629,7 +603,7 @@
 {{--                        </div>--}}
 {{--                        <h4 class="mb-3">How to build a website</h4>--}}
 {{--                        <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>--}}
-{{--                        <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>--}}
+{{--                        <a class="text-uppercase" href="#">Read More <i class="bi bi-arrow-right"></i></a>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
@@ -637,7 +611,7 @@
 {{--                <div class="blog-item bg-light rounded overflow-hidden">--}}
 {{--                    <div class="blog-img position-relative overflow-hidden">--}}
 {{--                        <img class="img-fluid" src="#" alt="">--}}
-{{--                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>--}}
+{{--                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="#">Web Design</a>--}}
 {{--                    </div>--}}
 {{--                    <div class="p-4">--}}
 {{--                        <div class="d-flex mb-3">--}}
@@ -646,7 +620,7 @@
 {{--                        </div>--}}
 {{--                        <h4 class="mb-3">How to build a website</h4>--}}
 {{--                        <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>--}}
-{{--                        <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>--}}
+{{--                        <a class="text-uppercase" href="#">Read More <i class="bi bi-arrow-right"></i></a>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
