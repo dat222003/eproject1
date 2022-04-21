@@ -27,13 +27,15 @@ class eprojectController extends Controller
 
     public function admin()
     {
-
+        $username = auth()->user()->username;
         return view('masters.admin_home'
+
             ,[
                 'location' => 'admin_home',
-                'admin_account' => auth()->user(),
-                'username' => auth()->user()->username
-
+                'username' => $username
+            ],
+            [
+                'admin_account' => auth()->user()
             ]
 
         );
@@ -125,7 +127,8 @@ class eprojectController extends Controller
 
         return view('masters.index_admin'
             ,[
-                'location' => 'admin_account'
+                'location' => 'admin_account',
+                'username' => $username
             ],
             [
                 'admin_account' => $admin_account
