@@ -111,7 +111,7 @@
                         </ul>
                     </div>
 
-                    <a href="{{ route('admin.detail.admin', [ 'username' => $username]) }}"
+                    <a href="{{ route('admin.detail.admin', [ 'username' => session()->get('username')]) }}"
                        class="nav_link {{ (isset($location))? ($location==='admin_account')? 'active': '' :''}} ">
                         <i class='bx bx-user nav_icon'></i>
                         <span class="nav_name">Admin Account</span>

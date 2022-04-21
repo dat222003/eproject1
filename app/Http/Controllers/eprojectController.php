@@ -10,6 +10,7 @@ use App\repos\eproject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use function GuzzleHttp\Promise\all;
 
 //use Intervention\Image\ImageManagerStatic as Image;
 
@@ -20,19 +21,26 @@ class eprojectController extends Controller
 
     public function home()
     {
+        $product = product::all();
+        $category = category::all();
+        $service = service::all();
 
-        return view('masters.home');
+        return view('masters.home',[
+            'product' => $product,
+            'category' => $category,
+            'service' => $service
+        ]);
     }
 
 
     public function admin()
     {
         $username = auth()->user()->username;
+        session()->put('username', $username);
         return view('masters.admin_home'
 
             ,[
-                'location' => 'admin_home',
-                'username' => $username
+                'location' => 'admin_home'
             ],
             [
                 'admin_account' => auth()->user()
@@ -127,8 +135,8 @@ class eprojectController extends Controller
 
         return view('masters.index_admin'
             ,[
-                'location' => 'admin_account',
-                'username' => $username
+                'location' => 'admin_account'
+//                , 'username' => $username
             ],
             [
                 'admin_account' => $admin_account
