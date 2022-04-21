@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\admin_account;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        admin_account::create([
+            'username' => 'admin',
+            'password' => Hash::make('admin')
+        ]);
+
+        admin_account::create([
+            'username' => 'admin2',
+            'password' => Hash::make('admin2')
+        ]);
     }
 }
