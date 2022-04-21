@@ -78,8 +78,8 @@
             <br>
 
             <div class="form-check col-md-6">
-                <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
-                <label class="form-check-label" for="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                <label class="form-check-label" for="remember">
                     Remember me
                 </label>
             </div>

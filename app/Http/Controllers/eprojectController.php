@@ -58,7 +58,6 @@ class eprojectController extends Controller
     public function login(Request $request)
     {
 
-
         $request->validate([
             'username' => ['required'],
             'password' => ['required', 'min:5']
@@ -68,12 +67,10 @@ class eprojectController extends Controller
                 'password.min' => 'The password has at least 5 characters'
             ]
         );
-
         $admin_account = admin_account::where('username', $request->username)->first();
-
         if($admin_account) {
             if (auth()->attempt(
-                request()->only(['username', 'password']),
+                request()->only('username', 'password'),
                 request()->filled('remember')
                 )) {
                     return
