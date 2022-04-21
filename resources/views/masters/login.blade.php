@@ -35,7 +35,7 @@
         <h1 class="display-4 ">Admin Login</h1>
         <br>
 
-        <form action="{{route('admin.login')}}" enctype='multipart/form-data' method="post" class="" >
+        <form action="{{route('login')}}" enctype='multipart/form-data' method="post" class="" >
             @csrf
 
 {{--            <input type="hidden" name="id" value="{{old('id')}}">--}}
@@ -69,13 +69,20 @@
 {{--            </div>--}}
 
             <div class="form-group col-md-6">
-                <label for="hash_password" class="font-weight-bold">Password</label>
-                <input type="password" class="form-control" id="hash_password" name="hash_password"
-                       value="{{old('hash_password')}}">
+                <label for="password" class="font-weight-bold">Password</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       value="{{old('password')}}">
 
             </div>
-            <h3 class="text-danger">@error('hash_password') {{$message}} @enderror</h3>
+            <h3 class="text-danger">@error('password') {{$message}} @enderror</h3>
             <br>
+
+            <div class="form-check col-md-6">
+                <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Remember me
+                </label>
+            </div>
 
             <button type="submit" class="btn btn-dark">Submit</button>
         </form>

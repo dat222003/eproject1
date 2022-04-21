@@ -13,7 +13,7 @@ class admin_account extends Model
 
     protected $fillable = [
         'full_name',
-        'hash_password',
+        'password',
         'username',
         'email',
         'phone'

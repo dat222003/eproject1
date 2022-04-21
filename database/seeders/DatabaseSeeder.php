@@ -18,11 +18,17 @@ class DatabaseSeeder extends Seeder
     {
         admin_account::create([
             'username' => 'admin',
+            'full_name' => 'le dat',
+            'email' => 'Khalethanhdat@gmail.com',
+            'phone' => '012345678',
             'password' => Hash::make('admin')
         ]);
 
         admin_account::create([
             'username' => 'admin2',
+            'full_name' => 'trung hieu',
+            'email' => 'trunghieu@gmail.com',
+            'phone' => '012345678',
             'password' => Hash::make('admin2')
         ]);
     }

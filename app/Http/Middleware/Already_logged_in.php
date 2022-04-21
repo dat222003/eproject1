@@ -16,8 +16,8 @@ class Already_logged_in
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('admin')){
-        return redirect()->route('admin.home')->with('status', 'You have already logged in');
+        if (auth()->user()){
+            return redirect()->route('admin.home')->with('status', 'You have already logged in');
         }
         return $next($request);
     }

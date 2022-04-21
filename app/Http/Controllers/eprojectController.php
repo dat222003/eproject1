@@ -28,17 +28,13 @@ class eprojectController extends Controller
     public function admin()
     {
 
-
-        $admin_account = null;
-        if ( session()->has('admin') ){
-            $admin_account = admin_account::where('username', session()->get('admin'))->first();
-            session()->put('admin_account', $admin_account);
-        }
-
         return view('masters.admin_home'
             ,[
-                'location' => 'admin_home'
-            ],  compact('admin_account')
+                'location' => 'admin_home',
+                'admin_account' => auth()->user(),
+                'username' => auth()->user()->username
+
+            ]
 
 
         );
@@ -58,73 +54,71 @@ class eprojectController extends Controller
         );
     }
 
-//one_time_run function
-//    public function create(Request $request)
-//    {
-//
-//        $admin_account = new admin_account();
-//        $admin_account->username = $request->username;
-//        $admin_account->full_name = $request->full_name;
-//        $admin_account->hash_password = Hash::make($request->hash_password);
-//        $admin_account->email = $request->email;
-//        $admin_account->phone = $request->phone;
-////        dd($admin_account);
-//        $done = $admin_account->save();
-//
-//        if ($done){
-//            return view('masters.login'
-//                ,[
-//                    'location' => 'login'
-//                ]
-//
-//
-//            );}
-//    }
 
     public function login(Request $request)
     {
 
 
         $request->validate([
-           'username' => ['required'],
-            'hash_password' => ['required', 'min:5', 'max:12']
+            'username' => ['required'],
+            'password' => ['required', 'min:5']
             ],
             [
-                'hash_password.required' => 'The password field is required',
-                'hash_password.min' => 'The password has at least 5 characters'
+                'password.required' => 'The password field is required',
+                'password.min' => 'The password has at least 5 characters'
             ]
         );
 
         $admin_account = admin_account::where('username', $request->username)->first();
-        if ($admin_account){
-            if ( Hash::check($request->hash_password, $admin_account->hash_password) ){
-                $request->session()->put('admin', $request->username);
-                return redirect()
-                    ->action('eprojectController@admin')
-                    ->with('status', 'logged in Successfull');
-            }else{
-                return redirect()
-                    ->action('eprojectController@admin_login')
-                    ->with('alert', 'Password not matches');
-            }
-        }else{
-            return redirect()
-                ->action('eprojectController@admin_login')
-                ->with('alert', 'Username not found');
-        }
 
+        if($admin_account) {
+            if (auth()->attempt(
+                request()->only(['username', 'password']),
+                request()->filled('remember')
+                )) {
+                    return
+                        redirect()
+                        ->action('eprojectController@admin')
+                        ->with('status', 'logged in Successfull');
+                }else{
+                    return
+                        redirect()
+                        ->back()
+                        ->withErrors(['password' => 'invalid Password']);
+                }
+            }
+            return
+                redirect()
+                ->back()
+                ->withErrors(['username' => 'invalid Username']);
+
+
+//        $admin_account = admin_account::where('username', $request->username)->first();
+//        if ($admin_account){
+//            if ( Hash::check($request->hash_password, $admin_account->password) ){
+//                $request->session()->put('admin', $request->username);
+//                return redirect()
+//                    ->action('eprojectController@admin')
+//                    ->with('status', 'logged in Successfull');
+//            }else{
+//                return redirect()
+//                    ->action('eprojectController@admin_login')
+//                    ->with('alert', 'Password not matches');
+//            }
+//        }else{
+//            return redirect()
+//                ->action('eprojectController@admin_login')
+//                ->with('alert', 'Username not found');
+//        }
     }
 
 
     public function logout(){
-        if ( session()->has('admin') ){
-            session()->pull('admin');
-            session()->pull('admin_account');
-            return redirect()
-                ->action('eprojectController@admin_login')
-                ->with('alert', 'You logged out');
-        }
 
+            auth()->logout();
+            return
+                view('masters.login')
+                ->with('status', 'You logged out');
 
     }
 

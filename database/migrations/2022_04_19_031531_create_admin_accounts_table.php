@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('admin_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('full_name', '20');
-            $table->string('hash_password', '100');
+            $table->string('password', '100');
             $table->string('username', '20');
             $table->string('email', '30');
             $table->string('phone', '20');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
