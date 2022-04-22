@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/login.css') }}">
     <!--===============================================================================================-->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -39,7 +40,6 @@
                 <span class="login100-form-logo">
 						<i class="bx bx-server"></i>
                 </span>
-
 
                 <span class="login100-form-title p-b-34 p-t-27">
 						Admin Log in
@@ -56,13 +56,14 @@
                     <input class="input100" type="text" name="username" placeholder="Username" value="{{ session()->pull('username') }}">
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
-                @error('username')<span class="alert alert-danger"> {{$message}}</span><br><br> @enderror
-
+                @error('username')<span style="color: #d90718 "> {{$message}}</span><br><br> @enderror
+                <i id="show" onclick="show_password()" class="fa-solid fa-eye"></i>
+                <i id="hide" onclick="show_password()" class="fa-solid fa-eye-slash"></i>
                 <div class="wrap-input100 " data-validate="Enter password">
-                    <input class="input100" type="password" name="password" placeholder="Password" value="{{ session()->pull('password') }}">
+                    <input class="input100 input-group" id="sspassword" type="password" name="password" placeholder="Password" value="{{ session()->pull('password') }}">
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
                 </div>
-                @error('password')<span class="alert alert-danger"> {{$message}} </span><br><br> @enderror
+                @error('password')<span style="color: #d90718" > {{$message}} </span><br><br> @enderror
 
                 <div class="contact100-form-checkbox">
                     <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember">
@@ -89,7 +90,23 @@
 
 
 <div id="dropDownSelect1"></div>
+<script>
+    function show_password(){
+        var x = document.getElementById("sspassword");
+        var y = document.getElementById("hide");
+        var z = document.getElementById("show");
+        if(x.type === 'password'){
+            x.type = "text";
+            z.style.display = "none";
+            y.style.display = "block";
 
+        }else{
+            x.type = "password";
+            y.style.display = "none";
+            z.style.display = "block";
+        }
+    }
+</script>
 <!--===============================================================================================-->
 <script src="{{ url('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

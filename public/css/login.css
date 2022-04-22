@@ -38,6 +38,19 @@
     color: red;
 }
 
+.fa-solid{
+    position: relative;
+    left: 360px;
+    top: 40px;
+    color: whitesmoke;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#hide{
+    display: none;
+}
+
 
 
 
