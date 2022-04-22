@@ -72,10 +72,17 @@
                 <a href="#" class="nav-item nav-link active">Home</a>
                 <a href="#" class="nav-item nav-link">About</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Category</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Services</a>
-                        <a href="#" class="dropdown-item">Products</a>
+                        <a href="#" class="dropdown-item">category</a>
+                        <a href="#" class="dropdown-item">category</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="#" class="dropdown-item">category</a>
+                        <a href="#" class="dropdown-item">category</a>
                     </div>
                 </div>
             </div>
@@ -337,7 +344,7 @@
                                 class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Year</small>
                         </h1>
                         <div class="d-flex justify-content-between mb-3"><span>Tooth extraction</span><i class="fa fa-check text-primary pt-1"></i></div>
-                        <div class="d-flex justify-content-between mb-2"><span>Cross-browser Support</span><i class="fa fa-check text-primary pt-1"></i></div>
+                        <div class="d-flex justify-content-between mb-2"><span>Braces and orthodontics</span><i class="fa fa-check text-primary pt-1"></i></div>
                         <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                     </div>
                 </div>
@@ -346,7 +353,7 @@
                 <div class="bg-light rounded">
                     <div class="border-bottom py-4 px-5 mb-4">
                         <h4 class="text-primary mb-1">AFamily Advanced</h4>
-                        <small class="text-uppercase">Include othe Plans</small>
+                        <small class="text-uppercase">Include other Plans</small>
                     </div>
                     <div class="p-5 pt-0">
                         <h1 class="display-5 mb-3">
