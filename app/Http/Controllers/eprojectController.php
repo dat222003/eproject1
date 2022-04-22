@@ -136,7 +136,6 @@ class eprojectController extends Controller
         return view('masters.index_admin'
             ,[
                 'location' => 'admin_account'
-//                , 'username' => $username
             ],
             [
                 'admin_account' => $admin_account
