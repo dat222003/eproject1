@@ -115,8 +115,7 @@ class eprojectController extends Controller
 
 
     public function logout(){
-            session()->pull('username');
-            session()->pull('password');
+            session()->flush();
             auth()->logout();
             return
                 redirect()

@@ -3,6 +3,9 @@
 
 <head>
     <meta charset='utf-8'>
+    <meta Http-Equiv="Cache-Control" Content="no-cache">
+    <meta Http-Equiv="Pragma" Content="no-cache">
+    <meta Http-Equiv="Expires" Content="0">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" href="{{ url('img/system/favicon.png') }}">
 {{--    <script src="https://use.fontawesome.com/2f2f492fbe.js"></script>--}}
