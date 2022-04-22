@@ -42,7 +42,7 @@
             <div class="form-group col-md-6">
                 <label for="username" class="font-weight-bold">User Name</label>
                 <input type="text" class="form-control" id="username" name="username"
-                       value="{{old('username')}}">
+                       value="{{ session()->pull('username') }}">
 
             </div>
             <h3 class="text-danger">@error('username') {{$message}} @enderror</h3>
@@ -71,7 +71,7 @@
             <div class="form-group col-md-6">
                 <label for="password" class="font-weight-bold">Password</label>
                 <input type="password" class="form-control" id="password" name="password"
-                       value="{{old('password')}}">
+                       value="{{ session()->pull('password') }}">
 
             </div>
             <h3 class="text-danger">@error('password') {{$message}} @enderror</h3>
@@ -87,8 +87,6 @@
             <button type="submit" class="btn btn-dark">Submit</button>
         </form>
     </div>
-
-
 
 
 
