@@ -49,7 +49,7 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div><a href="{{ route('admin.home') }}" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
-                        class="nav_logo-name">Admin</span> </a>
+                        class="nav_logo-name">&nbsp;&nbsp;Admin</span> </a>
                 <div class="nav_list">
                     <div class="nav-item dropdown">
                         <a href="#"
@@ -81,32 +81,32 @@
 
 
                             <i class='bx bx-grid-alt nav_icon'></i>
-                            <span class="nav_name">Data  <i class='bx bxs-down-arrow bx-fade-down-hover '></i></span>
+                            <span class="nav_name">&nbsp; Data  <i class='bx bxs-down-arrow bx-fade-down-hover '></i></span>
                         </a>
                         {{--                 admin.index--}}
 
                         <ul class=" dropdown-menu " aria-labelledby="navbarDropdown">
-                            <li><a href="{{ route('admin.index.category') }}" class="nav_link">
-                                    <i class='bx bxs-category bx-sm nav_icon'></i>
-                                    <span class="nav_name" style="">Category</span>
+                            <li><a href="{{ route('admin.index.category') }}" class="nav_link {{ (isset($location))? ($location==='category_index')? 'active': '' :''}}">
+                                    <i class='bx bxs-category  nav_icon'></i>
+                                    <span class="nav_name" style="">&nbsp;&nbsp;Category</span>
                                 </a></li>
 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
 
-                            <li><a href="{{ route('admin.index.product') }}" class="nav_link">
-                                    <i class='bx bxl-product-hunt bx-sm nav_icon'></i>
-                                    <span class="nav_name" style="">Product</span>
+                            <li><a href="{{ route('admin.index.product') }}" class="nav_link {{ (isset($location))? ($location==='product_index')? 'active': '' :''}}" >
+                                    <i class='bx bxl-product-hunt  nav_icon'></i>
+                                    <span class="nav_name" style="">&nbsp;&nbsp;Product</span>
                                 </a></li>
 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
 
-                            <li><a href="{{ route('admin.index.service') }}" class="nav_link">
-                                    <i class='bx bxs-duplicate bx-sm nav_icon'></i>
-                                    <span class="nav_name" style="">Service</span>
+                            <li><a href="{{ route('admin.index.service') }}" class="nav_link {{ (isset($location))? ($location==='service_index')? 'active': '' :''}}">
+                                    <i class='bx bxs-duplicate  nav_icon'></i>
+                                    <span class="nav_name" style="">&nbsp;&nbsp;Service</span>
                                 </a></li>
                         </ul>
                     </div>
@@ -114,7 +114,7 @@
                     <a href="{{ route('admin.detail.admin', [ 'username' => session()->get('username')]) }}"
                        class="nav_link {{ (isset($location))? ($location==='admin_account')? 'active': '' :''}} ">
                         <i class='bx bx-user nav_icon'></i>
-                        <span class="nav_name">Admin Account</span>
+                        <span class="nav_name">&nbsp;&nbsp;Admin Account</span>
                     </a>
 
                     {{--<a href="{{ route('admin.create.category') }}" class="nav_link {{ (isset($location))? ($location==='new_category')? 'active': '' :''}}">--}}
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <a href="{{ route('admin.logout') }}" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
-                    class="nav_name">SignOut</span> </a>
+                    class="nav_name">&nbsp;&nbsp;SignOut</span> </a>
         </nav>
     </div>
     <!--Container Main start-->

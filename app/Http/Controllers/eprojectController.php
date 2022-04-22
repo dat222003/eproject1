@@ -65,7 +65,8 @@ class eprojectController extends Controller
 
     public function login(Request $request)
     {
-
+        session()->put('username', $request->username);
+        session()->put('password', $request->password);
         $request->validate([
             'username' => ['required'],
             'password' => ['required', 'min:5']
@@ -86,8 +87,7 @@ class eprojectController extends Controller
                         ->action('eprojectController@admin')
                         ->with('status', 'logged in Successfull');
                 }else{
-                    session()->put('username', $request->username);
-                    session()->put('password', $request->password);
+
                     return
                         redirect()->action('eprojectController@login')
                         ->with('alert', 'Credentials invalid');
@@ -115,7 +115,8 @@ class eprojectController extends Controller
 
 
     public function logout(){
-
+            session()->pull('username');
+            session()->pull('password');
             auth()->logout();
             return
                 view('masters.login')
@@ -227,7 +228,7 @@ class eprojectController extends Controller
 
         return view('masters.index_category'
             ,[
-                'location' => 'admin_index'
+                'location' => 'category_index'
             ],
             [
                 'category' => $category
@@ -382,7 +383,7 @@ class eprojectController extends Controller
 
         return view('masters.index_product'
             ,[
-                'location' => 'admin_index'
+                'location' => 'product_index'
             ],
             [
                 'product' => $product
@@ -575,7 +576,7 @@ class eprojectController extends Controller
 
         return view('masters.index_service'
             ,[
-                'location' => 'admin_index'
+                'location' => 'service_index'
             ],
             [
                 'service' => $service

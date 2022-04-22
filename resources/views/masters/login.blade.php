@@ -1,96 +1,111 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="icon" href="{{ url('img/system/favicon.png') }}">
-    <script src="https://use.fontawesome.com/abb70cb27b.js"></script>
-    <title>Admin</title>
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <title>Login V3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{{ url('img/system/login-favicon.ico')}}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('vendor/bootstrap/css/bootstrap.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('fonts/iconic/css/material-design-iconic-font.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('vendor/animate/animate.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('vendor/css-hamburgers/hamburgers.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('vendor/animsition/css/animsition.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('vendor/select2/select2.min.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('vendor/daterangepicker/daterangepicker.css')}}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url('css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/login.css') }}">
+    <!--===============================================================================================-->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    {{--    <script type='text/javascript' src=''></script>--}}
-    <link rel="stylesheet" href="{{ url('css/style.css') }} ">
 </head>
-
-<style>
-    body{
-        background-color: aqua;
-        --bs-bg-opacity: .5;
-        /*margin-right: 600px;*/
-    }
-</style>
-
 <body>
 
 
+<div class="limiter">
+    <div class="container-login100" style="background-image: {{url('img/system/bg-01.jpg')}} ;">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" action="{{route('login')}}" enctype='multipart/form-data' method="post">
+                @csrf
+                <span class="login100-form-logo">
+						<i class="bx bx-server"></i>
+                </span>
 
-    <div class="container  ">
-        @if (session('alert'))
-            <div class="alert alert-danger">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                {{ session('alert') }}
-            </div>
-        @endif
-        <h1 class="display-4 ">Admin Login</h1>
-        <br>
 
-        <form action="{{route('login')}}" enctype='multipart/form-data' method="post" class="" >
-            @csrf
+                <span class="login100-form-title p-b-34 p-t-27">
+						Admin Log in
+                </span>
 
-{{--            <input type="hidden" name="id" value="{{old('id')}}">--}}
-            <div class="form-group col-md-6">
-                <label for="username" class="font-weight-bold">User Name</label>
-                <input type="text" class="form-control" id="username" name="username"
-                       value="{{ session()->pull('username') }}">
+                @if (session('alert'))
+                    <div class="alert alert-danger">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{ session('alert') }}
+                    </div>
+                @endif
 
-            </div>
-            <h3 class="text-danger">@error('username') {{$message}} @enderror</h3>
+                <div class="wrap-input100 " data-validate = "Enter username">
+                    <input class="input100" type="text" name="username" placeholder="Username" value="{{ session()->pull('username') }}">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                </div>
+                @error('username')<span class="alert alert-danger"> {{$message}}</span><br><br> @enderror
 
-{{--            <div class="form-group col-md-6">--}}
-{{--                <label for="full_name" class="font-weight-bold">Full Name</label>--}}
-{{--                <input type="text" class="form-control" id="full_name" name="full_name"--}}
-{{--                       value="{{old('full_name')}}">--}}
+                <div class="wrap-input100 " data-validate="Enter password">
+                    <input class="input100" type="password" name="password" placeholder="Password" value="{{ session()->pull('password') }}">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
+                @error('password')<span class="alert alert-danger"> {{$message}} </span><br><br> @enderror
 
-{{--            </div>--}}
+                <div class="contact100-form-checkbox">
+                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember">
+                    <label class="label-checkbox100" for="ckb1">
+                        Remember me
+                    </label>
+                </div>
 
-{{--            <div class="form-group col-md-6">--}}
-{{--                <label for="email" class="font-weight-bold">Email</label>--}}
-{{--                <input type="email" class="form-control" id="email" name="email"--}}
-{{--                       value="{{old('email')}}">--}}
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" value="submit">
+                        Login
+                    </button>
+                </div>
 
-{{--            </div>--}}
-
-{{--            <div class="form-group col-md-6">--}}
-{{--                <label for="phone" class="font-weight-bold">Phone</label>--}}
-{{--                <input type="tel" class="form-control" id="phone" name="phone"--}}
-{{--                       value="{{old('phone')}}">--}}
-
-{{--            </div>--}}
-
-            <div class="form-group col-md-6">
-                <label for="password" class="font-weight-bold">Password</label>
-                <input type="password" class="form-control" id="password" name="password"
-                       value="{{ session()->pull('password') }}">
-
-            </div>
-            <h3 class="text-danger">@error('password') {{$message}} @enderror</h3>
-            <br>
-
-            <div class="form-check col-md-6">
-                <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                <label class="form-check-label" for="remember">
-                    Remember me
-                </label>
-            </div>
-
-            <button type="submit" class="btn btn-dark">Submit</button>
-        </form>
+                <!--					<div class="text-center p-t-90">-->
+                <!--						<a class="txt1" href="#">-->
+                <!--							Forgot Password?-->
+                <!--						</a>-->
+                <!--					</div>-->
+            </form>
+        </div>
     </div>
+</div>
 
 
+<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+<script src="{{ url('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{ url('vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{ url('vendor/bootstrap/js/popper.min.js')}}"></script>
+<script src="{{ url('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{ url('vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{ url('vendor/daterangepicker/moment.min.js')}}"></script>
+<script src="{{ url('vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{ url('vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+<script src="{{ url('js/login.js')}}"></script>
 
 </body>
-<script type='text/javascript'
-        src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
 </html>
