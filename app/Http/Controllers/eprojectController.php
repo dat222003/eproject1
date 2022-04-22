@@ -119,8 +119,9 @@ class eprojectController extends Controller
             session()->pull('password');
             auth()->logout();
             return
-                view('masters.login')
-                ->with('status', 'You logged out');
+                redirect()
+                ->action('eprojectController@login')
+                ->with('alert', 'you logged out');
 
     }
 
