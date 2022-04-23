@@ -294,6 +294,7 @@ class eprojectController extends Controller
         //store image_name to database as text
         $category = new category();
         $category->name = $request->input('name');
+        $category->type = $request->input('type');
         $category->image = $name;
         $category->description = $request->input('name');
         $category->save();
@@ -347,7 +348,7 @@ class eprojectController extends Controller
             //id in query string must match id in hidden input
             return redirect()->action('eprojectController@index_category');
         }
-
+//dd($request);
         $this->formValidate_category($request)->validate(); //shortcut
 
         //xu li file anh
@@ -358,6 +359,7 @@ class eprojectController extends Controller
         $image->move('img/admin_upload', $name );
 
         $category = category::where('id', $id)->first();
+        $category->type = $request->input('type');
         $category->name = $request->input('name');
         $category->image = $name;
         $category->description = $request->input('name');

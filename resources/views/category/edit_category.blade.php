@@ -20,12 +20,27 @@
                        value="{{old('name')?? $category->name}}">
 
             </div>
-{{--            <span class="text-danger">@error('name') {{ $message }}</span>--}}
+
+            <br>
+
             <div class="form-group col-md-6">
                 <label for="pages" class="font-weight-bold">Description</label>
                 <input type="text" class="form-control" id="description" name="description"
                        value="{{old('description')?? $category->description}}">
             </div>
+
+            <br>
+
+            <div class="form-group col-md-6">
+                <label for="type" class="font-weight-bold">Type</label>
+                <select name="type" class="form-select mt-3" id="type" >
+                    <option value="1" {{ $category->type==1? 'selected' : "" }}>Product</option>
+                    <option value="2" {{ $category->type==2? 'selected' : ""}}>Service</option>
+                </select>
+            </div>
+
+            <br>
+
             <div class="form-group col-md-6 image">
                 <label for="author" class="font-weight-bold">Image</label>
                 <img src="{{ url('img/admin_upload/'.$category->image) }}" alt="description of image">

@@ -25,38 +25,15 @@
 
                             <input id="image" name="image" type="file" value="" class="file" >
 
-                            {{--            <div class="col-md-12">--}}
-                            {{--              <select class="form-select mt-3" >--}}
-                            {{--                <option selected disabled value="">Position</option>--}}
-                            {{--                <option value="jweb">Junior Web Developer</option>--}}
-                            {{--                <option value="sweb">Senior Web Developer</option>--}}
-                            {{--                <option value="pmanager">Project Manager</option>--}}
-                            {{--              </select>--}}
-                            {{--            </div>--}}
+                            <div class="col-md-3">
+                              <select class="form-select mt-3" >
+                                <option selected disabled value="">type</option>
+                                <option value="1">Product</option>
+                                <option value="2">Service</option>
 
+                              </select>
+                            </div>
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input class="form-control" type="password" name="" placeholder="Password" required>--}}
-{{--                            </div>--}}
-
-
-                            {{--            <div class="col-md-12 mt-3">--}}
-                            {{--              <label class="mb-3 mr-1" for="gender">Gender: </label>--}}
-
-                            {{--              <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>--}}
-                            {{--              <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>--}}
-
-                            {{--              <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>--}}
-                            {{--              <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>--}}
-
-                            {{--              <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>--}}
-                            {{--              <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>--}}
-                            {{--            </div>--}}
-
-                            {{--            <div class="form-check">--}}
-                            {{--              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>--}}
-                            {{--              <label class="form-check-label">I confirm that all data are correct</label>--}}
-                            {{--            </div>--}}
 
 
                             <div class="form-button mt-3">

@@ -6,8 +6,12 @@
 
 
 <dl class="row">
+
     <dt class="col-sm-3">ID</dt>
     <dd class="col-sm-9">{{ $category->id }}</dd>
+
+    <dt class="col-sm-3">Type</dt>
+    <dd class="col-sm-9">{{ $category->type }}</dd>
 
     <dt class="col-sm-3">Name</dt>
     <dd class="col-sm-9">{{ $category->name }}</dd>
