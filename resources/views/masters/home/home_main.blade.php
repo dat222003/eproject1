@@ -3,7 +3,7 @@
 
 
 @section('main')
-
+    @include('masters.elements.carousel')
 
     <!-- 32smile Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">

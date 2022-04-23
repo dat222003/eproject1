@@ -33,7 +33,7 @@
 
 @include('masters.elements.home_nav')
 
-@include('masters.elements.carousel')
+
 
 @yield('main')
 

@@ -7,6 +7,10 @@
 @section('main')
 <!-- request Start -->
 
+<div >
+    <img class="top_background" src="{{ url('img/system/dark.png') }}" alt="image">
+</div>
+
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">

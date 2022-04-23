@@ -1,7 +1,10 @@
 @extends('masters.home')
 
 
+
 @section('main')
+
+    @include('masters.elements.carousel')
     <!-- Blog Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
