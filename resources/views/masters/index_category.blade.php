@@ -22,7 +22,6 @@
                         <tr>
                             <th>ID</th>
                             <th>name</th>
-                            <th>Image</th>
                             <th>Description</th>
                             <th>Delete</th>
                             <th>Edit</th>
@@ -45,12 +44,12 @@
                                     </div>
 
                                 </td>
-
-                                <td>
-                                    <div class="image" style="">
-                                        <img src="{{ url('img/admin_upload/'.$c->image) }}" alt="description of image">
-                                    </div>
-                                </td>
+{{--image--}}
+{{--                                <td>--}}
+{{--                                    <div class="image" style="">--}}
+{{--                                        <img src="{{ url('img/admin_upload/'.$c->image) }}" alt="description of image">--}}
+{{--                                    </div>--}}
+{{--                                </td>--}}
 
                                 <td>
                                     <div class="description">

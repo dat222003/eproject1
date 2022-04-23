@@ -11,7 +11,7 @@
     <dd class="col-sm-9">{{ $category->id }}</dd>
 
     <dt class="col-sm-3">Type</dt>
-    <dd class="col-sm-9">{{ $category->type }}</dd>
+    <dd class="col-sm-9">{{ $category->type==1? 'product': 'service'}}</dd>
 
     <dt class="col-sm-3">Name</dt>
     <dd class="col-sm-9">{{ $category->name }}</dd>
