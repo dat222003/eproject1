@@ -76,6 +76,16 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.update.admin'
     ])->middleware('auth');
 
+    Route::get('change_password/admin/{username}',[
+        'uses' => 'App\Http\Controllers\eprojectController@password',
+        'as' => 'admin.password'
+    ])->middleware('auth');
+
+    Route::post('change_password/admin/{username}',[
+        'uses' => 'App\Http\Controllers\eprojectController@edit_password',
+        'as' => 'admin.change_password.'
+    ])->middleware('auth');
+
 
 
 //category
