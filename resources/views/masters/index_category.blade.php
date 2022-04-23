@@ -60,11 +60,15 @@
 
                                 <td>
                                     {{--                                    delete--}}
-                                    <a href="{{ route('admin.delete.confirm.category', ['id' => $c->id]) }}"><i class="bx bxs-x-circle bx-sm bx-border-circle"></i></a>
+                                    <a href="{{ route('admin.delete.confirm.category', ['id' => $c->id]) }}">
+                                        <i class='bx bxs-trash bx-sm bx-border-circle'></i>
+                                    </a>
                                 </td>
                                 <td>
                                     {{--                                    edit--}}
-                                    <a href="{{ route('admin.edit.category', ['id' => $c->id]) }}" ><i class="bx bxs-edit bx-sm bx-border-circle"></i></a>
+                                    <a href="{{ route('admin.edit.category', ['id' => $c->id]) }}">
+                                        <i class="bx bxs-edit bx-sm bx-border-circle"></i>
+                                    </a>
 
                                 </td>
 
@@ -72,7 +76,9 @@
                                 <td>
                                     {{--                                    details--}}
 
-                                    <a href="{{ route('admin.detail.category', ['id' => $c->id]) }}"><i class="bx bxs-detail bx-sm bx-border-circle"></i></a>
+                                    <a href="{{ route('admin.detail.category', ['id' => $c->id]) }}">
+                                        <i class="bx bxs-detail bx-sm bx-border-circle"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

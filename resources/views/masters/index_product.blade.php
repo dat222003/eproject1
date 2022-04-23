@@ -69,13 +69,15 @@
 {{--                                        </span></td>--}}
                                 <td>
 {{--                                                                        delete--}}
-                                    <a href="{{ route('admin.delete.confirm.product', ['id' => $p->id]) }}"><i
-                                            class="bx bxs-x-circle bx-sm bx-border-circle"></i></a>
+                                    <a href="{{ route('admin.delete.confirm.product', ['id' => $p->id]) }}">
+                                        <i class='bx bxs-trash bx-sm bx-border-circle'></i>
+                                    </a>
                                 </td>
                                 <td>
                                     {{--                                    edit--}}
-                                    <a href="{{ route('admin.edit.product', ['id' => $p->id, 'categoryid' => $p->categoryid]) }}"><i
-                                            class="bx bxs-edit bx-sm bx-border-circle"></i></a>
+                                    <a href="{{ route('admin.edit.product', ['id' => $p->id, 'categoryid' => $p->categoryid]) }}">
+                                        <i class="bx bxs-edit bx-sm bx-border-circle"></i>
+                                    </a>
 
                                 </td>
 

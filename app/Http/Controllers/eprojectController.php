@@ -217,7 +217,11 @@ class eprojectController extends Controller
     public function password($username){
 
 
-        return view('admin.change_password', ['username', $username]);
+        return view('admin.change_password',
+            ['username', $username],
+            ['location' => "admin_password"]
+
+        );
     }
 
 
