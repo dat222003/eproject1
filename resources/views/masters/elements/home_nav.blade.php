@@ -44,6 +44,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
+                        <a href="{{ route('show.product') }}" class="dropdown-item">All</a>
                         @foreach( $category as $p)
                             @if($p->type == 2)
                                 <a href="#" class="dropdown-item">{{ $p->name }}</a>
@@ -54,6 +55,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu m-0">
+                        <a href="#" class="dropdown-item">All</a>
                        @foreach( $category as $p)
                            @if($p->type == 1)
                             <a href="#" class="dropdown-item">{{ $p->name }}</a>
@@ -72,7 +74,7 @@
                 <img class="w-100" src="{{ url('img/system/carousel-1.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>
+{{--                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>--}}
                         <h1 class="display-1 text-white mb-md-4 animated zoomIn">Your SMILE is important to us</h1>
                         <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>
                         <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
@@ -83,7 +85,7 @@
                 <img class="w-100" src="{{ url('img/system/carousel-2.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>
+{{--                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>--}}
                         <h3 class="display-1 text-white mb-md-4 animated zoomIn">We provide highest standard of customer service</h3>
                         <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>
                         <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>

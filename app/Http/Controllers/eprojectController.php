@@ -25,7 +25,7 @@ class eprojectController extends Controller
         $category = category::all();
         $service = service::all();
 
-        return view('masters.home',[
+        return view('masters.home.home_main',[
             'product' => $product,
             'category' => $category,
             'service' => $service
@@ -47,6 +47,18 @@ class eprojectController extends Controller
             ]
 
         );
+    }
+
+    public function home_product(){
+        $product = product::all();
+        $category = category::all();
+        $service = service::all();
+
+        return view('masters.home.home_product',[
+            'product' => $product,
+            'category' => $category,
+            'service' => $service
+        ]);
     }
 
     //admin

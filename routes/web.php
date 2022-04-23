@@ -26,6 +26,12 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('auth');
 
+    Route::get('product', [
+        'uses' => 'App\Http\Controllers\eprojectController@home_product',
+        'as' => 'show.product'
+
+    ])->middleware('auth');
+
 
 
     Route::get('home', [
