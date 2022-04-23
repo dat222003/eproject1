@@ -33,6 +33,13 @@ Route::group(['prefix' => 'eproject'], function (){
     ])->middleware('auth');
 
 
+    Route::get('user_register', [
+        'uses' => 'App\Http\Controllers\eprojectController@user_register',
+        'as' => 'user_register'
+
+    ])->middleware('auth');
+
+
 
     Route::get('home', [
         'uses' => 'App\Http\Controllers\eprojectController@home',

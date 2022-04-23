@@ -60,23 +60,29 @@
                     <!-- Search Form Start -->
                     <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="input-group">
-                            <input type="text" class="form-control p-3" placeholder="Keyword">
+                            <input type="text" class="form-control p-3" placeholder="Search for product">
                             <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
                         </div>
                     </div>
                     <!-- Search Form End -->
 
                     <!-- Category Start -->
+
                     <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="mb-0">Categories</h3>
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Web Design</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Web Development</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Web Development</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Keyword Research</a>
-                            <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Email Marketing</a>
+                            @foreach( $category as $p)
+                                @if($p->type == 1)
+                                    <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>{{ $p->name }}
+                                    <div class="sizing-category">
+                                        <img class="img-fluid" src="{{ url('img/admin_upload/'. $p->image) }}" alt="image">
+                                    </div></a>
+
+                                @endif
+
+                            @endforeach
                         </div>
                     </div>
                     <!-- Category End -->
@@ -84,7 +90,7 @@
 
                     <!-- Image Start -->
                     <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
-                        <img src="img/blog-1.jpg" alt="" class="img-fluid rounded">
+                        <img src="{{ url('img/system/be-healthy.jpg') }}" alt="image" class="img-fluid rounded">
                     </div>
                     <!-- Image End -->
 
@@ -92,11 +98,11 @@
                     <!-- Plain Text Start -->
                     <div class="wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                            <h3 class="mb-0">Plain Text</h3>
+                            <h3 class="mb-0">How long should you brush your teeth</h3>
                         </div>
                         <div class="bg-light text-center" style="padding: 30px;">
-                            <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor clita kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor ipsum amet diam</p>
-                            <a href="" class="btn btn-primary py-2 px-4">Read More</a>
+                            <p>Current recommendations from the American Dental Association (ADA) encourage brushing for two minutes, twice per day. If you spend less than two minutes brushing, you won't remove as much plaque from your teeth.</p>
+                            <a href="#" class="btn btn-primary py-2 px-4">Read More</a>
                         </div>
                     </div>
                     <!-- Plain Text End -->

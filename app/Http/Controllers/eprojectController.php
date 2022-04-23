@@ -26,10 +26,26 @@ class eprojectController extends Controller
         $service = service::all();
 
         return view('masters.home.home_main',[
+            'location' => 'home',
             'product' => $product,
             'category' => $category,
             'service' => $service
         ]);
+    }
+
+    public function user_register(){
+        $product = product::all();
+        $category = category::all();
+        $service = service::all();
+
+        return view('masters.elements.user_register',[
+            'location' => 'user_register',
+            'product' => $product,
+            'category' => $category,
+            'service' => $service
+        ]);
+
+
     }
 
 
@@ -52,12 +68,12 @@ class eprojectController extends Controller
     public function home_product(){
         $product = product::all();
         $category = category::all();
-        $service = service::all();
+//        $service = service::all();
 
         return view('masters.home.home_product',[
             'product' => $product,
             'category' => $category,
-            'service' => $service
+//            'service' => $service
         ]);
     }
 

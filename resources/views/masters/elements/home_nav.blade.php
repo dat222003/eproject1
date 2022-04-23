@@ -31,7 +31,7 @@
 <!-- Navbar & Carousel Start -->
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-        <a href="#" class="navbar-brand p-0">
+        <a href="{{ route('home') }}" class="navbar-brand p-0">
             <h1 class="m-0"><i class="fa fa-solid fa-tooth me-2"></i>32smile</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -39,12 +39,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="#" class="nav-item nav-link active">Home</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link {{ (isset($location))? ($location==='home')? 'active': '' :''}}">Home</a>
                 <a href="#" class="nav-item nav-link">About</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('show.product') }}" class="dropdown-item">All</a>
+                        <a href="#" class="dropdown-item">All</a>
                         @foreach( $category as $p)
                             @if($p->type == 2)
                                 <a href="#" class="dropdown-item">{{ $p->name }}</a>
@@ -55,7 +55,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">All</a>
+                        <a href="{{ route('show.product') }}" class="dropdown-item">All</a>
                        @foreach( $category as $p)
                            @if($p->type == 1)
                             <a href="#" class="dropdown-item">{{ $p->name }}</a>
@@ -68,42 +68,42 @@
         </div>
     </nav>
 
-    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="w-100" src="{{ url('img/system/carousel-1.jpg') }}" alt="Image">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
+{{--    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">--}}
+{{--        <div class="carousel-inner">--}}
+{{--            <div class="carousel-item active">--}}
+{{--                <img class="w-100" src="{{ url('img/system/carousel-1.jpg') }}" alt="Image">--}}
+{{--                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">--}}
+{{--                    <div class="p-3" style="max-width: 900px;">--}}
 {{--                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>--}}
-                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Your SMILE is important to us</h1>
-                        <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>
-                        <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="w-100" src="{{ url('img/system/carousel-2.jpg') }}" alt="Image">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 900px;">
+{{--                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Your SMILE is important to us</h1>--}}
+{{--                        <a href="{{ route('user_register') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>--}}
+{{--                        <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="carousel-item">--}}
+{{--                <img class="w-100" src="{{ url('img/system/carousel-2.jpg') }}" alt="Image">--}}
+{{--                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">--}}
+{{--                    <div class="p-3" style="max-width: 900px;">--}}
 {{--                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>--}}
-                        <h3 class="display-1 text-white mb-md-4 animated zoomIn">We provide highest standard of customer service</h3>
-                        <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>
-                        <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+{{--                        <h3 class="display-1 text-white mb-md-4 animated zoomIn">We provide highest standard of customer service</h3>--}}
+{{--                        <a href="{{ route('user_register') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>--}}
+{{--                        <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"--}}
+{{--                data-bs-slide="prev">--}}
+{{--            <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+{{--            <span class="visually-hidden">Previous</span>--}}
+{{--        </button>--}}
+{{--        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"--}}
+{{--                data-bs-slide="next">--}}
+{{--            <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+{{--            <span class="visually-hidden">Next</span>--}}
+{{--        </button>--}}
+{{--    </div>--}}
 </div>
 <!-- Navbar & Carousel End -->
 

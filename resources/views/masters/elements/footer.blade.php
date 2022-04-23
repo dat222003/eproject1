@@ -7,13 +7,7 @@
                     <a href="#" class="navbar-brand">
                         <h1 class="m-0 text-white"><i class="fa fa-user-tie me-2"></i>32smile</h1>
                     </a>
-                    <p class="mt-3 mb-4">Description</p>
-                    {{--                    <form action="">--}}
-                    {{--                        <div class="input-group">--}}
-                    {{--                            <input type="text" class="form-control border-white p-3" placeholder="Your Email">--}}
-                    {{--                            <button class="btn btn-dark">Sign Up</button>--}}
-                    {{--                        </div>--}}
-                    {{--                    </form>--}}
+                    <p class="mt-3 mb-4">Your SMILE is important to us</p>
                 </div>
             </div>
             <div class="col-lg-8 col-md-6">
