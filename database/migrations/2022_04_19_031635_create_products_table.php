@@ -17,13 +17,13 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('categoryid')->references('id')->on('category')->onDelete('cascade');
             $table->float('price', 8, 2);
-            $table->string('name', '20');
+            $table->string('name', '200');
             $table->float('weight', 8, 2);
             $table->string('description', '500');
-            $table->string('brand', '30');
-            $table->string('country_of_origin', '20');
+            $table->string('brand', '200');
+            $table->string('country_of_origin', '200');
             $table->date('expiration_date');
-            $table->string('manufacturer', '30');
+            $table->string('manufacturer', '200');
             $table->text('image');
             $table->timestamps();
         });

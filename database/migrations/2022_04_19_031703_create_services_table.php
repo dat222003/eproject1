@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('categoryid')->references('id')->on('category')->onDelete('cascade');
             $table->float('price', 8, 2);
-            $table->string('name', '20');
+            $table->string('name', '200');
             $table->string('description', '500');
             $table->integer('service_validity_period');
             $table->text('image');

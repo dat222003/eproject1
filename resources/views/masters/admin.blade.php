@@ -103,9 +103,8 @@
                     </div>
 {{--                        admin account dropdown--}}
                     <div class="nav-item dropdown
-                        {{ (isset($location))? ($location==='admin_account')? 'active': '' :''}}
                         {{ (isset($location))? ($location==='admin_detail')? 'active': '' :''}}
-                        {{ (isset($location))? ($location==='')? 'admin_password': '' :''}}
+                        {{ (isset($location))? ($location==='admin_password')? 'active': '' :''}}
                         ">
                         <a href="#"
                            class="nav_link "
