@@ -2,7 +2,7 @@
 
 @section('main')
 
-@include('masters.errors')
+{{--@include('masters.errors')--}}
     <h1 class="text-dark">You Are Changing Password</h1>
     <form action="{{ route('admin.change.password',['id'=>session()->get('id')] ) }}" class="change_password" method="post">
         @csrf

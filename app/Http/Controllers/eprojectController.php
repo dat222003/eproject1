@@ -63,6 +63,22 @@ class eprojectController extends Controller
     }
 
 
+    public function user_store(Request $request){
+        $product = product::all();
+        $category = category::all();
+        $service = service::all();
+
+        return view('masters.elements.user_register',[
+            'location' => 'user_register',
+            'product' => $product,
+            'category' => $category,
+            'service' => $service
+        ]);
+
+
+    }
+
+
     public function admin()
     {
         $username = auth()->user()->username;
@@ -261,7 +277,7 @@ class eprojectController extends Controller
     }
 
 
-    public function password($id){
+    public function password ($id){
 
 
         return view('admin.change_password',
@@ -271,7 +287,7 @@ class eprojectController extends Controller
         );
     }
 
-    public function edit_password(Request $request, $id){
+    public function edit_password (Request $request, $id){
         $admin_account = admin_account::where('id', $id)->first();
 //        dd($request);
         $request->validate([
