@@ -46,22 +46,22 @@
                         @csrf
                         <div class="row g-3">
                             <div class="col-xl-12">
-                                <input type="text" class="form-control bg-light border-0" name="name" placeholder="Your Name" style="height: 55px;">
-                                <input type="email" class="form-control bg-light border-0" name="email" placeholder="Your Email" style="height: 55px;">
+                                <input type="text" class="form-control bg-light border-0" name="name" required placeholder="Your Name" style="height: 55px;">
+                                <input type="email" class="form-control bg-light border-0" name="email" required placeholder="Your Email" style="height: 55px;">
                             </div>
 {{--                            <div class="col-12">--}}
 {{--                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">--}}
 {{--                            </div>--}}
                             <div class="col-xl-12">
                                 <label class="form-control border-0">Date Of Birth</label>
-                                <input type="date" class="form-control bg-light border-0" name="dob" placeholder="Date of birth" style="height: 55px;">
+                                <input type="date" class="form-control bg-light border-0" name="dob" required placeholder="Date of birth" style="height: 55px;">
                             </div>
                             <div class="col-xl-12">
-                                <input type="tel" class="form-control bg-light border-0" name="phone" placeholder="Your Phone Number" style="height: 55px;">
+                                <input type="tel" class="form-control bg-light border-0" name="phone" required placeholder="Your Phone Number" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <select class="form-select bg-light border-0" name="gender" style="height: 55px;">
-                                    <option selected disabled>Gender</option>
+                                <label class="form-control border-0">Gender</label>
+                                <select class="form-select bg-light border-0" name="gender" required style="height: 55px;">
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
                                 </select>
@@ -75,7 +75,7 @@
 {{--                                </select>--}}
 {{--                            </div>--}}
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0" name="message" rows="3" placeholder="Message"></textarea>
+                                <textarea class="form-control bg-light border-0" required name="message" rows="3" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-dark w-100 py-3" type="submit">Request</button>

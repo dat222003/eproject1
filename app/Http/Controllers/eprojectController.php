@@ -65,15 +65,7 @@ class eprojectController extends Controller
 
 
     public function user_store(Request $request){
-        $request->validate([
-                'name' => ['required'],
-                'dob' => ['required'],
-                'gender' => ['required'],
-                'phone' => ['required'],
-                'message' => ['required'],
-                'email' => ['required'],
-        ]
-        );
+
 
         $user = new customer();
         $user->name = $request->input('name');
