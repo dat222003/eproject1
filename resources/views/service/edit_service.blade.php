@@ -15,7 +15,6 @@
                 <label for="name" class="font-weight-bold">Name</label>
                 <input type="text" class="form-control" id="name" name="name"
                        value="{{old('name')?? $service->name}}">
-
             </div>
             <div class="form-group col-md-6">
                 <label for="price" class="font-weight-bold">Price</label>
@@ -42,7 +41,7 @@
                 <select name="categoryid" class="form-select mt-3" >
                     <option name="categoryid" selected disabled value="">Category</option>
                     @foreach($category as $c)
-                        <option name="categoryid" value="{{ $c->id }} {{ ($categoryid==$c->id)? 'selected' : '' }}">{{ $c->name }}</option>
+                        <option name="categoryid" value="{{ $c->id }}" {{ ($categoryid==$c->id)? 'selected' : '' }}>{{ $c->name }}</option>
                     @endforeach
                 </select>
             </div>

@@ -4,7 +4,7 @@
 
 @include('masters.errors')
     <h1 class="text-dark">You Are Changing Password</h1>
-    <form action="{{ route('admin.change_password',['id'=>session()->get('id')]) }}" class="change_password">
+    <form action="{{ route('admin.change_password',['id'=>session()->get('id')]) }}" class="change_password" method="post">
 {{--        confirm old password--}}
         <div class="input-group lg-4 md-4">
 {{--            <input type="text" hidden name="id" value="{{ session()->get('id') }}">--}}
@@ -17,6 +17,7 @@
                     </span>
                 </div>
             </div>
+            @error('password')<span style="color: #d90718" > {{$message}} </span><br><br> @enderror
         </div>
         <div class="dropdown-divider "></div>
 {{--        enter new password--}}
@@ -30,6 +31,7 @@
                     </span>
                 </div>
             </div>
+            @error('password_new')<span style="color: #d90718" > {{$message}} </span><br><br> @enderror
         </div>
         <div class="dropdown-divider "></div>
         <div id="strength-bar"></div>
@@ -42,6 +44,7 @@
             <input id="password_new_2" type="password" class="form-control password" name="password_comfirm" placeholder="Confirm New Password">
             {{--            <i id="show" onclick="show_password()" class="fa-solid fa-eye"></i>--}}
             {{--            <i id="hide" onclick="show_password()" class="fa-solid fa-eye-slash"></i>--}}
+            @error('password_confirm')<span style="color: #d90718" > {{$message}} </span><br><br> @enderror
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>
