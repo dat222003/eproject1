@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin_account;
 use App\Models\category;
+use App\Models\customer;
 use App\Models\product;
 use App\Models\service;
 use App\repos\eproject;
@@ -64,19 +65,31 @@ class eprojectController extends Controller
 
 
     public function user_store(Request $request){
-        $product = product::all();
-        $category = category::all();
-        $service = service::all();
+        $request->validate([
+                'name' => ['required'],
+                'dob' => ['required'],
+                'gender' => ['required'],
+                'phone' => ['required'],
+                'message' => ['required'],
+                'email' => ['required'],
+        ]
+        );
 
-        return view('masters.elements.user_register',[
-            'location' => 'user_register',
-            'product' => $product,
-            'category' => $category,
-            'service' => $service
-        ]);
+        $user = new customer();
+        $user->name = $request->input('name');
+        $user->dob = $request->input('dob');
+        $user->gender = $request->input('gender');
+        $user->phone = $request->input('phone');
+        $user->message = $request->input('message');
+        $user->email = $request->input('email');
+        $user ->save();
 
-
+        return redirect()
+            ->action('eprojectController@home');
     }
+
+
+
 
 
     public function admin()
