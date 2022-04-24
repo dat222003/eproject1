@@ -10,15 +10,15 @@ class customer extends Model
     use HasFactory;
 
 
-    protected $table = 'categories';
+    protected $table = 'customers';
 
     protected $fillable = [
         'name',
         'dob',
         'gender',
         'email',
-        'contact_number',
-        'address'
+        'message',
+        'phone'
     ];
 
 }

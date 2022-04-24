@@ -10,7 +10,7 @@
 <div >
     <img class="top_background" src="{{ url('img/system/dark.png') }}" alt="image">
 </div>
-
+@include('masters.errors')
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
@@ -42,7 +42,7 @@
                 <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
 
 {{--                    regis form start--}}
-                    <form action="{{ route('user_store'}}" method="post">
+                    <form action="{{ route('user_store')}}" method="post">
                         @csrf
                         <div class="row g-3">
                             <div class="col-xl-12">
@@ -75,7 +75,7 @@
 {{--                                </select>--}}
 {{--                            </div>--}}
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0" name="mess" rows="3" placeholder="Message"></textarea>
+                                <textarea class="form-control bg-light border-0" name="message" rows="3" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-dark w-100 py-3" type="submit">Request</button>
