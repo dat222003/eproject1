@@ -45,11 +45,11 @@
                     <form>
                         <div class="row g-3">
                             <div class="col-xl-12">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
+                                <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;"><input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
                             </div>
-                            <div class="col-12">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
-                            </div>
+{{--                            <div class="col-12">--}}
+{{--                                <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">--}}
+{{--                            </div>--}}
                             <div class="col-xl-12">
                                 <label class="form-control border-0">Date Of Birth</label>
                                 <input type="date" class="form-control bg-light border-0" placeholder="Date of birth" style="height: 55px;">

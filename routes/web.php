@@ -20,24 +20,20 @@ Route::group(['prefix' => 'eproject'], function (){
 //
 //    ]);
 
-    Route::get('admin_home', [
-        'uses' => 'App\Http\Controllers\eprojectController@admin',
-        'as' => 'admin.home'
-
-    ])->middleware('auth');
+//user start
 
     Route::get('product', [
         'uses' => 'App\Http\Controllers\eprojectController@home_product',
         'as' => 'show.product'
 
-    ])->middleware('auth');
+    ]);
 
 
     Route::get('user_register', [
         'uses' => 'App\Http\Controllers\eprojectController@user_register',
         'as' => 'user_register'
 
-    ])->middleware('auth');
+    ]);
 
 
 
@@ -47,8 +43,17 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ]);
 
-
+//userend
+    //
+    //
 //admin
+    Route::get('admin_home', [
+        'uses' => 'App\Http\Controllers\eprojectController@admin',
+        'as' => 'admin.home'
+
+    ])->middleware('auth');
+
+
     Route::get('admin', [
         'uses' => 'App\Http\Controllers\eprojectController@admin_login',
         'as' => 'admin.pre_login'
