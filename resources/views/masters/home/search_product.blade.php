@@ -19,12 +19,14 @@
                                 @if($i == 6) @break @endif
                                 <div class="col-md-6 col-lg-4 wow slideInUp" data-wow-delay="0.1s">
                                     <div class="blog-item bg-light rounded overflow-hidden">
+                                        <a href="#" style="border: none" data-bs-toggle="modal" data-bs-target="#modal{{ $product[$i]->id }}">
                                         <div class="blog-img position-relative overflow-hidden">
                                             <div class="sizing">
                                                 <img class="img-fluid" src="{{ url('img/admin_upload/'. $product[$i]->image) }}" alt="image">
                                             </div>
                                             <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4">{{$product[$i]->country_of_origin}}</a>
                                         </div>
+                                        </a>
                                         <div class="p-4">
                                             <h1 class="display-5 mb-3">
                                                 <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>{{$product[$i]->price}}
@@ -39,7 +41,7 @@
                                             </button>
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal{{ $product[$i]->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl ">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog modal-xl ">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel"></h5>
@@ -54,8 +56,8 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="sizing-detail col ms-auto border border-2 rounded  bg-light">
-                                                                    <br>
+                                                                <div class="text-inside col ms-auto border border-2 rounded  bg-light">
+                                                                    <hr>
                                                                     <h4>
                                                                         {{$product[$i]->name}}
                                                                     </h4>
@@ -109,7 +111,6 @@
                                             </h1>
                                             <h4 class="mb-3">{{$service[$i]->name}}</h4>
                                             <p>{{$service[$i]->description}}</p>
-{{--                                            <!--<a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>-->--}}
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{ $service[$i]->id }}">
                                                 Service Detail
@@ -131,9 +132,9 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col ms-auto border border-2 rounded bg-light">
+                                                                <div class="sizing-detail col ms-auto border border-2 rounded bg-light">
                                                                     <br>
-                                                                    <h4 class="">
+                                                                    <h4>
                                                                         {{$service[$i]->name}}
                                                                     </h4>
                                                                     <br>
@@ -141,11 +142,10 @@
                                                                         {{$service[$i]->description}}
                                                                     </p>
                                                                     <br><br>
-                                                                    <h4 class="">
+                                                                    <h4>
                                                                         <small >The Treatment could last up to: </small>{{$service[$i]->service_validity_period}} Month
                                                                     </h4><br><br>
-                                                                    <h1 class="">
-                                                                        {{--                                                                        <small ><i class="bi bi-tag-fill"></i></small>--}}
+                                                                    <h1>
                                                                         <small class="align-top " style="font-size: 22px; line-height: 45px;">$</small>{{$service[$i]->price}}
                                                                     </h1>
                                                                 </div>
