@@ -268,6 +268,42 @@ class eprojectController extends Controller
     }
 
     public function edit_password(Request $request, $id){
+        $admin_account = admin_account::where('id', $id)->first();
+
+        $request->validate([
+            'password' => ['required', 'min:5', 'max:12'],
+            'password_new' => ['required', 'min:5', 'max:12'],
+            'password_confirm' => ['required', 'min:5', 'max:12'],
+        ]
+        );
+        if(Hash::check($request->password , $admin_account->password)){
+            if($request->password_new == $request->password_cofirm){
+                $admin_account->password = Hash::make($request->password_new);
+                $admin_account->update();
+            }else{
+                return view('admin.change_password'
+                    ,[
+                        'location' => 'admin_password'
+                    ],
+                    [
+                        'admin_account' => $admin_account,
+                        'request' => $request
+                    ]
+                );
+            }
+
+        }else{
+            return view('admin.change_password'
+                ,[
+                    'location' => 'admin_password'
+                ],
+                [
+                    'admin_account' => $admin_account,
+                    'request' => $request
+                ]
+            );
+        }
+
 
     }
 
