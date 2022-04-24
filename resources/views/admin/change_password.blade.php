@@ -4,10 +4,10 @@
 
 
     <h1 class="text-dark">You Are Changing Password</h1>
-    <form action="{{ route('admin.detail.admin') }}" class="change_password">
+    <form action="{{ route('admin.change_password',['id'=>session()->get('id')]) }}" class="change_password">
 {{--        confirm old password--}}
         <div class="input-group lg-4 md-4">
-            <input type="text" hidden name="id" value="{{ session()->get('id') }}">
+{{--            <input type="text" hidden name="id" value="{{ session()->get('id') }}">--}}
             <input type="password" class="form-control" id="password_old" name="password" placeholder="Old Password">
             <div class="input-group-append">
                 <div class="input-group-append">

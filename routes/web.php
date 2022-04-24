@@ -103,7 +103,7 @@ Route::group(['prefix' => 'eproject'], function (){
     //route for edit password
     Route::post('change_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_password',
-        'as' => 'admin.change_password.'
+        'as' => 'admin.change_password'
     ])->middleware('auth');
 
 
