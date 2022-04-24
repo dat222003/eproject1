@@ -94,17 +94,19 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.update.admin'
     ])->middleware('auth');
 
-    Route::get('change_password/admin/{id}',[
+    Route::get('edit_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@password',
         'as' => 'admin.password'
-    ])->middleware('auth');
+    ])
+//        ->middleware('auth')
+    ;
 
 
     //route for edit password
     Route::post('change_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_password',
-        'as' => 'admin.change_password'
-    ])->middleware('auth');
+        'as' => 'admin.change.password'
+    ]);
 
 
 

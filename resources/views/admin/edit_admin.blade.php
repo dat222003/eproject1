@@ -21,12 +21,6 @@
                 <input type="text" class="form-control" id="full_name" name="full_name"
                        value="{{old('full_name')?? $admin_account->full_name}}">
             </div>
-            <div class="form-group col-md-6">
-                <label for="hash_password" class="font-weight-bold">Password</label>
-                <input type="password" class="form-control" id="hash_password" name="hash_password"
-                       value="{{old('hash_password')}}"
-                        placeholder="edit for new password / empty for old one">
-            </div>
 
             <div class="form-group col-md-6">
                 <label for="email" class="font-weight-bold">Email</label>
@@ -38,6 +32,13 @@
                 <label for="phone" class="font-weight-bold">Phone</label>
                 <input type="tel" class="form-control" id="phone" name="phone"
                        value="{{old('phone')?? $admin_account->phone}}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="password" class="font-weight-bold">Password</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       value="{{old('password')}}"
+                       placeholder="Please Confirm Your Password">
             </div>
 
             <br><br><br>

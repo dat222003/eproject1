@@ -205,55 +205,45 @@ class eprojectController extends Controller
 
 
         $admin_account = admin_account::where('id', $id)->first();
-            if ( !isset($request->hash_password) ){ //if empty use old password
 
-                    $request->validate([
-                        'username' => ['required'],
-                        'full_name' => ['required'],
-                        'email' => ['required', 'email'],
-                        'phone' => ['required'],
-                    ]);
+        $request->validate([
+        'username' => ['required'],
+        'password' => ['required', 'min:5', 'max:12'],
+        'full_name' => ['required'],
+        'email' => ['required', 'email'],
+        'phone' => ['required'],
+        ]);
+
+        if (Hash::check($request->password , $admin_account->password)){
+            $admin_account->username = $request->username;
+            $admin_account->full_name = $request->full_name;
+            $admin_account->email = $request->email;
+            $admin_account->phone = $request->phone;
+            $admin_account->update();
+
+            $admin_account = admin_account::where('id', $id)->first();
+            return view('masters.index_admin'
+                ,[
+                    'location' => 'admin_account'
+                ],
+                [
+                    'admin_account' => $admin_account
+                ]
+            );
+        }else{
+            return view('admin.edit_admin'
+                ,[
+                    'location' => 'admin_account'
+                ],
+                [
+                    'admin_account' => $admin_account,
+                    'request' => $request
+                ]
+            );
+
+        }
 
 
-                $admin_account->username = $request->username;
-                $admin_account->full_name = $request->full_name;
-//                $admin_account->hash_password = Hash::make($request->hash_password);
-                $admin_account->email = $request->email;
-                $admin_account->phone = $request->phone;
-                $admin_account->update();
-            }else{
-                    $request->validate([
-                        'username' => ['required'],
-                        'hash_password' => ['required', 'min:5', 'max:12'],
-                        'full_name' => ['required'],
-                        'email' => ['required', 'email'],
-                        'phone' => ['required'],
-                    ],
-                        [
-                            'hash_password.required' => 'The password field is required',
-                            'hash_password.min' => 'The password has at least 5 characters',
-                            'hash_password.max' => 'The password has max 12 characters'
-                        ]
-                    );
-                $admin_account->username = $request->username;
-                $admin_account->full_name = $request->full_name;
-                $admin_account->hash_password = Hash::make($request->hash_password);
-                $admin_account->email = $request->email;
-                $admin_account->phone = $request->phone;
-                $admin_account->update();
-
-
-            }
-
-        $admin_account = admin_account::where('id', $id)->first();
-        return view('masters.index_admin'
-            ,[
-                'location' => 'admin_account'
-            ],
-            [
-                'admin_account' => $admin_account
-            ]
-        );
     }
 
 
@@ -269,19 +259,19 @@ class eprojectController extends Controller
 
     public function edit_password(Request $request, $id){
         $admin_account = admin_account::where('id', $id)->first();
+//        dd($request);
         $request->validate([
             'password' => ['required', 'min:5', 'max:12'],
             'password_new' => ['required', 'min:5', 'max:12'],
             'password_confirm' => ['required', 'min:5', 'max:12'],
         ]
         );
-        dd($request);
         if(Hash::check($request->password , $admin_account->password)){
-            if($request->password_new == $request->password_cofirm){
+            if(($request->password_new) == ($request->password_confirm)){
                 $admin_account->password = Hash::make($request->password_new);
                 $admin_account->update();
                 $admin_account = admin_account::where('id', $id)->first();
-                return view('admin.detail_admin'
+                return view('masters.index_admin'
                     ,[
                         'location' => 'admin_password'
                     ],
