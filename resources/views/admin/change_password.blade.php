@@ -4,7 +4,7 @@
 
 
     <h1 class="text-dark">You Are Changing Password</h1>
-    <form action="" class="change_password">
+    <form action="{{ route('admin.detail.admin') }}" class="change_password">
 {{--        confirm old password--}}
         <div class="input-group lg-4 md-4">
             <input type="text" hidden name="id" value="{{ session()->get('id') }}">

@@ -267,6 +267,10 @@ class eprojectController extends Controller
         );
     }
 
+    public function edit_password(Request $request, $id){
+
+    }
+
 
 
     //category
