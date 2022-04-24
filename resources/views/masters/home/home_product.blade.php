@@ -46,7 +46,7 @@
                                             <div class="sizing">
                                                 <img class="img-fluid" src="{{ url('img/admin_upload/'. $service[$i]->image) }}" alt="image">
                                             </div>
-                                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4">{{$service[$i]->service_validity_period}}/month</a>
+                                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4">{{$service[$i]->service_validity_period}}month</a>
                                         </div>
                                         <div class="p-4">
                                             <h1 class="display-5 mb-3">

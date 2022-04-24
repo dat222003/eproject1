@@ -406,13 +406,12 @@ class eprojectController extends Controller
         $this->formValidate_category($request)->validate();
 
         //lay image_name
-        $image = $request->file('image'); //lay file
+        $image = $request->file('image');
 
-        $name = $image->getClientOriginalName(); //lấy tên file do người dùng upload
+        $name = $image->getClientOriginalName();
 
-       //store image to `public/admin_upload` folder
-        //function move('directory', $ten_anh ) root folder la public co the tu tao thu muc vi du o day la image
-        // $ten_anh cai nay tuy chinh? ở đây đang lưu là tên gốc do người dùng upload
+        //store image to `public/admin_upload` folder
+
         $image->move('img/admin_upload', $name );
 
 
