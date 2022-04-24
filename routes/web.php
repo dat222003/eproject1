@@ -78,7 +78,7 @@ Route::group(['prefix' => 'eproject'], function (){
 //
 //    ])->$this->middleware('auth);
 
-    Route::get('detail_admin/{username}', [
+    Route::get('detail_admin/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@index_admin',
         'as' => 'admin.detail.admin'
 

@@ -116,7 +116,7 @@
                         </a>
                         <ul class=" dropdown-menu " aria-labelledby="navbarDropdown2" id=""  >
                             <li>
-                                <a href="{{ route('admin.detail.admin', [ 'username' => session()->get('username')]) }}" class="nav_link {{ (isset($location))? ($location==='admin_detail')? 'active': '' :''}}" >
+                                <a href="{{ route('admin.detail.admin', [ 'id' => session()->get('id')]) }}" class="nav_link {{ (isset($location))? ($location==='admin_detail')? 'active': '' :''}}" >
                                     <i class='bx bxs-user-detail nav_icon' ></i>
                                     <span class="nav_name" style="">&nbsp;&nbsp;Account Detail</span>
                                 </a>

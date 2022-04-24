@@ -167,10 +167,10 @@ class eprojectController extends Controller
 
     }
 
-    public function index_admin($username)
+    public function index_admin($id)
     {
 
-        $admin_account = admin_account::where('username', $username)->first();
+        $admin_account = admin_account::where('id', $id)->first();
 
         return view('masters.index_admin'
             ,[
