@@ -112,14 +112,16 @@ class eprojectController extends Controller
     }
 
     public function home_product($id){
-        $product = null;
-        $service = null;
+
+
         switch ($id) {
             case 'product':
                 $product = product::all();
+                $service = null;
                 break;
             case 'service':
                 $service = service::all();
+                $product = null;
                 break;
             default:
                 $product = product::where('categoryid', $id)->get();
@@ -178,35 +180,15 @@ class eprojectController extends Controller
                         redirect()->action('eprojectController@login')
                         ->with('alert', 'Credentials invalid');
                 }
-
-
-//        $admin_account = admin_account::where('username', $request->username)->first();
-//        if ($admin_account){
-//            if ( Hash::check($request->hash_password, $admin_account->password) ){
-//                $request->session()->put('admin', $request->username);
-//                return redirect()
-//                    ->action('eprojectController@admin')
-//                    ->with('status', 'logged in Successfull');
-//            }else{
-//                return redirect()
-//                    ->action('eprojectController@admin_login')
-//                    ->with('alert', 'Password not matches');
-//            }
-//        }else{
-//            return redirect()
-//                ->action('eprojectController@admin_login')
-//                ->with('alert', 'Username not found');
-//        }
     }
 
-
     public function logout(){
-            session()->flush();
-            auth()->logout();
-            return
-                redirect()
-                ->action('eprojectController@login')
-                ->with('alert', 'you logged out');
+        session()->flush();
+        auth()->logout();
+        return
+            redirect()
+            ->action('eprojectController@login')
+            ->with('alert', 'you logged out');
 
     }
 

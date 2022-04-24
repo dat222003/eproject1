@@ -483,6 +483,15 @@ h6,
     transition: .5s;
 }
 
+.modal-content {
+    background-color: transparent !important;
+    border: 0 !important
+}
+
+.modal-header {
+    border: 0 !important
+}
+
 .link-animated a:hover {
     padding-left: 10px;
 }
@@ -498,6 +507,14 @@ div.sizing{
     height:350px;
     border:none;
     background-color: white;
+}
+
+
+div.sizing-detail{
+    width: 500px;
+    height:420px;
+    border:none;
+    background-color: transparent;
 }
 
 div.sizing-category{
