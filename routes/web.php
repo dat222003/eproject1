@@ -35,6 +35,12 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ]);
 
+    Route::post('user_register', [
+        'uses' => 'App\Http\Controllers\eprojectController@user_store',
+        'as' => 'user_store'
+
+    ]);
+
     Route::post('home/search', [
         'uses' => 'App\Http\Controllers\eprojectController@search',
         'as' => 'home.search'
