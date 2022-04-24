@@ -44,10 +44,10 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">All</a>
+                        <a href="{{ route('show.product', ['id' => 'service']) }}" class="dropdown-item">All</a>
                         @foreach( $category as $p)
                             @if($p->type == 2)
-                                <a href="#" class="dropdown-item">{{ $p->name }}</a>
+                                <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ $p->name }}</a>
                             @endif
                         @endforeach
                     </div>
@@ -55,10 +55,10 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('show.product') }}" class="dropdown-item">All</a>
+                        <a href="{{ route('show.product', ['id' => 'product']) }}" class="dropdown-item">All</a>
                        @foreach( $category as $p)
                            @if($p->type == 1)
-                            <a href="#" class="dropdown-item">{{ $p->name }}</a>
+                            <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ $p->name }}</a>
                             @endif
                         @endforeach
                     </div>

@@ -52,7 +52,7 @@
             <div class="form-group col-md-6 image">
                 <label for="image" class="font-weight-bold">Image</label>
                 <img src="{{ url('img/admin_upload/'.$service->image) }}" alt="description of image">
-                <input id="image" name="image" type="file" value="" class="file" data-browse-on-zone-click="false">
+                <input id="image" name="image" type="file" class="file" data-browse-on-zone-click="false">
             </div>
             <br><br><br>
 

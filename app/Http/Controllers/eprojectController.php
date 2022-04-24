@@ -52,7 +52,10 @@ class eprojectController extends Controller
     public function admin()
     {
         $username = auth()->user()->username;
+        $id = auth()->user()->id;
         session()->put('username', $username);
+        session()->put('id', $id);
+//        dd(session()->get('id'));
         return view('masters.admin_home'
 
             ,[
@@ -65,15 +68,27 @@ class eprojectController extends Controller
         );
     }
 
-    public function home_product(){
-        $product = product::all();
+    public function home_product($id){
+        $product = null;
+        $service = null;
+        switch ($id) {
+            case 'product':
+                $product = product::all();
+                break;
+            case 'service':
+                $service = service::all();
+                break;
+            default:
+                $product = product::where('categoryid', $id)->get();
+                $service = service::where('categoryid', $id)->get();
+//                dd(($product));
+        }
         $category = category::all();
-//        $service = service::all();
 
         return view('masters.home.home_product',[
             'product' => $product,
             'category' => $category,
-//            'service' => $service
+            'service' => $service
         ]);
     }
 
@@ -242,11 +257,11 @@ class eprojectController extends Controller
     }
 
 
-    public function password($username){
+    public function password($id){
 
 
         return view('admin.change_password',
-            ['username', $username],
+            ['id', $id],
             ['location' => "admin_password"]
 
         );
@@ -404,7 +419,7 @@ class eprojectController extends Controller
             $request->all(),
             [
                 'name' => ['required'],
-                'image'=> ['required', 'mimes:jpg,png', 'max:2000'],
+                'image'=> ['required', 'mimes:jpeg,jpg,png', 'max:2000'],
                 'description'=> ['required']
             ],
         );
@@ -593,7 +608,7 @@ class eprojectController extends Controller
                 'country_of_origin' => ['required'],
                 'expiration_date' => ['required'],
                 'manufacturer' => ['required'],
-                'image' => ['required', 'mimes:jpg,png', 'max:2000'],
+                'image' => ['required', 'mimes:jpeg,jpg,png', 'max:2000'],
 
             ],
         );
@@ -731,7 +746,7 @@ class eprojectController extends Controller
             return redirect()->action('eprojectController@index_service');
         }
 
-        $this->formValidate_service($request)->validate(); //shortcut
+        $this->formValidate_service($request)->validate();
 
 
         $image = $request->file('image');

@@ -22,7 +22,7 @@ Route::group(['prefix' => 'eproject'], function (){
 
 //user start
 
-    Route::get('product', [
+    Route::get('product/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@home_product',
         'as' => 'show.product'
 
@@ -94,14 +94,14 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.update.admin'
     ])->middleware('auth');
 
-    Route::get('change_password/admin/{username}',[
+    Route::get('change_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@password',
         'as' => 'admin.password'
     ])->middleware('auth');
 
 
     //route for edit password
-    Route::post('change_password/admin/{username}',[
+    Route::post('change_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_password',
         'as' => 'admin.change_password.'
     ])->middleware('auth');

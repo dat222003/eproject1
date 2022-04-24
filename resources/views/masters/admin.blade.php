@@ -127,7 +127,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.password', [ 'username' => session()->get('username')]) }}" class="nav_link {{ (isset($location))? ($location==='admin_password')? 'active': '' :''}}" >
+                                <a href="{{ route('admin.password', [ 'id' => session()->get('id')]) }}" class="nav_link {{ (isset($location))? ($location==='admin_password')? 'active': '' :''}}" >
                                     <i class='bx bx-key nav_icon'></i>
                                     <span class="nav_name" style="">&nbsp;&nbsp;Change Password</span>
                                 </a>

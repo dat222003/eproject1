@@ -26,7 +26,7 @@
                             <input id="image" name="image" type="file" value="" class="file" >
 
                             <div class="col-md-3">
-                              <select class="form-select mt-3" >
+                              <select class="form-select mt-3" name="type" >
                                 <option selected disabled value="">type</option>
                                 <option value="1">Product</option>
                                 <option value="2">Service</option>

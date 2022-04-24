@@ -35,6 +35,28 @@
                                     </div>
                                 </div>
                         @endfor
+                        @for($i = 0; $i<sizeof($service); $i++)
+                            @if($i == 6) @break @endif
+                            <div class="col-md-6 wow slideInUp" data-wow-delay="0.1s">
+                                <div class="blog-item bg-light rounded overflow-hidden">
+                                    <div class="blog-img position-relative overflow-hidden">
+                                        <div class="sizing">
+                                            <img class="img-fluid" src="{{ url('img/admin_upload/'. $service[$i]->image) }}" alt="image">
+                                        </div>
+                                        <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4">{{$service[$i]->service_validity_period}}/month</a>
+                                    </div>
+                                    <div class="p-4">
+                                        <h1 class="display-5 mb-3">
+                                            <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>
+                                            {{$service[$i]->price}}
+                                        </h1>
+                                        <h4 class="mb-3">{{$service[$i]->name}}</h4>
+                                        <p>{{$service[$i]->description}}</p>
+                                        <!--                                    <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
                         <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination pagination-lg m-0">
