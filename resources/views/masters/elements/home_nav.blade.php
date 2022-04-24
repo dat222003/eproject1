@@ -116,10 +116,11 @@
                 <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex align-items-center justify-content-center">
-                <div class="input-group" style="max-width: 600px;">
-                    <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
-                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                </div>
+                <form method="post" action="{{ route('home.search') }}" class="input-group" style="max-width: 600px;">
+                    @csrf
+                    <input type="text" name="keyword" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                    <button value="submit" class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                </form>
             </div>
         </div>
     </div>

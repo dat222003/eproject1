@@ -33,6 +33,20 @@ class eprojectController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $product = product::where('name', 'like', '%'. $keyword. '%')->get();
+        $category = category::all();
+        $service = service::where('name', 'like', '%'. $keyword. '%')->get();
+
+        return view('masters.home.home_product',[
+            'product' => $product,
+            'category' => $category,
+            'service' => $service
+        ]);
+    }
+
     public function user_register(){
         $product = product::all();
         $category = category::all();

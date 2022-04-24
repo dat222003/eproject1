@@ -156,6 +156,7 @@
 
 
         @yield('form')
+
         @yield('main')
 
 
