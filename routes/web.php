@@ -77,12 +77,6 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('auth');
 
-//    Route::get('admin_index_account', [
-//        'uses' => 'App\Http\Controllers\eprojectController@index_admin',
-//        'as' => 'admin.index.admin'
-//
-//    ])->$this->middleware('auth);
-
     Route::get('detail_admin/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@index_admin',
         'as' => 'admin.detail.admin'
@@ -102,16 +96,14 @@ Route::group(['prefix' => 'eproject'], function (){
     Route::get('edit_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@password',
         'as' => 'admin.password'
-    ])
-//        ->middleware('auth')
-    ;
+    ])->middleware('auth');
 
 
     //route for edit password
     Route::post('change_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_password',
         'as' => 'admin.change.password'
-    ]);
+    ])->middleware('auth');
 
 
 

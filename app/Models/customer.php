@@ -17,8 +17,8 @@ class customer extends Model
         'dob',
         'gender',
         'email',
-        'contact_number',
-        'address'
+        'phone',
+        'message'
     ];
 
 }

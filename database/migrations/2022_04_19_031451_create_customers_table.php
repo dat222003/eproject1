@@ -19,8 +19,8 @@ return new class extends Migration
             $table->date('dob');
             $table->integer('gender');
             $table->string('email', '30');
-            $table->string('contact_number', '50');
-            $table->string('address', '200');
+            $table->string('phone', '50');
+            $table->string('message', '2000');
             $table->timestamps();
         });
     }

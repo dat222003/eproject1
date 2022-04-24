@@ -40,7 +40,7 @@ class eprojectController extends Controller
         $category = category::all();
         $service = service::where('name', 'like', '%'. $keyword. '%')->get();
 
-        return view('masters.home.home_product',[
+        return view('masters.home.search_product',[
             'product' => $product,
             'category' => $category,
             'service' => $service

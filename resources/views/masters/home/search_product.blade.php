@@ -68,8 +68,8 @@
                             @if($service !== null && $product !== null)
 {{--                                <h1>Sorry For The Inconvenience We Not Found Anything Match Your Keyword</h1>--}}
                                 <div class="col-md-4 wow slideInUp" data-wow-delay="0.1s">
-                                    <div class="blog-item bg-light rounded overflow-hidden">
-                                        <h1>Sorry For The Inconvenience We Not Found Anything Match Your Keyword</h1>
+                                    <div class="p-4">
+                                        <h1>Sorry For The Inconvenience We Not Found Anything Match Your Keyword</h1><!--                                    <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>-->
                                     </div>
                                 </div>
                             @endif
