@@ -484,7 +484,8 @@ h6,
 }
 
 .modal-content {
-    background-color: transparent !important;
+    background-color: rgba(2,1,1,0.70)!important;
+    /*background-color: transparent !important;*/
     border: 0 !important
 }
 
@@ -538,4 +539,5 @@ div.sizing-category{
 .text-inside{
     word-wrap    : break-word;
     overflow-wrap: break-word;
+    color: white !important;
 }

@@ -56,27 +56,27 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class=" text-inside col ms-auto border border-2 rounded  bg-light">
-                                                                    <h4>
+                                                                <div class="text-inside col ms-auto">
+                                                                    <h4 class="text-inside">
                                                                         {{$product[$i]->name}}
                                                                     </h4>
-                                                                    <h4>
+                                                                    <h4 class="text-inside">
                                                                         <small style="font-size: 18px; line-height: 45px;">Weight: </small>{{$product[$i]->weight}}g
                                                                     </h4>
-                                                                    <h4>
+                                                                    <h4 class="text-inside">
                                                                         <small style="font-size: 18px; line-height: 45px;">Brand:</small>
                                                                         {{$product[$i]->brand}}
                                                                     </h4>
-                                                                    <p>
+                                                                    <p class="text-inside">
                                                                         {{$product[$i]->description}}
                                                                     </p>
-                                                                    <h4>
+                                                                    <h4 class="text-inside">
                                                                         <small style="font-size: 18px; line-height: 45px;">Manufacturer: </small>{{$product[$i]->manufacturer}}
                                                                     </h4>
-                                                                    <h4>
+                                                                    <h4 class="text-inside">
                                                                         <small style="font-size: 18px; line-height: 20px;">Expiration In: </small>{{$product[$i]->expiration_date}}
                                                                     </h4><br><br>
-                                                                    <h1>
+                                                                    <h1 class="text-inside">
                                                                         <small class="align-top " style="font-size: 22px; line-height: 45px;">$</small>{{$product[$i]->price}}
                                                                     </h1>
                                                                 </div>
