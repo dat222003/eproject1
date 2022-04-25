@@ -450,21 +450,20 @@ class eprojectController extends Controller
 
         $this->formValidate_category($request)->validate(); //shortcut
 
-        $product = product::where('id', $id)->first();
+        $category = category::where('id', $id)->first();
         if ( ($request->file('image')) ){ //if user input contain new image update
-            unlink((public_path('img/admin_upload/'.$product->image)));
+            unlink((public_path('img/admin_upload/'.$category->image)));
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
             //store image to folder public
             $image->move('img/admin_upload', $name );
             //store image_name to database
-            $product->image = $name;
+            $category->image = $name;
         }
 
         $category->type = $request->input('type');
         $category->name = $request->input('name');
-        $category->image = $name;
-        $category->description = $request->input('name');
+        $category->description = $request->input('description');
         $category->update();
 
         return redirect()->action('eprojectController@index_category')
@@ -812,15 +811,15 @@ class eprojectController extends Controller
 
         $this->formValidate_service($request)->validate();
 
-        $product = product::where('id', $id)->first();
+        $service = service::where('id', $id)->first();
         if ( ($request->file('image')) ){ //if user input contain new image update
-            unlink((public_path('img/admin_upload/'.$product->image)));
+            unlink((public_path('img/admin_upload/'.$service->image)));
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
             //store image to folder public
             $image->move('img/admin_upload', $name );
             //store image_name to database
-            $product->image = $name;
+            $service->image = $name;
         }
 
         $service = service::where('id', $id)->first();
@@ -829,7 +828,6 @@ class eprojectController extends Controller
         $service->price = $request->input('price');
         $service->description = $request->input('description');
         $service->service_validity_period = $request->input('service_validity_period');
-        $service->image = $name;
 
         $service->update();
 

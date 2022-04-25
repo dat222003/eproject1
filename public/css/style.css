@@ -270,3 +270,10 @@ a {
         width: calc(var(--nav-width) + 200px);
         background-color: var(--first-color)
     }
+
+    .sizing{
+        width: 300px;
+        height:260px;
+        border:none;
+        /*background-color: transparent;*/
+    }
