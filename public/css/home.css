@@ -514,7 +514,7 @@ div.sizing-detail{
     width: 500px;
     height:420px;
     border:none;
-    background-color: transparent;
+    /*background-color: transparent;*/
 }
 
 div.sizing-category{

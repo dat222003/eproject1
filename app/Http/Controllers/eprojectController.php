@@ -421,6 +421,7 @@ class eprojectController extends Controller
             return redirect()->action('eprojectController@index_category');
         }
         $category= category::where('id', $id)->first();
+        unlink((public_path('img/admin_upload/'.$category->image)));
         $category->delete();
 
 
@@ -446,17 +447,20 @@ class eprojectController extends Controller
             //id in query string must match id in hidden input
             return redirect()->action('eprojectController@index_category');
         }
-//dd($request);
+
         $this->formValidate_category($request)->validate(); //shortcut
 
-        //xu li file anh
-        $image = $request->file('image');
-        $name = $image->getClientOriginalName();
-        //
+        $product = product::where('id', $id)->first();
+        if ( ($request->file('image')) ){ //if user input contain new image update
+            unlink((public_path('img/admin_upload/'.$product->image)));
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            //store image to folder public
+            $image->move('img/admin_upload', $name );
+            //store image_name to database
+            $product->image = $name;
+        }
 
-        $image->move('img/admin_upload', $name );
-
-        $category = category::where('id', $id)->first();
         $category->type = $request->input('type');
         $category->name = $request->input('name');
         $category->image = $name;
@@ -474,7 +478,7 @@ class eprojectController extends Controller
             $request->all(),
             [
                 'name' => ['required'],
-                'image'=> ['required', 'mimes:jpeg,jpg,png', 'max:2000'],
+                'image'=> ['mimes:jpeg,jpg,png', 'max:5000'],
                 'description'=> ['required']
             ],
         );
@@ -593,6 +597,7 @@ class eprojectController extends Controller
         }
 
         $product = product::where('id', $id)->first();
+        unlink((public_path('img/admin_upload/'.$product->image)));
         $product->delete();
 
 
@@ -620,16 +625,21 @@ class eprojectController extends Controller
             return redirect()->action('eprojectController@index_product');
         }
 
+
         $this->formValidate_product($request)->validate(); //shortcut
 
-
-        $image = $request->file('image');
-        $name = $image->getClientOriginalName();
-
-        $image->move('img/admin_upload', $name );
-
         $product = product::where('id', $id)->first();
-        //store image_name to database
+        if ( ($request->file('image')) ){ //if user input contain new image update
+            unlink((public_path('img/admin_upload/'.$product->image)));
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            //store image to folder public
+            $image->move('img/admin_upload', $name );
+            //store image_name to database
+            $product->image = $name;
+        }
+
+
         $product->name = $request->input('name');
         $product->categoryid = $request->input('categoryid');
         $product->weight = $request->input('weight');
@@ -639,8 +649,6 @@ class eprojectController extends Controller
         $product->country_of_origin = $request->input('country_of_origin');
         $product->expiration_date = $request->input('expiration_date');
         $product->manufacturer = $request->input('manufacturer');
-        $product->image = $name;
-        //dd($product);
         $product->update();
 
         return redirect()->action('eprojectController@index_product')
@@ -663,7 +671,7 @@ class eprojectController extends Controller
                 'country_of_origin' => ['required'],
                 'expiration_date' => ['required'],
                 'manufacturer' => ['required'],
-                'image' => ['required', 'mimes:jpeg,jpg,png', 'max:2000'],
+                'image' => ['mimes:jpeg,jpg,png', 'max:5000'],
 
             ],
         );
@@ -774,6 +782,7 @@ class eprojectController extends Controller
         }
 
         $service= service::where('id', $id)->first();
+        unlink((public_path('img/admin_upload/'.$service->image)));
         $service->delete();
 
 
@@ -803,11 +812,16 @@ class eprojectController extends Controller
 
         $this->formValidate_service($request)->validate();
 
-
-        $image = $request->file('image');
-        $name = $image->getClientOriginalName();
-
-        $image->move('img/admin_upload', $name );
+        $product = product::where('id', $id)->first();
+        if ( ($request->file('image')) ){ //if user input contain new image update
+            unlink((public_path('img/admin_upload/'.$product->image)));
+            $image = $request->file('image');
+            $name = $image->getClientOriginalName();
+            //store image to folder public
+            $image->move('img/admin_upload', $name );
+            //store image_name to database
+            $product->image = $name;
+        }
 
         $service = service::where('id', $id)->first();
         $service->categoryid = $request->input('categoryid');
@@ -835,7 +849,7 @@ class eprojectController extends Controller
                 'categoryid' => ['required'],
                 'description' => ['required'],
                 'service_validity_period' => ['required','numeric','gt:0'],
-                'image' => ['required', 'mimes:jpg,png', 'max:2000'],
+                'image' => ['mimes:jpg,png', 'max:5000'],
 
             ],
         );

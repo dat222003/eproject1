@@ -56,8 +56,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="text-inside col ms-auto border border-2 rounded  bg-light">
-                                                                    <hr>
+                                                                <div class=" text-inside col ms-auto border border-2 rounded  bg-light">
                                                                     <h4>
                                                                         {{$product[$i]->name}}
                                                                     </h4>
