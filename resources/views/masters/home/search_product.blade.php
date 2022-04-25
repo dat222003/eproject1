@@ -16,7 +16,7 @@
                     <div class="row g-5">
                         @if($product != null)
                             @for($i = 0; $i<sizeof($product); $i++)
-                                @if($i == 6) @break @endif
+                                {{--                                @if($i == 6) @break @endif--}}{{--  limit 6 prioducts--}}
                                 <div class="col-md-6 col-lg-4 wow slideInUp" data-wow-delay="0.1s">
                                     <div class="blog-item bg-light rounded overflow-hidden">
                                         <a href="#" style="border: none" data-bs-toggle="modal" data-bs-target="#modal{{ $product[$i]->id }}">
@@ -90,13 +90,12 @@
                                             <!-- Modal end -->
                                         </div>
                                     </div>
-
                                 </div>
                             @endfor
                         @endif
                         @if($service != null)
                             @for($i = 0; $i<sizeof($service); $i++)
-                                @if($i == 6) @break @endif
+                                    {{--                                @if($i == 6) @break @endif--}}{{--  limit 6 prioducts--}}
                                 <div class="col-md-4 wow slideInUp" data-wow-delay="0.1s">
                                     <div class="blog-item bg-light rounded overflow-hidden">
                                         <div class="blog-img position-relative overflow-hidden">
