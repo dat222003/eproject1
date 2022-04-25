@@ -47,7 +47,7 @@
                         <a href="{{ route('show.product', ['id' => 'service']) }}" class="dropdown-item">All</a>
                         @foreach( $category as $p)
                             @if($p->type == 2)
-                                <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ $p->name }}</a>
+                                <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ ucfirst($p->name) }}</a>
                             @endif
                         @endforeach
                     </div>
@@ -58,7 +58,7 @@
                         <a href="{{ route('show.product', ['id' => 'product']) }}" class="dropdown-item">All</a>
                        @foreach( $category as $p)
                            @if($p->type == 1)
-                            <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ $p->name }}</a>
+                            <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ ucfirst($p->name) }}</a>
                             @endif
                         @endforeach
                     </div>
