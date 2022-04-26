@@ -288,7 +288,8 @@ class eprojectController extends Controller
             }else{
                 return view('admin.change_password'
                     ,[
-                        'location' => 'admin_password'
+                        'location' => 'admin_password',
+                        'alert' => 'new password confirm not match'
                     ],
                     [
                         'admin_account' => $admin_account,
@@ -300,11 +301,13 @@ class eprojectController extends Controller
         }else{
             return view('admin.change_password'
                 ,[
-                    'location' => 'admin_password'
+                    'location' => 'admin_password',
+                    'alert' => 'invalid password'
                 ],
                 [
                     'admin_account' => $admin_account,
-                    'request' => $request
+                    'request' => $request,
+
                 ]
             );
         }
