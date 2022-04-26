@@ -8,7 +8,7 @@
             <div class="col-md-6 text-center mb-4">
                 <h2 class="heading-section">Categories
                     <small style="font-size: 20px">
-                    ( There Are {{ sizeof($category) }} categories)
+                    ( There Are {{ sizeof($category) }} categories )
                     </small>
                 </h2>
             </div>
