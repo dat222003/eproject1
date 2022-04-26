@@ -88,16 +88,17 @@ class eprojectController extends Controller
 
         switch ($id) {
             case 'product':
-//                $product = product::all();
+//              $product = product::all();
                 $product = product::paginate(9);
                 $service = null;
                 break;
             case 'service':
-                $service = service::all();
-//                $page = sizeof($product)/6;
+//                $service = service::all();
+                $service = service::paginate(9);
                 $product = null;
                 break;
             default:
+//                $product = product::where('categoryid', $id)->get();
                 $product = product::where('categoryid', $id)->get();
                 $service = service::where('categoryid', $id)->get();
 
@@ -108,8 +109,7 @@ class eprojectController extends Controller
         return view('masters.home.home_product',[
             'product' => $product,
             'category' => $category,
-            'service' => $service,
-//            'page' => $page
+            'service' => $service
         ]);
     }
 

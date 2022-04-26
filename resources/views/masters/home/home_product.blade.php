@@ -170,13 +170,22 @@
                                             <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
                                         </a>
                                     </li>
+{{--                                    {{ dd(($product->links()->elements)[0]) }}--}}
+                                    @if( (($service) == null) )
                                     @foreach(($product->links()->elements)[0] as $key => $value )
                                         <li class="page-item
-                                            {{
-                                                isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING']=='page='.$key ? "active" : "" : ""
-                                            }}
-                                            "><a class="page-link" href="{{ $value }}">{{ $key }}</a></li>
+                                            @if(isset($_SERVER['QUERY_STRING']))
+                                                @if($_SERVER['QUERY_STRING']=='page='.$key) {{ "active" }} @endif
+                                            @else
+                                                @if($key==1) {{ "active" }} @endif
+                                            @endif
+
+                                            "><a class="page-link" href="{{ $value }}">{{ $key }}</a>
+                                        </li>
                                     @endforeach
+                                    @else
+
+                                    @endif
                                     <li class="page-item">
                                         <a class="page-link rounded-0" href="#" aria-label="Next">
                                             <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
