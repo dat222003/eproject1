@@ -8,7 +8,11 @@
 
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-4">
-                <h2 class="heading-section">Products</h2>
+                <h2 class="heading-section">Products
+                    <small style="font-size: 20px">
+                        ( There Are {{ sizeof($product) }} products)
+                    </small>
+                </h2>
             </div>
             <a href="{{ route('admin.create.product') }}"
                class="btn btn-primary">

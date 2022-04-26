@@ -494,7 +494,7 @@ class eprojectController extends Controller
 
     public function index_product()
     {
-        $product = product::all();//all for select all
+        $product = product::orderBy('categoryid', 'desc')->get();
 
         return view('masters.index_product'
             ,[
@@ -590,9 +590,7 @@ class eprojectController extends Controller
 
         return redirect()
             ->action('eprojectController@index_product')
-            ->with('status', 'New product with id: '.
-//                .$newId.
-                'has been created');
+            ->with('status', 'New product with has been created');
     }
 
 

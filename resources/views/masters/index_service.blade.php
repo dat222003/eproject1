@@ -6,7 +6,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-4">
-                <h2 class="heading-section">Services</h2>
+                <h2 class="heading-section">Services
+                    <small style="font-size: 20px">
+                        ( There Are {{ sizeof($service) }} services)
+                    </small>
+                </h2>
             </div>
             <a href="{{ route('admin.create.service') }}"
                class="btn btn-primary">
