@@ -167,7 +167,9 @@ class eprojectController extends Controller
         session()->flush();
         auth()->logout();
         return
-            view('masters.login')->with('alert', 'You Logged Out');
+            redirect()
+                ->action('eprojectController@admin_login', ['alert' => 'You Logged Out'])
+                ->with('alert', 'You Logged Out');
 
     }
 
@@ -211,11 +213,11 @@ class eprojectController extends Controller
         $admin_account = admin_account::where('id', $id)->first();
 
         $request->validate([
-        'username' => ['required'],
-        'password' => ['required', 'min:5', 'max:12'],
-        'full_name' => ['required'],
-        'email' => ['required', 'email'],
-        'phone' => ['required'],
+            'username' => ['required'],
+            'password' => ['required', 'min:5', 'max:12'],
+            'full_name' => ['required'],
+            'email' => ['required', 'email'],
+            'phone' => ['required'],
         ]);
 
         if (Hash::check($request->password , $admin_account->password)){
@@ -363,10 +365,13 @@ class eprojectController extends Controller
     public function store_category(Request $request)
     {
 
-//        dd($request);
-        $this->formValidate_category($request)->validate();
+        $request->validate([
+                'name' => ['required'],
+                'image'=> ['required', 'mimes:jpeg,jpg,png', 'max:5000'],
+                'description'=> ['required']
+            ]
+        );
 
-        //lay image_name
         $image = $request->file('image');
 
         $name = $image->getClientOriginalName();
@@ -374,7 +379,6 @@ class eprojectController extends Controller
         //store image to `public/admin_upload` folder
 
         $image->move('img/admin_upload', $name );
-
 
         //store image_name to database as text
         $category = new category();
@@ -404,7 +408,6 @@ class eprojectController extends Controller
     public function delete_category(Request $request, $id)
     {
         if ($request->input('id') != $id) {
-            //id in query string must match id in hidden input
             return redirect()->action('eprojectController@index_category');
         }
         $category= category::where('id', $id)->first();
@@ -431,7 +434,6 @@ class eprojectController extends Controller
     public function update_category(Request $request, $id)
     {
         if ($id != $request->input('id')) {
-            //id in query string must match id in hidden input
             return redirect()->action('eprojectController@index_category');
         }
 
@@ -442,9 +444,7 @@ class eprojectController extends Controller
             unlink((public_path('img/admin_upload/'.$category->image)));
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
-            //store image to folder public
             $image->move('img/admin_upload', $name );
-            //store image_name to database
             $category->image = $name;
         }
 
@@ -533,17 +533,27 @@ class eprojectController extends Controller
     public function store_product(Request $request)
     {
 //        dd($request);
-        $this->formValidate_product($request)->validate(); //shortcut
+
+        $request->validate([
+            'name' => ['required'],
+            'weight' => ['required', 'numeric', 'gt:0'],
+            'price' => ['required', 'numeric', 'gt:0'],
+            'categoryid' => ['required'],
+            'description' => ['required'],
+            'brand' => ['required'],
+            'country_of_origin' => ['required'],
+            'expiration_date' => ['required'],
+            'manufacturer' => ['required'],
+            'image' => ['required', 'mimes:jpeg,jpg,png', 'max:5000'],
+        ]);
 
         $image = $request->file('image');
         $name = $image->getClientOriginalName();
 
-        //store image to `public/admin_upload` folder
         $image->move('img/admin_upload', $name );
 
-
         $product = new product();
-        //store image_name to database
+
         $product->name = $request->input('name');
         $product->categoryid = $request->input('categoryid');
         $product->weight = $request->input('weight');
@@ -726,8 +736,14 @@ class eprojectController extends Controller
 
     public function store_service(Request $request)
     {
-//        dd($request);
-        $this->formValidate_service($request)->validate(); //shortcut
+        $request->validate([
+            'name' => ['required'],
+            'price' => ['required','numeric' ,'gt:0'],
+            'categoryid' => ['required'],
+            'description' => ['required'],
+            'service_validity_period' => ['required','numeric','gt:0'],
+            'image' => ['required', 'mimes:jpg,png', 'max:5000'],
+        ]);
 
         $image = $request->file('image');
         $name = $image->getClientOriginalName();
@@ -803,9 +819,7 @@ class eprojectController extends Controller
             unlink((public_path('img/admin_upload/'.$service->image)));
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
-            //store image to folder public
             $image->move('img/admin_upload', $name );
-            //store image_name to database
             $service->image = $name;
         }
 

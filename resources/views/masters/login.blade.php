@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V3</title>
+    <title>Admin Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- For tunnel test -->
@@ -47,10 +47,17 @@
 						Admin Log in
                 </span>
 
+                @if (session('alert'))
+                    <div class="alert alert-danger">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{ session('alert') }}<br>
+                    </div>
+                @endif
+
                 @if (!empty($alert))
                     <div class="alert alert-danger">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        {{ $alert }}
+                        {{ $alert }}<br>
                     </div>
                 @endif
 
