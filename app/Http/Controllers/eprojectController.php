@@ -368,7 +368,8 @@ class eprojectController extends Controller
         $request->validate([
                 'name' => ['required'],
                 'image'=> ['required', 'mimes:jpeg,jpg,png', 'max:5000'],
-                'description'=> ['required']
+                'description'=> ['required'],
+                'type' => ['required']
             ]
         );
 
@@ -465,7 +466,8 @@ class eprojectController extends Controller
             [
                 'name' => ['required'],
                 'image'=> ['mimes:jpeg,jpg,png', 'max:5000'],
-                'description'=> ['required']
+                'description'=> ['required'],
+                'type' => ['required']
             ],
         );
     }
@@ -545,6 +547,9 @@ class eprojectController extends Controller
             'expiration_date' => ['required'],
             'manufacturer' => ['required'],
             'image' => ['required', 'mimes:jpeg,jpg,png', 'max:5000'],
+        ],
+        [
+            'categoryid.required' => 'Please choose a catagory for the product'
         ]);
 
         $image = $request->file('image');
@@ -669,8 +674,10 @@ class eprojectController extends Controller
                 'manufacturer' => ['required'],
                 'image' => ['mimes:jpeg,jpg,png', 'max:5000'],
 
-            ],
-        );
+                ],
+                [
+                    'categoryid.required' => 'Please choose a catagory for the product'
+                ]);
     }
 
 
@@ -743,6 +750,9 @@ class eprojectController extends Controller
             'description' => ['required'],
             'service_validity_period' => ['required','numeric','gt:0'],
             'image' => ['required', 'mimes:jpg,png', 'max:5000'],
+        ],
+        [
+            'categoryid.required' => 'Please choose a catagory for the service'
         ]);
 
         $image = $request->file('image');
@@ -851,7 +861,9 @@ class eprojectController extends Controller
                 'image' => ['mimes:jpg,png', 'max:5000'],
 
             ],
-        );
+            [
+                'categoryid.required' => 'Please choose a catagory for the service'
+            ]);
     }
 
 }
