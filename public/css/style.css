@@ -270,6 +270,10 @@ a {
         width: calc(var(--nav-width) + 200px);
         background-color: var(--first-color)
     }
+    .show-modal{
+        width: 100% !important;
+        background: none;
+    }
 
     .sizing{
         width: 300px;

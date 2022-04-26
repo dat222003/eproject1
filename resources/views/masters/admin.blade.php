@@ -57,15 +57,13 @@
                         class="nav_logo-name">&nbsp;&nbsp;Admin</span> </a>
                 <div class="nav_list">
                     <div class="nav-item dropdown
+                        {{ (isset($location))? ($location==='product_index')? 'active': '' :''}}
                         {{ (isset($location))? ($location==='service_index')? 'active': '' :''}}
-                        {{ (isset($location))? ($location==='admin_index')? 'active': '' :''}}
                         {{ (isset($location))? ($location==='category_index')? 'active': '' :''}}
                         ">
                         <a href="#"
-                           class="nav_link {{ (isset($location))? ($location==='admin_index')? 'active': '' :''}} "
+                           class="nav_link "
                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-
                             <i class='bx bx-grid-alt nav_icon'></i>
                             <span class="nav_name">&nbsp; Data  <i class='bx bxs-down-arrow bx-fade-down-hover '></i>
                             </span>

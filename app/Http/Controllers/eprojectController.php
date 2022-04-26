@@ -49,6 +49,7 @@ class eprojectController extends Controller
     }
 
     public function user_register(){
+
         $product = product::all();
         $category = category::all();
         $service = service::all();
@@ -82,7 +83,33 @@ class eprojectController extends Controller
 
 
 
+    public function home_product($id){
 
+
+        switch ($id) {
+            case 'product':
+                $product = product::all();
+                $service = null;
+                break;
+            case 'service':
+                $service = service::all();
+                $product = null;
+                break;
+            default:
+                $product = product::where('categoryid', $id)->get();
+                $service = service::where('categoryid', $id)->get();
+
+        }
+        $category = category::all();
+
+        return view('masters.home.home_product',[
+            'product' => $product,
+            'category' => $category,
+            'service' => $service
+        ]);
+    }
+
+    //admin
 
     public function admin()
     {
@@ -103,33 +130,7 @@ class eprojectController extends Controller
         );
     }
 
-    public function home_product($id){
 
-
-        switch ($id) {
-            case 'product':
-                $product = product::all();
-                $service = null;
-                break;
-            case 'service':
-                $service = service::all();
-                $product = null;
-                break;
-            default:
-                $product = product::where('categoryid', $id)->get();
-                $service = service::where('categoryid', $id)->get();
-//                dd(($product));
-        }
-        $category = category::all();
-
-        return view('masters.home.home_product',[
-            'product' => $product,
-            'category' => $category,
-            'service' => $service
-        ]);
-    }
-
-    //admin
     public function admin_login()
     {
 
@@ -344,6 +345,9 @@ class eprojectController extends Controller
         return view('category.show_category',
             [
                 'category' => $category
+            ],
+            [
+                'location' => 'category_index'
             ]
         );
     }
@@ -360,7 +364,7 @@ class eprojectController extends Controller
                 ]
             ],
             [
-                'location' => 'new_category'
+                'location' => 'category_index'
             ]
         );
     }
@@ -403,8 +407,10 @@ class eprojectController extends Controller
         $category= category::where('id', $id)->first();
         return view('category.confirm_category',
             [
-//                'id' => $id,
                 'category'=> $category,
+            ],
+            [
+                'location' => 'category_index'
             ]
         );
     }
@@ -431,6 +437,9 @@ class eprojectController extends Controller
             'category.edit_category',
             [
                 'category'=>$category
+            ],
+            [
+                'location' => 'category_index'
             ]
         );
     }
@@ -505,6 +514,9 @@ class eprojectController extends Controller
             [
                 'product' => $product,
                 'category' => $category
+            ],
+            [
+                'location' => 'product_index'
             ]
         );
     }
@@ -530,7 +542,7 @@ class eprojectController extends Controller
             ],
             [
                 'category' => $category,
-                'location' => 'new_product'
+                'location' => 'product_index'
             ]
         );
     }
@@ -588,8 +600,10 @@ class eprojectController extends Controller
         $product = product::where('id', $id)->first();
         return view('product.confirm_product',
             [
-//                'id' => $id,
                 'product'=> $product,
+            ],
+            [
+                'location' => 'product_index'
             ]
         );
     }
@@ -618,6 +632,9 @@ class eprojectController extends Controller
             'product.edit_product',
             [
                 'product'=>$product,'category'=> $category,'categoryid'=>$categoryid
+            ],
+            [
+                'location' => 'product_index'
             ]
         );
     }
@@ -717,6 +734,9 @@ class eprojectController extends Controller
             [
                 'service' => $service,
                 'category' => $category
+            ],
+            [
+                'location' => 'service_index'
             ]
         );
     }
@@ -739,7 +759,7 @@ class eprojectController extends Controller
             ],
             [
                 'category' => $category,
-                'location' => 'new_service'
+                'location' => 'service_index'
             ]
         );
     }
@@ -786,6 +806,9 @@ class eprojectController extends Controller
         return view('service.confirm_service',
             [
                 'service'=> $service,
+            ],
+            [
+                'location' => 'service_index'
             ]
         );
     }
@@ -814,6 +837,9 @@ class eprojectController extends Controller
             'service.edit_service',
             [
                 'service'=>$service, 'category'=> $category, 'categoryid'=>$categoryid
+            ],
+            [
+                'location' => 'service_index'
             ]
         );
     }
