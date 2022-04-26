@@ -4,6 +4,8 @@
     <title>Login V3</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- For tunnel test -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ url('img/system/login-favicon.ico')}}"/>
     <!--===============================================================================================-->
@@ -31,7 +33,7 @@
 </head>
 <body>
 
-
+{{--{{ dd(old('username')) }}--}}
 <div class="limiter">
     <div class="container-login100" style="background-image: {{url('img/system/bg-01.jpg')}} ;">
         <div class="wrap-login100">
@@ -45,22 +47,26 @@
 						Admin Log in
                 </span>
 
-                @if (session('alert'))
+                @if (!empty($alert))
                     <div class="alert alert-danger">
                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                        {{ session('alert') }}
+                        {{ $alert }}
                     </div>
                 @endif
 
                 <div class="wrap-input100 " data-validate = "Enter username">
-                    <input class="input100" type="text" name="username" placeholder="Username" value="{{ session()->pull('username') }}">
+                    <input class="input100" type="text" name="username" required placeholder="Username" value="{{
+                    $request->username ?? old('username')
+                    }}">{{--                    session()->pull('username') --}}
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
                 @error('username')<span style="color: #d90718 "> {{$message}}</span><br><br> @enderror
                 <i id="show" onclick="show_password()" class="fa-solid fa-eye"></i>
                 <i id="hide" onclick="show_password()" class="fa-solid fa-eye-slash"></i>
                 <div class="wrap-input100 " data-validate="Enter password">
-                    <input class="input100 input-group" id="sspassword" type="password" name="password" placeholder="Password" value="{{ session()->pull('password') }}">
+                    <input class="input100 input-group" id="sspassword" required type="password" name="password" placeholder="Password" value="{{
+                        $request->password ?? old('password')
+                    }}">{{--                    session()->pull('password') --}}
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
                 </div>
                 @error('password')<span style="color: #d90718" > {{$message}} </span><br><br> @enderror

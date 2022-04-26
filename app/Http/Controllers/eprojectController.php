@@ -145,19 +145,9 @@ class eprojectController extends Controller
 
     public function login(Request $request)
     {
-        session()->put('username', $request->username);
-        session()->put('password', $request->password);
-        $request->validate([
-            'username' => ['required'],
-            'password' => ['required', 'min:5']
-            ],
-            [
-                'password.required' => 'The password field is required',
-                'password.min' => 'The password has at least 5 characters'
-            ]
-        );
-//        dd($request);
+
         $admin_account = admin_account::where('username', $request->username)->first();
+        if ($admin_account){
             if (auth()->attempt(
                 request()->only('username', 'password'),
                 request()->filled('remember')
@@ -166,21 +156,18 @@ class eprojectController extends Controller
                         redirect()
                         ->action('eprojectController@admin')
                         ->with('status', 'logged in Successfull');
-                }else{
-
-                    return
-                        redirect()->action('eprojectController@login')
-                        ->with('alert', 'Credentials invalid');
                 }
+        }
+        return
+            view('masters.login')->with('alert', 'Credentials invalid')->with('request', $request);
+
     }
 
     public function logout(){
         session()->flush();
         auth()->logout();
         return
-            redirect()
-            ->action('eprojectController@login')
-            ->with('alert', 'you logged out');
+            view('masters.login')->with('alert', 'You Logged Out');
 
     }
 

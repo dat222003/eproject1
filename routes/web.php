@@ -77,6 +77,12 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('loggedin');
 
+//    Route::get('admin', [
+//        'uses' => 'App\Http\Controllers\eprojectController@login',
+//        'as' => 'login'
+//
+//    ])->middleware('loggedin');
+
     Route::post('admin', [
         'uses' => 'App\Http\Controllers\eprojectController@login',
         'as' => 'login'
@@ -110,8 +116,6 @@ Route::group(['prefix' => 'eproject'], function (){
         'as' => 'admin.password'
     ])->middleware('auth');
 
-
-    //route for edit password
     Route::post('change_password/admin/{id}',[
         'uses' => 'App\Http\Controllers\eprojectController@edit_password',
         'as' => 'admin.change.password'

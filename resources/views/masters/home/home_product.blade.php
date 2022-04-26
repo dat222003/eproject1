@@ -52,7 +52,7 @@
                                                                 <div class="col" >
                                                                     <div >
                                                                         <div class="sizing-detail">
-                                                                            <img class="img-fluid rounded" src="{{ url('img/admin_upload/'. $product[$i]->image) }}" alt="image ">
+                                                                            <img class="img-fluid " src="{{ url('img/admin_upload/'. $product[$i]->image) }}" alt="image ">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -131,7 +131,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="sizing-detail col ms-auto border border-2 rounded bg-light">
+                                                                <div class="sizing-detail col ms-auto ">
                                                                     <br>
                                                                     <h4>
                                                                         {{$service[$i]->name}}

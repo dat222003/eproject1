@@ -160,7 +160,7 @@
                                 </div>
                             @endfor
                         @endif
-                            @if( sizeof($service) == null and  sizeof($product) == null) )
+                            @if( sizeof($service) == null and  sizeof($product) == null)
                                 <div class=" wow slideInUp" data-wow-delay="0.1s">
                                         <h1 style="color: red">Sorry For The Inconvenience We Not Found Anything Match Your Keyword</h1><!--                                    <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>-->
                                 </div>
