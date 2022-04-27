@@ -165,28 +165,29 @@
                                         <h1 style="color: red">Sorry For The Inconvenience We Not Found Anything Match Your Keyword</h1><!--                                    <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>-->
                                 </div>
                             @endif
-                        {{--                            page start--}}
-                        <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination pagination-lg m-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link rounded-0" href="#" aria-label="Previous">
-                                            <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link rounded-0" href="#" aria-label="Next">
-                                            <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        {{--                        page end--}}
+                        <!-- paginate Start -->
+{{--                        <div class="col-12 wow slideInUp" data-wow-delay="0.1s">--}}
+{{--                            <nav aria-label="Page navigation">--}}
+{{--                                <ul class="pagination pagination-lg m-0">--}}
+{{--                                    <li class="page-item disabled">--}}
+{{--                                        <a class="page-link rounded-0" href="#" aria-label="Previous">--}}
+{{--                                            <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>--}}
+{{--                                    <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+{{--                                    <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+{{--                                    <li class="page-item">--}}
+{{--                                        <a class="page-link rounded-0" href="#" aria-label="Next">--}}
+{{--                                            <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                            </nav>--}}
+{{--                        </div>--}}
+                        <!-- paginate End -->
                     </div>
+
                 </div>
                 <!-- product list End -->
 

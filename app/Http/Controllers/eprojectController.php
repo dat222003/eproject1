@@ -99,8 +99,8 @@ class eprojectController extends Controller
                 break;
             default:
 //                $product = product::where('categoryid', $id)->get();
-                $product = product::where('categoryid', $id)->get();
-                $service = service::where('categoryid', $id)->get();
+                $product = product::where('categoryid', $id)->paginate(1);
+                $service = service::where('categoryid', $id)->paginate(6);
 
         }
         $category = category::all();

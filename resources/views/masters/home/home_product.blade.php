@@ -3,7 +3,6 @@
 
 
 @section('main')
-
     {{--    product list start--}}
     <div >
         <img class="top_background" src="{{ url('img/system/dark.png') }}" alt="image">
@@ -165,13 +164,34 @@
                         <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination pagination-lg m-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link rounded-0" href="#" aria-label="Previous">
-                                            <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
-                                        </a>
+{{--                                    {{ "disable"}}--}}
+{{--                                    {{dd( url()->current(). '?page=' .request()->page )}}--}}
+{{--                                    {{ dd(request()->page == 1) }}--}}
+{{--                                    {{ dd(($product->links()->elements)[0][1], substr($_SERVER['QUERY_STRING'], -1)) }}--}}
+                                    <li class="page-item
+
+                                        @if(isset($_SERVER['QUERY_STRING']))
+                                            @if( request()->page == 1){{'disabled'}}
+                                            ">
+                                            <a class="page-link rounded-0" href="#" aria-label="Previous">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
+                                            </a>
+                                            @else
+                                            ">
+                                            <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page-1 }}" aria-label="Previous">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
+                                            </a>
+
+                                            @endif
+                                        @else
+                                            {{'disabled'}}
+                                            ">
+                                            <a class="page-link rounded-0" href="#" aria-label="Previous">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
+                                            </a>
+                                        @endif
                                     </li>
-{{--                                    {{ dd(($product->links()->elements)[0]) }}--}}
-                                    @if( (($service) == null) )
+                                    @if( (($service) == null) || (sizeof($service) == 0) )
                                     @foreach(($product->links()->elements)[0] as $key => $value )
                                         <li class="page-item
                                             @if(isset($_SERVER['QUERY_STRING']))
@@ -186,10 +206,35 @@
                                     @else
 
                                     @endif
-                                    <li class="page-item">
-                                        <a class="page-link rounded-0" href="#" aria-label="Next">
-                                            <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
-                                        </a>
+
+                                    <li class="page-item
+                                        @if(isset($_SERVER['QUERY_STRING']))
+                                            @if( request()->page == sizeof(($product->links()->elements)[0])){{'disabled'}}
+                                            ">
+                                            <a class="page-link rounded-0" href="#" aria-label="Next">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                                            </a>
+                                            @else
+                                            ">
+                                            <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page+1 }}" aria-label="Next">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                                            </a>
+                                            @endif
+                                        @else
+                                            @if(sizeof(($product->links()->elements)[0]) > 1)
+                                            ">
+                                            <a class="page-link rounded-0" href="{{ url()->current().  '?page=2' }}"
+                                               aria-label="Next">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                                            </a>
+                                            @else
+                                            {{'disabled'}}">
+                                            <a class="page-link rounded-0" href="#"
+                                               aria-label="Next">
+                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                                            </a>
+                                            @endif
+                                        @endif
                                     </li>
                                 </ul>
                             </nav>
