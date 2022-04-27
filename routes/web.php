@@ -25,7 +25,6 @@ Route::group(['prefix' => 'eproject'], function (){
     Route::get('product/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@home_product',
         'as' => 'show.product'
-
     ]);
 
 
@@ -42,16 +41,16 @@ Route::group(['prefix' => 'eproject'], function (){
     ]);
 
     Route::get('home/search', [
-        'uses' => 'App\Http\Controllers\eprojectController@home',
-        'as' => 'home'
-
-    ]);
-
-    Route::post('home/search', [
         'uses' => 'App\Http\Controllers\eprojectController@search',
         'as' => 'home.search'
 
     ]);
+
+//    Route::post('home/search', [
+//        'uses' => 'App\Http\Controllers\eprojectController@search',
+//        'as' => 'home.search'
+//
+//    ]);
 
 
     Route::get('home', [

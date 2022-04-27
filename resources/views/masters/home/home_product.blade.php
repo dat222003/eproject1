@@ -131,7 +131,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="sizing-detail col ms-auto ">
-                                                                    <br>
+                                                                    <hr>
                                                                     <h4>
                                                                         {{$service[$i]->name}}
                                                                     </h4>
@@ -160,87 +160,129 @@
                             @endfor
                         @endif
 {{--                            page start--}}
-                        <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination pagination-lg m-0">
-                                    <li class="page-item
+{{--                        <div class="col-12 wow slideInUp" data-wow-delay="0.1s">--}}
+{{--                            <nav aria-label="Page navigation">--}}
+{{--                                <ul class="pagination pagination-lg m-0">--}}
+{{--                                    <li class="page-item--}}
 {{--    previous button--}}
-                                        @if(isset($_SERVER['QUERY_STRING']))
-                                            @if( request()->page == 1){{'disabled'}}
-                                            ">
-                                            <a class="page-link rounded-0" href="#" aria-label="Previous">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
-                                            </a>
-                                            @else
-                                            ">
-                                            <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page-1 }}" aria-label="Previous">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
-                                            </a>
+{{--                                        @if(isset($_SERVER['QUERY_STRING']))--}}
+{{--                                            @if( request()->page == 1){{'disabled'}}--}}
+{{--                                            ">--}}
+{{--                                            <a class="page-link rounded-0" href="#" aria-label="Previous">--}}
+{{--                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>--}}
+{{--                                            </a>--}}
+{{--                                            @else--}}
+{{--                                            ">--}}
+{{--                                            <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page-1 }}" aria-label="Previous">--}}
+{{--                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>--}}
+{{--                                            </a>--}}
 
-                                            @endif
-                                        @else
-                                            {{'disabled'}}
-                                            ">
-                                            <a class="page-link rounded-0" href="#" aria-label="Previous">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
-                                            </a>
-                                        @endif
-                                    </li>
+{{--                                            @endif--}}
+{{--                                        @else--}}
+{{--                                            {{'disabled'}}--}}
+{{--                                            ">--}}
+{{--                                            <a class="page-link rounded-0" href="#" aria-label="Previous">--}}
+{{--                                                <span aria-hidden="true"><i class="bi bi-arrow-left"></i></span>--}}
+{{--                                            </a>--}}
+{{--                                        @endif--}}
+{{--                                    </li>--}}
 {{--    links--}}
-                                    @if( (($service) == null) || (sizeof($service) == 0) )
-                                    @foreach(($product->links()->elements)[0] as $key => $value )
-                                        <li class="page-item
-                                            @if(isset($_SERVER['QUERY_STRING']))
-                                                @if($_SERVER['QUERY_STRING']=='page='.$key) {{ "active" }} @endif
-                                            @else
-                                                @if($key==1) {{ "active" }} @endif
-                                            @endif
-
-                                            "><a class="page-link" href="{{ $value }}">{{ $key }}</a>
-                                        </li>
-                                    @endforeach
-                                    @else
-
-                                    @endif
-
-                                    <li class="page-item
-{{--    next button--}}
-                                        @if(isset($_SERVER['QUERY_STRING']))
-                                            @if( request()->page == sizeof(($product->links()->elements)[0])){{'disabled'}}
-                                            ">
-                                            <a class="page-link rounded-0" href="#" aria-label="Next">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
-                                            </a>
-                                            @else
-                                            ">
-                                            <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page+1 }}" aria-label="Next">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
-                                            </a>
-                                            @endif
-                                        @else
-                                            @if(sizeof(($product->links()->elements)[0]) > 1)
-                                            ">
-                                            <a class="page-link rounded-0" href="{{ url()->current().  '?page=2' }}"
-                                               aria-label="Next">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
-                                            </a>
-                                            @else
-                                            {{'disabled'}}">
-                                            <a class="page-link rounded-0" href="#"
-                                               aria-label="Next">
-                                                <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
-                                            </a>
-                                            @endif
-                                        @endif
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        {{--                        page end--}}
+{{--                                    @if( (($service) == null) || (sizeof($service) == 0) )--}}
+{{--                                        @foreach(($product->links()->elements)[0] as $key => $value )--}}
+{{--                                            <li class="page-item--}}
+{{--                                                @if(isset($_SERVER['QUERY_STRING']))--}}
+{{--                                                    @if($_SERVER['QUERY_STRING']=='page='.$key) {{ "active" }} @endif--}}
+{{--                                                @else--}}
+{{--                                                    @if($key==1) {{ "active" }} @endif--}}
+{{--                                                @endif--}}
+{{--                                                    "><a class="page-link" href="{{ $value }}">{{ $key }}</a>--}}
+{{--                                        @endforeach--}}
+{{--                                            --}}{{--    next button--}}
+{{--                                            <li class="page-item--}}
+{{--                                            @if(isset($_SERVER['QUERY_STRING']))--}}
+{{--                                                @if( (request()->page == sizeof(($product->links()->elements)[0])) ){{'disabled'}}--}}
+{{--                                                    ">--}}
+{{--                                                    <a class="page-link rounded-0" href="#" aria-label="Next">--}}
+{{--                                                        <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                    </a>--}}
+{{--                                                @else--}}
+{{--                                                    ">--}}
+{{--                                                    <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page+1 }}" aria-label="Next">--}}
+{{--                                                        <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                    </a>--}}
+{{--                                                @endif--}}
+{{--                                            @else--}}
+{{--                                                @if(sizeof(($product->links()->elements)[0]) > 1)--}}
+{{--                                                    ">--}}
+{{--                                                    <a class="page-link rounded-0" href="{{ url()->current().  '?page=2' }}"--}}
+{{--                                                       aria-label="Next">--}}
+{{--                                                        <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                    </a>--}}
+{{--                                                @else--}}
+{{--                                                    {{'disabled'}}">--}}
+{{--                                                    <a class="page-link rounded-0" href="#"--}}
+{{--                                                       aria-label="Next">--}}
+{{--                                                        <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                    </a>--}}
+{{--                                                @endif--}}
+{{--                                            @endif--}}
+{{--                                            </li>--}}
+{{--                                            --}}{{--  end  next button--}}
+{{--                                    @else--}}
+{{--                                        @foreach(($service->links()->elements)[0] as $key => $value )--}}
+{{--                                                    <li class="page-item--}}
+{{--                                                @if(isset($_SERVER['QUERY_STRING']))--}}
+{{--                                                    @if($_SERVER['QUERY_STRING']=='page='.$key) {{ "active" }} @endif--}}
+{{--                                                @else--}}
+{{--                                                    @if($key==1) {{ "active" }} @endif--}}
+{{--                                                @endif--}}
+{{--                                                        "><a class="page-link" href="{{ $value }}">{{ $key }}</a>--}}
+{{--                                        @endforeach--}}
+{{--                                            --}}{{--    next button--}}
+{{--                                            <li class="page-item--}}
+{{--                                            @if(isset($_SERVER['QUERY_STRING']))--}}
+{{--                                                @if( (request()->page == sizeof(($service->links()->elements)[0])) ){{'disabled'}}--}}
+{{--                                                ">--}}
+{{--                                                <a class="page-link rounded-0" href="#" aria-label="Next">--}}
+{{--                                                    <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                </a>--}}
+{{--                                                @else--}}
+{{--                                                ">--}}
+{{--                                                <a class="page-link rounded-0" href="{{ url()->current(). '?page=' .request()->page+1 }}" aria-label="Next">--}}
+{{--                                                    <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                </a>--}}
+{{--                                                @endif--}}
+{{--                                            @else--}}
+{{--                                                @if(sizeof(($service->links()->elements)[0]) > 1)--}}
+{{--                                                    ">--}}
+{{--                                                    <a class="page-link rounded-0" href="{{ url()->current().  '?page=2' }}"--}}
+{{--                                                       aria-label="Next">--}}
+{{--                                                        <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                    </a>--}}
+{{--                                                @else--}}
+{{--                                                    {{'disabled'}}">--}}
+{{--                                                    <a class="page-link rounded-0" href="#"--}}
+{{--                                                       aria-label="Next">--}}
+{{--                                                        <span aria-hidden="true"><i class="bi bi-arrow-right"></i></span>--}}
+{{--                                                    </a>--}}
+{{--                                                @endif--}}
+{{--                                            @endif--}}
+{{--                                            </li>--}}
+{{--                                            --}}{{--  end  next button--}}
+{{--                                    @endif--}}
+{{--                                </ul>--}}
+{{--                            </nav>--}}
+{{--                        </div>--}}
+{{--                        page end--}}
                     </div>
                 </div>
                 <!-- product list End -->
-
+                @if( (($service) == null) || (sizeof($service) == 0) )
+                    {{ $product->links() }}
+                @endif
+                @if( (($product) == null) || (sizeof($product) == 0) )
+                    {{ $service->links() }}
+                @endif
             </div>
         </div>
     </div>

@@ -38,13 +38,14 @@ class eprojectController extends Controller
     {
         $keyword = $request->keyword;
         $product = product::where('name', 'like', '%'. $keyword. '%')->get();
-        $category = category::all();
         $service = service::where('name', 'like', '%'. $keyword. '%')->get();
-
+        $both = $service->merge($product)->paginate(9);
+        $category = category::all();
         return view('masters.home.search_product',[
             'product' => $product,
             'category' => $category,
-            'service' => $service
+            'service' => $service,
+            'both' => $both
         ]);
     }
 
@@ -93,14 +94,12 @@ class eprojectController extends Controller
                 $service = null;
                 break;
             case 'service':
-//                $service = service::all();
                 $service = service::paginate(9);
                 $product = null;
                 break;
             default:
-//                $product = product::where('categoryid', $id)->get();
-                $product = product::where('categoryid', $id)->paginate(1);
-                $service = service::where('categoryid', $id)->paginate(6);
+                $product = product::where('categoryid', $id)->paginate(9);
+                $service = service::where('categoryid', $id)->paginate(9);
 
         }
         $category = category::all();

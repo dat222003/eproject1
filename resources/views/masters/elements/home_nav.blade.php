@@ -79,7 +79,7 @@
                 <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex align-items-center justify-content-center">
-                <form method="post" action="{{ route('home.search') }}" class="input-group" style="max-width: 600px;">
+                <form method="get" action="{{ route('home.search') }}" class="input-group" style="max-width: 600px;">
                     @csrf
                     <input type="text" name="keyword" class="form-control border-primary p-3" placeholder="Type search keyword" style="color: black;">
                     <button value="submit" class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
