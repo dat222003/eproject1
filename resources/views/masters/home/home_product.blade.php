@@ -160,16 +160,11 @@
                             @endfor
                         @endif
 {{--                            page start--}}
-
                         <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination pagination-lg m-0">
-{{--                                    {{ "disable"}}--}}
-{{--                                    {{dd( url()->current(). '?page=' .request()->page )}}--}}
-{{--                                    {{ dd(request()->page == 1) }}--}}
-{{--                                    {{ dd(($product->links()->elements)[0][1], substr($_SERVER['QUERY_STRING'], -1)) }}--}}
                                     <li class="page-item
-
+{{--    previous button--}}
                                         @if(isset($_SERVER['QUERY_STRING']))
                                             @if( request()->page == 1){{'disabled'}}
                                             ">
@@ -191,6 +186,7 @@
                                             </a>
                                         @endif
                                     </li>
+{{--    links--}}
                                     @if( (($service) == null) || (sizeof($service) == 0) )
                                     @foreach(($product->links()->elements)[0] as $key => $value )
                                         <li class="page-item
@@ -208,6 +204,7 @@
                                     @endif
 
                                     <li class="page-item
+{{--    next button--}}
                                         @if(isset($_SERVER['QUERY_STRING']))
                                             @if( request()->page == sizeof(($product->links()->elements)[0])){{'disabled'}}
                                             ">
