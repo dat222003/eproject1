@@ -12,7 +12,7 @@
             <div class="row g-5">
                 <!-- search for product list Start -->
                 <div class="col-lg-12">
-                    <div class="row g-5">
+                    <div class="row">
                         @if($product != null)
                             @for($i = 0; $i<sizeof($product); $i++)
                                 {{--                                @if($i == 6) @break @endif--}}{{--  limit 6 products--}}
@@ -277,10 +277,10 @@
                     </div>
                 </div>
                 <!-- product list End -->
-                @if( (($service) == null) || (sizeof($service) == 0) )
+                @if( (($service) == null) || (sizeof($service) == 0))
                     {{ $product->links() }}
                 @endif
-                @if( (($product) == null) || (sizeof($product) == 0) )
+                @if( (($product) == null) || (sizeof($product) == 0))
                     {{ $service->links() }}
                 @endif
             </div>
