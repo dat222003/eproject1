@@ -735,7 +735,7 @@ class eprojectController extends Controller
 
     public function index_service()
     {
-        $service = service::all();
+        $service = service::orderBy('categoryid', 'desc')->get();
 
         return view('masters.index_service'
             ,[

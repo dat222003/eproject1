@@ -8,7 +8,7 @@
             <div class="col-md-6 text-center mb-4">
                 <h2 class="heading-section">Services
                     <small style="font-size: 20px">
-                        ( There Are {{ sizeof($service) }} services )
+                        ( Total {{ sizeof($service) }} services )
                     </small>
                 </h2>
             </div>

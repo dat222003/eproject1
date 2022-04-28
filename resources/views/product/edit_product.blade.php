@@ -64,6 +64,7 @@
                     <select name="categoryid" class="form-select mt-3" >
                         <option name="categoryid" selected disabled value="">Category</option>
                         @foreach($category as $c)
+                            @if($c->type == 2) @continue @endif
                             <option name="categoryid" value="{{ $c->id }}" {{ ($categoryid==$c->id)? 'selected' : '' }}>{{ $c->name }}</option>
                         @endforeach
                     </select>
