@@ -21,10 +21,16 @@
             color: black;
         }
 
+        #deeper{
+            border: 2px;
+            border-radius: .25rem;
+        }
+
+
 
     </style>
 
-    <div >
+    <div>
         <img class="top_background" src="{{ url('img/system/dark.png') }}" alt="image">
     </div>
 
@@ -100,7 +106,6 @@
         </div>
         <div>
             In addition to the CDA examination, students may also choose to complete the National Entry Level Dental Assistant test, which the DANB also administers. Students looking to work in specialized dental assisting can undertake further certifications, including:
-
             <ul>
                 <li>Orthodontic Dental Assistant</li>
                 <li>Preventive Functions Dental Assistant</li>
@@ -122,26 +127,27 @@
             After working for a number of years, dental assistants may choose to complete an advanced degree. Those who obtained an associate degree during their initial academic training can often transfer existing credits to a bachelor’s degree in dental hygiene. This 4-year degree opens the door for increased career mobility and greater earning potential.
         </div>
         <h2 class="text-center">What Does a Dental Assistant Do?</h2>
-        <div id="dig-deeper" class="c-dig-deeper flex flex-col mb-9 md:mb-12">
-            <div class="bg-quaternary-50 p-8 rounded-t-lg">
-                <div class="text-lg font-bold text-gray-600 mb-2">Dental Assistant Career Basics</div>
-                <p class="text-base">Dental assistants are frequently seen as crucial members of the dental team, providing a spectrum of services to support both dentists and administrative staff. While some states do not require formal licensure, others do, meaning that paths to the workforce vary. It also means the work dental assistants do may vary.</p>
+        <div id="dig-deeper" class="rounded">
+            <div class="card card-body" style="color: black; background-color: #e4f4e4">
+                <h4>Dental Assistant Career Basics</h4>
+                <p class="text-base">
+                    Dental assistants are frequently seen as crucial members of the dental team, providing a spectrum of services to support both dentists and administrative staff. While some states do not require formal licensure, others do, meaning that paths to the workforce vary. It also means the work dental assistants do may vary.
+                </p>
+                <a  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="color: blue; background-color: #e4f4e4">
+                    Show more
+                </a>
             </div>
             <div id="deeper" class="bg-primary">
                 <div class="collapse" id="collapseExample">
-                <div class="card card-body">
+                <div class="card card-body" style="color: black; background-color: #e4f4e4">
+                    <h4>Dental Assistant Career In-Depth</h4>
                     <p>
                         A dental assisting program can take anywhere from nine months to two years to complete, depending on whether it’s a certificate, diploma or degree program. After finishing their education and passing any required certifications, dental assistants perform a variety of essential functions. Administrative tasks may include scheduling and confirming appointments, maintaining patient records and ordering dental supplies. Clinical duties include handing tools to the dentist during treatment and examination, sterilizing instruments, operating suction devices, processing X-rays and making impressions for dental fixtures.
                     </p>
                 </div>
             </div>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Button with data-bs-target
-            </button>
         </div>
-
-
-
+    </div>
     </section>
 
 @endsection
