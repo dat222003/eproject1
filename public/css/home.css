@@ -541,3 +541,7 @@ div.sizing-category{
     overflow-wrap: break-word;
     color: white !important;
 }
+#map{
+    height:400px;
+    width:80%;
+}

@@ -65,6 +65,19 @@ class eprojectController extends Controller
 
     }
 
+    public function contact()
+    {
+        $category = category::all();
+        return view('masters.home.contact_us'
+            ,[
+                'location' => 'home_contact'
+            ],
+            [
+                'category' => $category,
+            ]
+        );
+    }
+
 
     public function user_store(Request $request){
 
@@ -132,6 +145,9 @@ class eprojectController extends Controller
 
         );
     }
+
+
+
 
 
     public function admin_login()

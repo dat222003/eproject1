@@ -58,6 +58,7 @@
 <script src="{{ url('lib/counterup/counterup.min.js') }}"></script>
 <script src="{{ url('lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
+
 <!-- Template Javascript -->
 <script src="{{ url('js/main.js') }}"></script>
 </body>
