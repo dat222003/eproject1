@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="{{ route('home') }}" class="nav-item nav-link {{ (isset($location))? ($location==='home')? 'active': '' :''}}">Home</a>
-                <a href="{{ route('home.contact') }}" class="nav-item nav-link">Contact Us</a>
+                <a href="{{ route('home.contact') }}" class="nav-item nav-link {{ (isset($location))? ($location==='home_contact')? 'active': '' :''}}">Contact Us</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
@@ -65,6 +65,7 @@
                 </div>
             </div>
             <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+            <a href="{{ route('user_register') }}" class="btn btn-primary py-2 px-4 ms-3">Book Your Appointment</a>
         </div>
     </nav>
 </div>

@@ -542,6 +542,10 @@ div.sizing-category{
     color: white !important;
 }
 #map{
-    height:400px;
+    height:500px;
     width:80%;
+}
+
+.bg-trans{
+    background-color: rgba(31,31,31,0.71) !important;
 }

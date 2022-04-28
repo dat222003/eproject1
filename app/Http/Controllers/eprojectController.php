@@ -122,7 +122,11 @@ class eprojectController extends Controller
             'product' => $product,
             'category' => $category,
             'service' => $service
-        ]);
+        ],
+        [
+            'location' => 'home_contact'
+        ]
+        );
     }
 
     //admin
