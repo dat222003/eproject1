@@ -114,6 +114,7 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
                     </div>
                     <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
                         <script>
@@ -169,6 +170,7 @@
                                         infoWindow.open(map, marker);
                                     });
                                 }
+
                             }
                         </script>
                         <div id="map"></div>

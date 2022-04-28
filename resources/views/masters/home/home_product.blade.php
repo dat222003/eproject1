@@ -97,12 +97,14 @@
 {{--                                @if($i == 6) @break @endif--}}{{--  limit 6 products--}}
                                 <div class="col-md-4 wow slideInUp" data-wow-delay="0.1s">
                                     <div class="blog-item bg-light rounded overflow-hidden">
-                                        <div class="blog-img position-relative overflow-hidden">
-                                            <div class="sizing">
-                                                <img class="img-fluid" src="{{ url('img/admin_upload/'. $service[$i]->image) }}" alt="image">
+                                        <a href="#" style="border: none" data-bs-toggle="modal" data-bs-target="#modal{{ $service  [$i]->id }}">
+                                            <div class="blog-img position-relative overflow-hidden">
+                                                <div class="sizing">
+                                                    <img class="img-fluid" src="{{ url('img/admin_upload/'. $service[$i]->image) }}" alt="image">
+                                                </div>
+                                                <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4">{{$service[$i]->service_validity_period}} month</a>
                                             </div>
-                                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4">{{$service[$i]->service_validity_period}} month</a>
-                                        </div>
+                                        </a>
                                         <div class="p-4">
                                             <h1 class="display-5 mb-3">
                                                 <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>{{$service[$i]->price}}
@@ -130,20 +132,20 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="sizing-detail col ms-auto ">
+                                                                <div class="text-inside col ms-auto ">
                                                                     <hr>
-                                                                    <h4>
+                                                                    <h4 class="text-inside">
                                                                         {{$service[$i]->name}}
                                                                     </h4>
                                                                     <br>
-                                                                    <p>
+                                                                    <p class="text-inside">
                                                                         {{$service[$i]->description}}
                                                                     </p>
                                                                     <br><br>
-                                                                    <h4>
+                                                                    <h4 class="text-inside">
                                                                         <small >The Treatment could last up to: </small>{{$service[$i]->service_validity_period}} Month
                                                                     </h4><br><br>
-                                                                    <h1>
+                                                                    <h1 class="text-inside">
                                                                         <small class="align-top " style="font-size: 22px; line-height: 45px;">$</small>{{$service[$i]->price}}
                                                                     </h1>
                                                                 </div>
