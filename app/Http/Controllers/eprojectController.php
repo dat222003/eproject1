@@ -19,6 +19,46 @@ class eprojectController extends Controller
 {
 
 
+    public function student()
+    {
+        $category = category::all();
+        return view('masters.home.professional_education'
+            ,[
+                'location' => 'home_articles'
+            ],
+            [
+                'category' => $category,
+            ]
+        );
+    }
+
+    public function patient()
+    {
+        $category = category::all();
+        return view('masters.home.patient_education'
+            ,[
+                'location' => 'home_articles'
+            ],
+            [
+                'category' => $category,
+            ]
+        );
+    }
+
+    public function research()
+    {
+        $category = category::all();
+        return view('masters.home.research'
+            ,[
+                'location' => 'home_articles'
+            ],
+            [
+                'category' => $category,
+            ]
+        );
+    }
+
+
 
     public function home()
     {
@@ -36,6 +76,7 @@ class eprojectController extends Controller
 
     public function search(Request $request)
     {
+
         $keyword = $request->keyword;
         $product = product::where('name', 'like', '%'. $keyword. '%')->get();
         $service = service::where('name', 'like', '%'. $keyword. '%')->get();
@@ -47,6 +88,7 @@ class eprojectController extends Controller
             'service' => $service,
             'both' => $both
         ]);
+
     }
 
     public function user_register(){

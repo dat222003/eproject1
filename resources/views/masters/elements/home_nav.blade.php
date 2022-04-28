@@ -42,6 +42,14 @@
                 <a href="{{ route('home') }}" class="nav-item nav-link {{ (isset($location))? ($location==='home')? 'active': '' :''}}">Home</a>
                 <a href="{{ route('home.contact') }}" class="nav-item nav-link {{ (isset($location))? ($location==='home_contact')? 'active': '' :''}}">Contact Us</a>
                 <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle {{ (isset($location))? ($location==='home_articles')? 'active': '' :''}} " data-bs-toggle="dropdown">Blog</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ route('home.student') }}" class="dropdown-item">Professional Education</a>
+                        <a href="{{ route('home.patient') }}" class="dropdown-item">Patient Education</a>
+                        <a href="{{ route('home.research') }}" class="dropdown-item">Research</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('show.product', ['id' => 'service']) }}" class="dropdown-item">All</a>

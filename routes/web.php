@@ -52,6 +52,24 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ]);
 
+    Route::get('home/student', [
+        'uses' => 'App\Http\Controllers\eprojectController@student',
+        'as' => 'home.student'
+
+    ]);
+
+    Route::get('home/patient', [
+        'uses' => 'App\Http\Controllers\eprojectController@patient',
+        'as' => 'home.patient'
+
+    ]);
+
+    Route::get('home/research', [
+        'uses' => 'App\Http\Controllers\eprojectController@research',
+        'as' => 'home.research'
+
+    ]);
+
 //    Route::post('home/search', [
 //        'uses' => 'App\Http\Controllers\eprojectController@search',
 //        'as' => 'home.search'
