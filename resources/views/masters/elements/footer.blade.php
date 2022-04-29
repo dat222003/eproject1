@@ -40,8 +40,8 @@
                         </div>
                         <div class="link-animated d-flex flex-column justify-content-start">
                             <a class="text-light mb-2" href="{{ route('home') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                            <a class="text-light mb-2" href="{{ route('show.product', ['id' => 'service']) }}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Products</a>
-                            <a class="text-light mb-2" href="{{ route('show.product', ['id' => 'product']) }}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="{{ route('show.product', ['id' => 'service']) }}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                            <a class="text-light mb-2" href="{{ route('show.product', ['id' => 'product']) }}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Products</a>
                             <a class="text-light" href="{{ route('home.contact') }}"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                         </div>
                     </div>
