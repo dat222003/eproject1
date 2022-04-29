@@ -366,51 +366,51 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="#" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="#">Web Design</a>
+                            <img class="img-fluid" src="{{ url('img/system/professional-education.jpg') }}" alt="image">
+                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="{{ route('home.student') }}">Professional Education</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
                                 <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
                                 <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
                             </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+                            <h4 class="mb-3">Steps to Become a Dental Assistant</h4>
+                            <p>Description</p>
+                            <a class="text-uppercase" href="{{ route('home.student') }}">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="#" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="#">Web Design</a>
+                            <img class="img-fluid" src="{{ url('img/system/patient-education.jpg') }}" alt="image">
+                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="{{ route('home.patient') }}">Patient education</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
                                 <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
                                 <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
                             </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+                            <h4 class="mb-3">Educating Patients on the Importance of Oral Health and Routine Dental Care</h4>
+                            <p>Description</p>
+                            <a class="text-uppercase" href="{{ route('home.patient') }}">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
                     <div class="blog-item bg-light rounded overflow-hidden">
                         <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="#" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="#">Web Design</a>
+                            <img class="img-fluid" src="{{ url('img/system/research.jpg') }}" alt="image">
+                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="{{ route('home.research') }}">Latest Research</a>
                         </div>
                         <div class="p-4">
                             <div class="d-flex mb-3">
                                 <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
                                 <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
                             </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+                            <h4 class="mb-3">Novel 3D printing method</h4>
+                            <p>Description</p>
+                            <a class="text-uppercase" href="{{ route('home.research') }}">Read More <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
