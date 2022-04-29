@@ -80,6 +80,7 @@
                 <div class="row align-items-center align-items-start">
                     <div class="col-lg-6 wow slideInUp g-5" data-wow-delay="0.3s">
                         <div class="row g-5">
+                            <hr>
                             <div class="col-12">
                                 <div class="d-flex align-items-center wow fadeIn g-5" data-wow-delay="0.8s">
                                     <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
