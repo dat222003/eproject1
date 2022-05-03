@@ -18,7 +18,7 @@
                     {{--                        <h5 class="text-white  mb-3 animated slideInDown">32Smile</h5>--}}
                     <h3 class="display-1 text-white mb-md-4 animated zoomIn">We provide highest standard of customer service</h3>
                     <a href="{{ route('user_register') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Book Your Appointment</a>
-                    <a href="#" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                    <a href="{{ route('home.contact') }}" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                 </div>
             </div>
         </div>
