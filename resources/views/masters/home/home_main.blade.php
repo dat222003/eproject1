@@ -184,7 +184,7 @@
                             </h1>
                             <div class="d-flex justify-content-between mb-3"><span>Calculus</span><i class="fa fa-check text-primary pt-1"></i></div>
                             <div class="d-flex justify-content-between mb-3"><span>Fillings</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                            <a href="{{ route('user_register') }}" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                             </h1>
                             <div class="d-flex justify-content-between mb-3"><span>Tooth extraction</span><i class="fa fa-check text-primary pt-1"></i></div>
                             <div class="d-flex justify-content-between mb-2"><span>Braces and orthodontics</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                            <a href="{{ route('user_register') }}" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
                             </h1>
                             <div class="d-flex justify-content-between mb-3"><span>Whitening</span><i class="fa fa-check text-primary pt-1"></i></div>
                             <div class="d-flex justify-content-between mb-3"><span>Veneers</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <a href="#" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
+                            <a href="{{ route('user_register') }}" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
                         </div>
                     </div>
                 </div>
