@@ -707,10 +707,10 @@ class eprojectController extends Controller
         }
 
 
-        $this->formValidate_product($request)->validate(); //shortcut
+        $this->formValidate_product($request)->validate();
 
         $product = product::where('id', $id)->first();
-        if ( ($request->file('image')) ){ //if user input contain new image update
+        if ( ($request->file('image')) ){ //if user input contain new image do update
             unlink((public_path('img/admin_upload/'.$product->image)));
             $image = $request->file('image');
             $name = $image->getClientOriginalName();
