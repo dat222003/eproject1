@@ -281,3 +281,11 @@ a {
         border:none;
         /*background-color: transparent;*/
     }
+
+
+    @media only screen and (max-width: 900px) {
+        tr > *:nth-child(3) {
+            display: none;
+        }
+    }
+
