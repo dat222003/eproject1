@@ -3,6 +3,6 @@
 
 @section('main')
 
-    <h1>Welcome {{ $admin_account->full_name }}</h1>
-    <h3>You have Logged in with username: {{ $admin_account->username }} </h3>
+    <h1>Welcome <span class="text-danger">{{ $admin_account->full_name }}</span></h1>
+    <h3>You have Logged in with username: <span class="text-danger">{{ $admin_account->username }}</span> </h3>
 @endsection

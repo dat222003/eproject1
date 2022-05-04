@@ -3,7 +3,7 @@
 @section('main')
     <div class="container">
         <h1 class="display-4">Are you sure you want to delete?</h1>
-        <h3 class="text-danger">if you delete a category, all product included in that category will be deleted</h3>
+{{--        <h3 class="text-danger">if you delete a category, all product included in that category will be deleted</h3>--}}
         @include('category.detail_category')
 {{--        <script>window.alert("if you delete a category, all product included in that category will be deleted");</script>--}}
 
