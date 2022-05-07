@@ -675,6 +675,7 @@ class eprojectController extends Controller
         }
 
         $product = product::where('id', $id)->first();
+        // delete image in public folder
         unlink((public_path('img/admin_upload/'.$product->image)));
         $product->delete();
 
