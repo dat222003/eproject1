@@ -4,7 +4,6 @@
 </div>
 <!-- Spinner End -->
 
-
 <!-- Topbar Start -->
 <div class="container-fluid bg-dark px-5 d-none d-lg-block">
     <div class="row gx-0">
@@ -50,23 +49,35 @@
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <a href="#" class="nav-link dropdown-toggle
+                        {{ (isset($location))? ( $type === '2')? 'active': '' :''}}
+                    " data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('show.product', ['id' => 'service']) }}" class="dropdown-item">All</a>
+                        <a href="{{ route('show.product', ['id' => 'service']) }}" class="dropdown-item
+                        {{ (isset($location))? ($location == 'service')? 'active': '' :''}}
+                        ">All</a>
                         @foreach( $category as $p)
                             @if($p->type == 2)
-                                <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ ucfirst($p->name) }}</a>
+                                <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item
+                                    {{ (isset($location))? ($location==$p->id)? 'active': '' :''}}
+                                ">{{ ucfirst($p->name) }}</a>
                             @endif
                         @endforeach
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Products</a>
+                    <a href="#" class="nav-link dropdown-toggle
+                        {{ (isset($location))? ( $type === '1' || $location== 'product')? 'active': '' :''}}
+                    " data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('show.product', ['id' => 'product']) }}" class="dropdown-item">All</a>
+                        <a href="{{ route('show.product', ['id' => 'product']) }}" class="dropdown-item
+                        {{ (isset($location))? ($location == 'product')? 'active': '' :''}}
+                        ">All</a>
                        @foreach( $category as $p)
                            @if($p->type == 1)
-                            <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item">{{ ucfirst($p->name) }}</a>
+                            <a href="{{ route('show.product', ['id' => $p->id]) }}" class="dropdown-item
+                                {{ (isset($location))? ($location==$p->id)? 'active': '' :''}}
+                            ">{{ ucfirst($p->name) }}</a>
                             @endif
                         @endforeach
                     </div>
