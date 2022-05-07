@@ -50,7 +50,7 @@
                 </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle
-                        {{ (isset($location))? ( $type === '2')? 'active': '' :''}}
+                        {{ ( isset($location) && isset($type) )? ( $type === '2' || $location== 'service')? 'active': '' :''}}
                     " data-bs-toggle="dropdown">Services</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('show.product', ['id' => 'service']) }}" class="dropdown-item
@@ -67,7 +67,7 @@
                 </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle
-                        {{ (isset($location))? ( $type === '1' || $location== 'product')? 'active': '' :''}}
+                        {{ ( isset($location) && isset($type) )? ( $type === '1' || $location== 'product')? 'active': '' :''}}
                     " data-bs-toggle="dropdown">Products</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('show.product', ['id' => 'product']) }}" class="dropdown-item
