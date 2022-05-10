@@ -3,6 +3,7 @@
 @section('main')
 
     @include('masters.errors')
+
     <div class="container">
         <h1 class="display-4">Update An Admin Account</h1>
 

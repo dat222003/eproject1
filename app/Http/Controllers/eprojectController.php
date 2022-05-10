@@ -274,10 +274,6 @@ class eprojectController extends Controller
 
     public function update_admin(Request $request, $id)
     {
-
-
-
-
         $admin_account = admin_account::where('id', $id)->first();
 
         $request->validate([
@@ -287,8 +283,18 @@ class eprojectController extends Controller
             'email' => ['required', 'email'],
             'phone' => ['required'],
         ]);
-
-        if (Hash::check($request->password , $admin_account->password)){
+        if (!Hash::check($request->password , $admin_account->password)){
+            return view('admin.edit_admin'
+                ,[
+                    'location' => 'admin_account',
+                    'errorr' => 'invalid password'
+                ],
+                [
+                    'admin_account' => $admin_account,
+                    'request' => $request
+                ]
+            );
+        }
             $admin_account->username = $request->username;
             $admin_account->full_name = $request->full_name;
             $admin_account->email = $request->email;
@@ -304,21 +310,11 @@ class eprojectController extends Controller
                     'admin_account' => $admin_account
                 ]
             );
-        }else{
-            return view('admin.edit_admin'
-                ,[
-                    'location' => 'admin_account'
-                ],
-                [
-                    'admin_account' => $admin_account,
-                    'request' => $request
-                ]
-            );
 
         }
 
 
-    }
+
 
 
     public function password ($id){
@@ -333,7 +329,6 @@ class eprojectController extends Controller
 
     public function edit_password (Request $request, $id){
         $admin_account = admin_account::where('id', $id)->first();
-//        dd($request);
         $request->validate([
             'password' => ['required', 'min:5', 'max:12'],
             'password_new' => ['required', 'min:5', 'max:12'],
