@@ -214,20 +214,25 @@ class eprojectController extends Controller
     public function login(Request $request)
     {
 
-        $admin_account = admin_account::where('username', $request->username)->first();
-        if ($admin_account){
-            if (auth()->attempt(
+//        $admin_account = admin_account::where('username', $request->username)->first();
+//        if ($admin_account){
+//            return
+//                view('masters.login')->with('alert', 'Credentials invalid')->with('request', $request);
+//        }
+        if (
+            auth()->attempt(
                 request()->only('username', 'password'),
                 request()->filled('remember')
-                )) {
-                    return
-                        redirect()
-                        ->action('eprojectController@admin')
-                        ->with('status', 'logged in Successfull');
-                }
-        }
+                )
+            ) {
+            return
+                redirect()
+                ->action('eprojectController@admin')
+                ->with('status', 'logged in Successfull');
+            }
         return
             view('masters.login')->with('alert', 'Credentials invalid')->with('request', $request);
+
 
     }
 
@@ -333,47 +338,42 @@ class eprojectController extends Controller
             'password' => ['required', 'min:5', 'max:12'],
             'password_new' => ['required', 'min:5', 'max:12'],
             'password_confirm' => ['required', 'min:5', 'max:12'],
-        ]
-        );
-        if(Hash::check($request->password , $admin_account->password)){
-            if(($request->password_new) == ($request->password_confirm)){
-                $admin_account->password = Hash::make($request->password_new);
-                $admin_account->update();
-                $admin_account = admin_account::where('id', $id)->first();
-                return view('masters.index_admin'
-                    ,[
-                        'location' => 'admin_password'
-                    ],
-                    [
-                        'admin_account' => $admin_account
-                    ]
-                );
-            }else{
-                return view('admin.change_password'
-                    ,[
-                        'location' => 'admin_password',
-                        'alert' => 'new password confirm not match'
-                    ],
-                    [
-                        'admin_account' => $admin_account,
-                        'request' => $request
-                    ]
-                );
-            }
-
-        }else{
+        ]);
+        if(! Hash::check($request->password , $admin_account->password)) {
             return view('admin.change_password'
-                ,[
+                , [
                     'location' => 'admin_password',
                     'alert' => 'invalid password'
                 ],
                 [
                     'admin_account' => $admin_account,
                     'request' => $request,
-
                 ]
             );
         }
+        if( ! (($request->password_new) == ($request->password_confirm)) ){
+            return view('admin.change_password'
+                ,[
+                    'location' => 'admin_password',
+                    'alert' => 'new password confirm not match'
+                ],
+                [
+                    'admin_account' => $admin_account,
+                    'request' => $request
+                ]
+                );
+        }
+        $admin_account->password = Hash::make($request->password_new);
+        $admin_account->update();
+        $admin_account = admin_account::where('id', $id)->first();
+        return view('masters.index_admin'
+            ,[
+                'location' => 'admin_password'
+            ],
+            [
+                'admin_account' => $admin_account
+            ]
+        );
 
 
     }
@@ -447,7 +447,6 @@ class eprojectController extends Controller
         $name = $image->getClientOriginalName();
 
         //store image to `public/admin_upload` folder
-
         $image->move('img/admin_upload', $name );
 
         //store image_name to database as text
@@ -611,7 +610,6 @@ class eprojectController extends Controller
 
     public function store_product(Request $request)
     {
-//        dd($request);
 
         $request->validate([
             'name' => ['required'],
@@ -842,10 +840,8 @@ class eprojectController extends Controller
         $image = $request->file('image');
         $name = $image->getClientOriginalName();
 
-        //store image to `public/admin_upload` folder
         $image->move('img/admin_upload', $name );
 
-        //store image_name to database
         $service = new service();
         $service->categoryid = $request->input('categoryid');
         $service->name = $request->input('name');
@@ -883,7 +879,6 @@ class eprojectController extends Controller
         $service= service::where('id', $id)->first();
         unlink((public_path('img/admin_upload/'.$service->image)));
         $service->delete();
-
 
         return redirect()->action('eprojectController@index_service')
             ->with('status', 'Delete Service Successfully');
