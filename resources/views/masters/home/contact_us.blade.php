@@ -86,11 +86,11 @@
                                 });
 
                                 map.addListener("center_changed", () => {
-                                    // 3 seconds after the center of the map has changed, pan back to the
+                                    // 1 seconds after the center of the map has changed, pan back to the
                                     // marker.
                                     window.setTimeout(() => {
                                         map.panTo(marker.getPosition());
-                                    }, 3000);
+                                    }, 1000);
                                 });
                                 marker.addListener("click", () => {
                                     map.setZoom(18);
@@ -109,6 +109,7 @@
 
                             }
                         </script>
+                        <!-- Map -->
                         <div id="map"></div>
                         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD5c9tgSEoBD5tBveexvURgTpRhzUkw2E&callback=initMap"></script>
                     </div>
