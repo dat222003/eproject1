@@ -165,7 +165,8 @@
     <!--Container Main end-->
     <script type='text/javascript'
             src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
-    <script type='text/Javascript'>document.addEventListener("DOMContentLoaded", function (event) {
+    <script type='text/Javascript'>
+        document.addEventListener("DOMContentLoaded", function (event) {
 
             const showNavbar = (toggleId, navId, bodyId, headerId) => {
                 const toggle = document.getElementById(toggleId),

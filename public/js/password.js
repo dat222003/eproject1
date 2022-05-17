@@ -10,10 +10,10 @@ let msg = document.getElementById("msg");
 function strengthChecker(){
     let password = document.getElementById("password_new_1").value;
 
-    parameters.letters = (/[A-Za-z]+/.test(password))?true:false;
-    parameters.numbers = (/[0-9]+/.test(password))?true:false;
-    parameters.special = (/[!\"$%&/()=?@~`\\.\';:+=^*_-]+/.test(password))?true:false;
-    parameters.count = (password.length > 7)?true:false;
+    parameters.letters = (/[A-Za-z]+/.test(password));
+    parameters.numbers = (/[0-9]+/.test(password));
+    parameters.special = (/[!\"$%&/()=?@~`\\.\';:+=^*_-]+/.test(password));
+    parameters.count = (password.length > 7);
 
     let barLength = Object.values(parameters).filter(value=>value);
 

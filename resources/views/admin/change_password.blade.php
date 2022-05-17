@@ -43,8 +43,7 @@
         <div class="dropdown-divider "></div>
         <div id="strength-bar"></div>
         <p id="msg"></p>
-
-        <div class="dropdown-divider "></div>
+        <hr>
 
 {{--        confirm new password == new password--}}
         <div class=" input-group lg-4 md-4">
@@ -54,8 +53,7 @@
         <br>
         <button type="submit" value="submit" class="btn btn-primary">Submit</button>
     </form>
-    <script src="{{ url('js/password.js') }}">
-    </script>
+    <script src="{{ url('js/password.js') }}"></script>
 
 
 @endsection
