@@ -14,7 +14,7 @@
     <form action="{{ route('admin.change.password',['id'=>session()->get('id')] ) }}" class="change_password" method="post">
         @csrf
         <div class="input-group lg-4 md-4">
-{{--            <input type="text" hidden name="id" value="{{ session()->get('id') }}">--}}
+{{--            Laravel intentionally blocks password flash old() --}}
             <input type="password" value="{{ $request->password ?? old('password') }}" class="form-control" id="password_old" name="password" placeholder="Old Password" >
             <div class="input-group-append">
                 <div class="input-group-append">

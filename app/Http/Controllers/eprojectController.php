@@ -339,9 +339,9 @@ class eprojectController extends Controller
             'password_new' => ['required', 'min:5', 'max:12'],
             'password_confirm' => ['required', 'min:5', 'max:12'],
         ]);
-        if(! Hash::check($request->password , $admin_account->password)) {
+        if(! Hash::check($request->password , $admin_account->password) ) {
             return view('admin.change_password'
-                , [
+                ,[
                     'location' => 'admin_password',
                     'alert' => 'invalid password'
                 ],
