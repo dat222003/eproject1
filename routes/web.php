@@ -100,12 +100,6 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('loggedin');
 
-//    Route::get('admin', [
-//        'uses' => 'App\Http\Controllers\eprojectController@login',
-//        'as' => 'login'
-//
-//    ])->middleware('loggedin');
-
     Route::post('admin', [
         'uses' => 'App\Http\Controllers\eprojectController@login',
         'as' => 'login'
@@ -153,9 +147,9 @@ Route::group(['prefix' => 'eproject'], function (){
 
     ])->middleware('auth');
 
-    Route::get('/phpinfo', function() {
-        return phpinfo();
-    });
+//    Route::get('/phpinfo', function() {
+//        return phpinfo();
+//    });
 
     Route::get('detail/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@show_category',
@@ -259,25 +253,21 @@ Route::group(['prefix' => 'eproject'], function (){
     Route::get('admin_index_service', [
         'uses' => 'App\Http\Controllers\eprojectController@index_service',
         'as' => 'admin.index.service'
-
     ])->middleware('auth');
 
     Route::get('detail_service/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@show_service',
         'as' => 'admin.detail.service'
-
     ])->middleware('auth');
-
 
     Route::get('delete_service/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@confirm_service',
         'as' => 'admin.delete.confirm.service'
-
     ])->middleware('auth');
+
     Route::post('delete_service/{id}', [
         'uses' => 'App\Http\Controllers\eprojectController@delete_service',
         'as' => 'admin.delete.service'
-
     ])->middleware('auth');
 
     Route::get('update_service/{id}/{categoryid}',[
@@ -294,13 +284,11 @@ Route::group(['prefix' => 'eproject'], function (){
     Route::get('new_service_form', [
         'uses' => 'App\Http\Controllers\eprojectController@form_service',
         'as' => 'admin.create.service'
-
     ])->middleware('auth');
 
     Route::post('new_service_form', [
         'uses' => 'App\Http\Controllers\eprojectController@store_service',
         'as' => 'admin.store.service'
-
     ])->middleware('auth');
 
 });
