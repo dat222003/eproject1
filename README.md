@@ -3,7 +3,7 @@ run with local mysql database ( local database/Group_2_32smiles.sql )
 
 Group_2_32smiles.com is full version zipped on local machine
 
-Git cloned version need to run composer
+Git version need to run composer
 
 ( composer install
 mv .env.example .env 
