@@ -1,4 +1,4 @@
-run with local mysql database ( Database/Group_2_32smiles.sql )
+run with local mysql database ( local database/Group_2_32smiles.sql )
 
 
 Group_2_32smiles.com is full version zipped on local machine
